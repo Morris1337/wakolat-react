@@ -3,6 +3,8 @@ import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstr
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css';
 import logo from './Color-logo_2x-100-removebg-preview.png';
+import wakoLogo from './Wako_page-0001-removebg-preview.png';
+import prifileIcon from './profile-icon.svg'
 
 const Header = () => {
     return (
@@ -12,12 +14,15 @@ const Header = () => {
                   <img 
                   src={logo} 
                   alt="Logo"
-                  height={50}
-                  width={100}
+                  height={60}
+                  width={120}
                   className="d-inline-block align-top" 
                   />
               </Navbar.Brand>
-              <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+              <Navbar.Toggle 
+                aria-controls='responsive-navbar-nav' 
+                className='mobile-menu' 
+                />
               <Navbar.Collapse id='responsive-navbar-nav' className="justify-content-center align-items-center">
                   <Nav className="align-items-center">
                       <Nav.Link className='menu-link' href='/'>Home</Nav.Link>
@@ -27,16 +32,24 @@ const Header = () => {
                       <Nav.Link className='menu-link' href='/'>Kontakti</Nav.Link>
                   </Nav>
               </Navbar.Collapse>
-              {/* <Navbar.Collapse>
-              <Form inline className="search">
-                      <FormControl
-                          type='text'
-                          placeholder='Search'
-                          className='mr-sm-2'
-                      />
-                      <Button variant='outline-info' className='mr-2'>Search</Button>
-                  </Form>
-              </Navbar.Collapse> */}
+              <Navbar.Brand href="https://wako.sport/" className="my-auto">
+                  <img 
+                  src={wakoLogo} 
+                  alt="Logo"
+                  height={70}
+                  width={70}
+                  className="d-inline-block align-top" 
+                  />
+                </Navbar.Brand>
+                <Navbar.Brand href="https://wako.sport/" className="my-auto">
+                  <img 
+                  src={prifileIcon} 
+                  alt="Pofile"
+                  height={20}
+                  width={0}
+                  className="d-inline-block align-top" 
+                  />
+                </Navbar.Brand>
           </Container>
       </Navbar>
     );

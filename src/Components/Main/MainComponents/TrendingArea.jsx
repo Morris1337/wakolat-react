@@ -18,19 +18,18 @@ const TrendingArea = () => {
                             </div>                
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row trend-center">
                         <div class="col-lg-8">
                             <TrendingAreaTop></TrendingAreaTop>
                             <div class="trending-bottom">
-                                <div class="row">
-                                    <TrendingAreaBottom></TrendingAreaBottom>
+                                <div class="row trend-block-bottom">
                                     <TrendingAreaBottom></TrendingAreaBottom>
                                     <TrendingAreaBottom></TrendingAreaBottom>
                                     <TrendingAreaBottom></TrendingAreaBottom>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-1">
+                        <div class="col-lg-1 trend-right-blocks">
                             <TrendingAreaRight></TrendingAreaRight>
                             <TrendingAreaRight></TrendingAreaRight>
                             <TrendingAreaRight></TrendingAreaRight>
