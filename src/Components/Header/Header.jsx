@@ -8,8 +8,8 @@ import prifileIcon from './profile-icon.svg'
 
 const Header = () => {
     return (
-      <Navbar collapseOnSelect expand="md" bg="white" variant="light">
-          <Container>
+      <Navbar expand="md" bg="white" variant="light">
+            <Container className='header-bottom'>
               <Navbar.Brand href="/" className="my-auto">
                   <img 
                   src={logo} 
@@ -30,6 +30,13 @@ const Header = () => {
                       <Nav.Link className='menu-link' href='/'>Kalendars</Nav.Link>
                       <Nav.Link className='menu-link' href='/'>Eksaminacija</Nav.Link>
                       <Nav.Link className='menu-link' href='/'>Kontakti</Nav.Link>
+                      <Nav.Link className='menu-link'><img 
+                  src={prifileIcon} 
+                  alt="Logo"
+                  height={20}
+                  width={20}
+                  className="d-inline-block align-top" 
+                  /></Nav.Link>
                   </Nav>
               </Navbar.Collapse>
               <Navbar.Brand href="https://wako.sport/" className="my-auto">
@@ -38,15 +45,6 @@ const Header = () => {
                   alt="Logo"
                   height={70}
                   width={70}
-                  className="d-inline-block align-top" 
-                  />
-                </Navbar.Brand>
-                <Navbar.Brand href="https://wako.sport/" className="my-auto">
-                  <img 
-                  src={prifileIcon} 
-                  alt="Pofile"
-                  height={20}
-                  width={0}
                   className="d-inline-block align-top" 
                   />
                 </Navbar.Brand>
