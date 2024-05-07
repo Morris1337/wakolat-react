@@ -1,4 +1,8 @@
 @import "./Components/Header/header.scss";
 @import "./Components/Main/MainComponents/TrendingArea.scss";
-@import"./Pages/Admin/admin.scss"
+@import"./Pages/Admin/admin.scss";
+
+body{
+    border: 3px solid green;
+}
 

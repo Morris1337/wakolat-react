@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../App.css';
+import '../../App.scss';
 import logo from './Color-logo_2x-100-removebg-preview.png';
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
 import prifileIcon from './profile-icon.svg'
