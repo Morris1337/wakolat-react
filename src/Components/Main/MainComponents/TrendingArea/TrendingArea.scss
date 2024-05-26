@@ -1,4 +1,4 @@
-@import '../../../mixins.scss';
+@import '../../../../mixins.scss';
 
 span{
     background: #fff9c6;
@@ -14,9 +14,7 @@ span{
 }
 
 .trend-block-bottom{
-    display: grid;
-    grid-template-columns: repeat(3, 250px);
-    // justify-content: center;
+    @include grid-template-columns;
     margin-top: 25px;
     grid-row: 10px;
 }

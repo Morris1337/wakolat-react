@@ -1,6 +1,5 @@
 import React from 'react'
 import './TrendingAreaComponents.css'
-import bottomImg from "../../../../img/post/venstpils23.jpg"
 
 export default function TrendingAreaBottom({img, title, discription}){
     return (
@@ -21,7 +20,6 @@ export default function TrendingAreaBottom({img, title, discription}){
                     </div>
                 </div>
             </div>
-            
         </>
     )
 }

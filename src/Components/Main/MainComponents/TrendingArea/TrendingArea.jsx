@@ -2,23 +2,25 @@ import React, {useEffect, useState} from 'react';
 import { TrendingAreaTop } from './TrendingAreaComponents/TrendingAreaTop.jsx';
 import TrendingAreaBottom from './TrendingAreaComponents/TrendingAreaBottom.jsx';
 import TrendingAreaRight from './TrendingAreaComponents/TrendingAreaRight.jsx';
-import bottomImg from "../../../img/post/venstpils23.jpg"
+import FederationClubs from '../ClubList/ClubsList.jsx';
+import bottomImg1  from "./img/venstpils23.jpg"
+import bottomImg2 from "./img/SeminarLIVF.jpeg"
 
 const TrendingArea = () => {
     const [cards, setCards]=useState([])
     const serverData=[
         {
-            img:bottomImg,
-            title:"1",
-            discription:"a"
+            img:bottomImg1,
+            title:"Ventspils Kikboksa Čempionats",
+            discription:"Latvija"
         },
         {
-            img:bottomImg,
-            title:"2",
-            discription:"a"
+            img:bottomImg2,
+            title:"Iela vingrošana seminarts",
+            discription:"Seminars"
         },
         {
-            img:bottomImg,
+            img:bottomImg2,
             title:"3",
             discription:"a"
         },

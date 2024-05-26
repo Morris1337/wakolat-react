@@ -1,0 +1,34 @@
+.weekly-single{
+    flex: 0 0 auto;
+    margin-left: 100px;
+    .weekly-img{
+        img {
+            transition: transform 0.5s ease;
+            width: 300px;
+        }
+    }
+    .weekly-caption{
+        display: none;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    background: #fff;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin: 0 28px;
+    border-radius: 10px;
+    }
+    &:hover{
+        .weekly-caption{
+            display: block;
+        }
+    }
+}
+
+
+@keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+

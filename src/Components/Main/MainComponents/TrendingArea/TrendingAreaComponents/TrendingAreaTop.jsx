@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './TrendingAreaComponents.css'
-import postImg from "../../../../img/post/eiropasIzlase.jpg"
+import postImg from "../../../../../img/post/eiropasIzlase.jpg"
 
 export class TrendingAreaTop extends Component {
   render() {

@@ -37,8 +37,15 @@
   },
   "devDependencies": {
     "bootstrap": "^5.3.3",
+    "css-loader": "^7.1.1",
+    "jquery": "^3.7.1",
+    "lodash": "^4.17.21",
+    "next-owl-carousel": "^1.0.6",
+    "owl.carousel": "^2.3.4",
     "react-bootstrap": "^2.10.2",
+    "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^6.23.0",
-    "sass": "^1.76.0"
+    "sass": "^1.76.0",
+    "style-loader": "^4.0.0"
   }
 }

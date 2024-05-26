@@ -1,0 +1,32 @@
+@import '../../../../mixins.scss';
+@import './ClubsListComponents/Clubs.scss';
+
+.clubs-heading{
+    @include flex-center;
+    margin-left: -750px;
+
+}
+
+.carousel-container{
+
+}
+
+.clubs-list{
+    @include flex-center;
+    overflow-x: hidden;
+    transition: transform 0.5s ease;
+}
+
+.club-elem{
+    flex: 0 0 auto;
+    margin-left: 20px;
+    transition: transform 0.5s ease;
+    transform: translateX(0);
+}
+
+.club {
+    display: inline-block; /* Отображаем элементы в одной линии */
+    margin-right: 20px; /* Отступ между элементами */
+    transition: transform 0.5s ease; /* Добавляем плавный переход */
+}
+

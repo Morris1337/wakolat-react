@@ -1,0 +1,52 @@
+@import "../../../../mixins.scss";
+.competition{
+    @include flex-column;
+    width: 100vw;
+    height: auto;
+    .competition-head{
+        @include flex-center;
+        margin-left: 60px;
+        // .competition-title{
+
+        // }
+        
+        .competition-menu{
+            @include flex-center;
+            margin-left: 50px;
+            background-color: rgba(245, 240, 240, 0.822);
+            padding: 10px;
+            column-gap: 10px;
+            li{
+                margin: 0 40px;
+                list-style: none;
+                cursor: pointer;
+            }
+            
+        }
+    }
+    
+    .competition-block{
+        .weekly-single{
+            &:hover{
+                .weekly-caption{// смещаем изображение вниз на 10px при наведении
+                    transform: translateY(10px);
+                }
+            }
+        }
+        .weekly-caption{
+            background-color: rgb(255, 255, 255, 0.8);
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        @include grid-template-columns;
+        grid-template-columns: repeat(2, 350px);
+        row-gap: 40px;
+        column-gap: 80px;
+        img{
+            width: 370px;
+            height: fit-content;
+            overflow: hidden; // скрывает части изображения, выходящие за рамки контейнера
+            position: relative; // необходим для абсолютного позиционирования изображения
+        }
+    }
+}
