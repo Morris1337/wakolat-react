@@ -1,0 +1,26 @@
+@import '../../../../mixins.scss';
+
+.seminar-heading{
+    @include flex-center;
+    position: relative;
+    right: 460px;
+
+}
+
+.seminar-list{
+    @include flex-center;
+    overflow-x: hidden;
+    transition: transform 0.5s ease;
+    .weekly-img{
+        width: 250px; // Размер квадрата
+        height: 200px; // Размер квадрата
+        overflow: hidden;
+        position: relative;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
