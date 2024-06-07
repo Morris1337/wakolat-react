@@ -12,9 +12,24 @@
 }
 
 .clubs-list{
+    height: 410px;
     @include flex-center;
     overflow-x: hidden;
     transition: transform 0.5s ease;
+    .slick-slider{
+        width: 100%;
+        .weekly-img{
+            width: 350px;
+            overflow: hidden;
+            position: relative;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
 }
 
 .club-elem{
@@ -29,4 +44,6 @@
     margin-right: 20px; /* Отступ между элементами */
     transition: transform 0.5s ease; /* Добавляем плавный переход */
 }
+
+
 

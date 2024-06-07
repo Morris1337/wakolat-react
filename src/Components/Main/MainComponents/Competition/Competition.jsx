@@ -7,6 +7,11 @@ import LiepajaOpen from './img/Liepaja_Open2023.jpg'
 import latvijaOpen from './img/LV_Open2023.jpeg'
 
 export default function Competition() {
+  const [activeTab, setActiveTab] = useState('section1');
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
   return (
     <>
         <div className='competition'>
@@ -15,7 +20,7 @@ export default function Competition() {
                 Sacensibas
               </h3>
               <ul className='competition-menu'> 
-                <li>Visi</li>
+                <li className='tab $'>Visi</li>
                 <li>Latvijas</li>
                 <li>Eiropas</li>
                 <li>Pasaules</li>

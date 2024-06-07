@@ -1,5 +1,8 @@
 import React from 'react';
 import { useRef } from 'react';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import SeminarBlock from './SeminarComponents/SeminarBlock';
 import ApzinatibaSporta from "./img/ApzinatibaSporta.jpg"
 import SitSporta from "./img/SitSporta.png"
@@ -14,24 +17,15 @@ import './Seminar.scss'
 
 
 export default function Seminar() {
-    const carouselRef = useRef(null);
-    const options = {
-        loop: true,
-        responsiveClass: true,
-        dots: false,
+    const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 0.5,
         autoplay: true,
-        responsive: {
-          0: { items: 1, dots: true },
-          768: { items: 2 },
-        },
-      };
-      const events = {
-        onDragged: function (event) {
-          console.log('====onDragged==>>', event);
-        },
-        onChanged: function (event) {
-          console.log('====onChanged==>>', event);
-        },
+        speed: 2000,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
       };
     return (
         <div className="carousel-container">
@@ -39,13 +33,13 @@ export default function Seminar() {
                 <h3>Semenari</h3>
             </div>
             <div className='clubs-carousel'>
-                <div className='seminar-list'>
-                {/* <OwlCarousel ref={carouselRef} options={options} events={events} className="owl-carousel"> */}
-                    <div><SeminarBlock img={ApzinatibaSporta} link={'funcatchers.lv'} title={"Fun Catchers"} /></div>
-                    <div><SeminarBlock img={SitSporta} link={'funcatchers.lv'} title={"Balistic Boxing Clubs"} /></div>
-                    <div><SeminarBlock img={TraumaSporta} link={'funcatchers.lv'} title={"Boksa un Kikboksa skola"} /></div>
-                    <div><SeminarBlock img={VFSBērniem} link={'funcatchers.lv'} title={"Muay Thai Academy"} /></div>
-                {/* </OwlCarousel> */}
+                <div className='seminar-list slider-container'>
+                    <Slider {...settings}> 
+                        <div><SeminarBlock img={ApzinatibaSporta} link={'funcatchers.lv'} title={"Fun Catchers"} /></div>
+                        <div><SeminarBlock img={SitSporta} link={'funcatchers.lv'} title={"Balistic Boxing Clubs"} /></div>
+                        <div><SeminarBlock img={TraumaSporta} link={'funcatchers.lv'} title={"Boksa un Kikboksa skola"} /></div>
+                        <div><SeminarBlock img={VFSBērniem} link={'funcatchers.lv'} title={"Muay Thai Academy"} /></div>
+                    </Slider >
                 </div>
             </div>
         </div>
