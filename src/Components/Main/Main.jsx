@@ -3,6 +3,7 @@ import TrendingArea from './MainComponents/TrendingArea/TrendingArea.jsx';
 import FederationClubs from './MainComponents/ClubList/ClubsList.jsx';
 import Competition from './MainComponents/Competition/Competition.jsx';
 import Seminar from './MainComponents/Seminar/Seminar.jsx';
+import YouTube from './MainComponents/YouTube/YouTube.jsx';
 
 const Main = () => {
     return (
@@ -14,6 +15,8 @@ const Main = () => {
             <Competition></Competition>
             <hr />
             <Seminar></Seminar>
+            <hr />
+            <YouTube/>
         </main>
     );
 }

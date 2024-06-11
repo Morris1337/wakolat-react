@@ -7,11 +7,11 @@ import LiepajaOpen from './img/Liepaja_Open2023.jpg'
 import latvijaOpen from './img/LV_Open2023.jpeg'
 
 export default function Competition() {
-  const [activeTab, setActiveTab] = useState('section1');
+  // const [activeTab, setActiveTab] = useState('section1');
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
+  // const handleTabClick = (tab) => {
+  //   setActiveTab(tab);
+  // };
   return (
     <>
         <div className='competition'>
