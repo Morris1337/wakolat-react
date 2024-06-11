@@ -1,10 +1,18 @@
 import React from 'react'
 
-export default function YouTubeComponents({link, title}) {
+export default function YouTubeComponents({link, title, onClick, isActive}) {
   return (
-    <div>
+    <div className={`youtube-component ${isActive ? 'active' : ''}`} onClick={onClick}>
         <div>
-            <link rel="stylesheet" href={link}/>
+            <iframe 
+            width="150"
+            height="150"
+            src= {link}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title={title}
+            />
         </div>
         <div>
             <h5>

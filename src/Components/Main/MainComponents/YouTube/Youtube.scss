@@ -1,0 +1,108 @@
+@import '../../../../mixins.scss';
+
+.you-tube-conteiner{
+    .you-tube-center-content{
+        @include flex-center;
+        iframe{
+            width: 1400px;
+            height: 600px;
+            @media (max-width: 1200px) {
+                width: 800px;
+                height: 400px;
+            }
+            @media (max-width: 800px) {
+                width: 600px;
+                height: 200px;
+            }
+            @media (max-width: 375px) {
+                width: 300px;
+                height: 180px;
+            }
+        }
+        .top-caption{
+            padding: 10px;
+            background-color: white;
+            width: 300px;
+            position: relative;
+            z-index: 5;
+            margin-top: -120px;
+            .buttons{
+                @include flex-center;
+                justify-content: flex-end;
+                button{
+                    border: 0;
+                    img{
+                        width: 45px;
+                    }
+                    margin-left: 10px;
+                    padding: 10px;
+                    .arrow-180{
+                        transform: rotate(180deg);
+                        transition: transform 0.5s ease;
+                    }
+                }
+            }
+            .top-caption-span{
+                padding: 5px;
+                span{
+                    padding: 10px;
+                }
+            }
+            @media (max-width: 800px) {
+                margin-top: 5px;
+            }
+        }
+    }
+    
+    .you-tube-bottom-content{
+        @media (max-width: 1450px) {
+            margin-top: 100px;
+            flex-direction: column;
+        }
+        .bottom-caption{
+            position: relative;
+            z-index: 5;
+            margin-top: -100px;
+            margin-left: 50px;
+            @media (max-width: 1450px) {
+                position: relative;
+                z-index: none;
+            }
+        }
+        @include flex-center;
+        justify-content: space-around;
+        .you-tube-botton-video{
+            @include grid-template-columns;
+            grid-template-columns: repeat(4, 200px);
+            position: relative;
+            z-index: 6;
+            margin-left: -200px;
+            @media (max-width: 1450px) {
+                margin-bottom: -100px;
+            }
+            @media (max-width: 1200px) {
+                grid-template-columns: repeat(3, 200px);
+            }
+            @media (max-width: 800px) {
+                grid-template-columns: repeat(2, 200px);
+            }
+            @media (max-width: 375px) {
+                grid-template-columns: repeat(1, 200px);
+            }
+        }
+    }
+}
+
+.youtube-component {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  
+    &.active {
+      opacity: 1;
+    }
+  
+    &:hover {
+      opacity: 1;
+    }
+  }
