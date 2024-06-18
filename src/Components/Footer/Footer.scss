@@ -1,0 +1,128 @@
+@import '../../mixins.scss';
+
+.footer{
+    background: linear-gradient(to bottom, white, black);
+}
+
+.footer{
+    .platinum-sponsors{
+        @include flex-column;
+        h3{
+            @include flex-center;
+        }
+        .platinum-sponsors-logo{
+            margin-bottom: 50px;
+            width: 100%;
+            @include flex-center;
+            justify-content: space-around;
+            .one{
+                width: 350px;
+            }
+            .two{
+                width: 400px;
+            }
+            @media (max-width: 800px) {
+                flex-direction: column;
+            }
+            @media (max-width: 375px) {
+                .one{
+                    width: 320px;
+                }
+                .two{
+                    width: 320px;
+                }   
+            }
+        }
+        
+    }
+    .gold-sponsors{
+        @include flex-column;
+        h3{
+            @include flex-center;
+        }
+        .gold-sponsors-logo{
+            margin-bottom: 50px;
+            width: 100%;
+            @include flex-center;
+            justify-content: space-around;
+                .one{
+                    width: 250px;
+                }
+                .two{
+                    width: 330px;
+                }
+                .three{
+                    width: 290px;
+                }
+                .four{
+                    width: 200px;
+                }
+                @media (max-width: 900px) {
+                    @include grid-template-columns;
+                    grid-template-columns: repeat(2, 330px);
+                    justify-items: center; 
+                    .one, .two, .three, .four{
+                        margin-top: 40px;
+                    }
+                }
+                @media (max-width: 375px) {
+                    @include grid-template-columns;
+                    grid-template-columns: repeat(1, 300px);
+                    justify-items: center; 
+                }
+        }
+    }
+    .footer-info{
+        @include flex-center;
+        justify-content: space-around;
+        .LKF-logo{
+            img{
+                width: 220px;
+            }
+        }
+        .WAKO-logo{
+            img{
+                width: 150px;
+            }
+        } 
+        .footer-text{
+            color: white;
+            h6, p{
+                margin: 0;
+                padding: 6px;
+            }
+        }
+        .ministtrijas-logo{
+            @include flex-column;
+            img{
+                width: 300px;
+            }
+        }
+        @media (max-width: 900px) {
+            @include grid-template-columns;
+            grid-template-columns: repeat(2, 300px);
+            justify-items: center; 
+            .LKF-logo, .WAKO-logo, .footer-text, .ministtrijas-logo{
+                margin-top: 40px;
+                .izglitiba-ministrija{
+                    background-color: white;
+                    padding: 5px;
+                    border-radius: 7px;
+                }
+            } 
+        }
+        @media (max-width: 375px) {
+            @include grid-template-columns;
+            grid-template-columns: repeat(1, 300px);
+            justify-items: center;
+            .LKF-logo, .WAKO-logo, .footer-text, .ministtrijas-logo{
+                margin-top: 40px;
+                .izglitiba-ministrija{
+                    background-color: white;
+                    padding: 5px;
+                    border-radius: 7px;
+                }
+            } 
+        }
+    }
+}

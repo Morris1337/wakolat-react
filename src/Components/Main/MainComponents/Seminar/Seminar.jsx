@@ -35,10 +35,10 @@ export default function Seminar() {
             <div className='clubs-carousel'>
                 <div className='seminar-list slider-container'>
                     <Slider {...settings}> 
-                        <div><SeminarBlock img={ApzinatibaSporta} link={'funcatchers.lv'} title={"Fun Catchers"} /></div>
-                        <div><SeminarBlock img={SitSporta} link={'funcatchers.lv'} title={"Balistic Boxing Clubs"} /></div>
-                        <div><SeminarBlock img={TraumaSporta} link={'funcatchers.lv'} title={"Boksa un Kikboksa skola"} /></div>
-                        <div><SeminarBlock img={VFSBērniem} link={'funcatchers.lv'} title={"Muay Thai Academy"} /></div>
+                        <div className='block'><SeminarBlock img={ApzinatibaSporta} link={'funcatchers.lv'} title={"Fun Catchers"} /></div>
+                        <div className='block'><SeminarBlock img={SitSporta} link={'funcatchers.lv'} title={"Balistic Boxing Clubs"} /></div>
+                        <div className='block'><SeminarBlock img={VFSBērniem} link={'funcatchers.lv'} title={"Muay Thai Academy"} /></div>
+                        <div className='block'><SeminarBlock img={TraumaSporta} link={'funcatchers.lv'} title={"Boksa un Kikboksa skola"} /></div>
                     </Slider >
                 </div>
             </div>

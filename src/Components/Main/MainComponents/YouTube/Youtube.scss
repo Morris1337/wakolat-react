@@ -1,6 +1,12 @@
 @import '../../../../mixins.scss';
 
 .you-tube-conteiner{
+    @media (max-width: 1200px) {
+        margin-bottom: 180px;
+    }
+    @media (max-width: 800px) {
+        margin-bottom: 180px;
+    }
     .you-tube-center-content{
         @include flex-center;
         iframe{

@@ -17,6 +17,7 @@ const Main = () => {
             <Seminar></Seminar>
             <hr />
             <YouTube/>
+            <hr />
         </main>
     );
 }

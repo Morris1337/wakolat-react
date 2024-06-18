@@ -43,7 +43,7 @@ export default function YouTube() {
       }, []);
 
   return (
-    <div width="1000px" className='you-tube-conteiner'>
+    <div className='you-tube-conteiner'>
         <div className='you-tube-center-content'>
             <div>
                 <iframe                  

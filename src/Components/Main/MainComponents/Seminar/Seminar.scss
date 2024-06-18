@@ -25,6 +25,12 @@
                 object-fit: cover;
                 object-position: center;
             }
+            @media (max-width: 800px) {
+                flex-direction: column;
+            }
+            @media (max-width: 375px) {
+
+            }
         }
     }
 }
