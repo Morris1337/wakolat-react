@@ -1,15 +1,19 @@
 import React from 'react';
+import {createPortal} from 'react-dom';
 import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.scss';
 import logo from './Color-logo_2x-100-removebg-preview.png';
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
 import prifileIcon from './profile-icon.svg'
+console.log(document.querySelector("#key"))
 
 const Header = () => {
     return (
       <Navbar expand="md" bg="white" variant="light">
             <Container className='header-bottom'>
+                {createPortal(<Navbar.Brand/>, document.getElementById("key"))};
               <Navbar.Brand href="/" className="my-auto">
                   <img 
                   src={logo} 
@@ -26,17 +30,48 @@ const Header = () => {
               <Navbar.Collapse id='responsive-navbar-nav' className="justify-content-center align-items-center">
                   <Nav className="align-items-center">
                       <Nav.Link className='menu-link' href='/'>Home</Nav.Link>
-                      <Nav.Link className='menu-link' href='/'>Federacija</Nav.Link>
+                      <Nav.Link className='menu-link' id='federacija' href='/'>Federacija
+                      <ul class="submenu">
+                        <li id="liDoc" class="li-header-item"><a class="li-header-link" href="">Dokumenti</a>
+                            <ul class="submenu">
+                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=0" data-index="0">Noteikumi</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=1" data-index="1">Dopings</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=2" data-index="2">Gada pārskati</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=3" data-index="3">Kopsapulces protokoli</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=4" data-index="4">Valdes sēdes protokoli</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=5" data-index="5">Budžets</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=6" data-index="6">Sacensību rezultāti</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=7" data-index="7">Reitings</a></li>                                                    
+                            </ul>
+                        </li>
+                        <li class="li-header-item"><a class="li-header-link" href="biedri.html">Biedri</a></li>
+                        <li class="li-header-item"><a class="li-header-link" href="valde.html">Valde</a></li>
+                        <li class="li-header-item"><a class="li-header-link" href="lkfIzlase.html">LKF izlase</a></li>
+                        <li class="li-header-item"><a class="li-header-link" href="tiesniesi.html">Tiesneši</a></li>
+                        <li id="komis" class="li-header-item"><a class="li-header-link" href="">Komisijas</a>
+                            <ul class="ul-header-komis submenu">
+                                <li class="li-header-item"><a class="li-header-link" href="">Tiesnešu komisija</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="">Ērikas komisija</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                      </Nav.Link>
                       <Nav.Link className='menu-link' href='/'>Kalendars</Nav.Link>
                       <Nav.Link className='menu-link' href='/'>Eksaminacija</Nav.Link>
                       <Nav.Link className='menu-link' href='/'>Kontakti</Nav.Link>
-                      <Nav.Link className='menu-link'><img 
-                  src={prifileIcon} 
-                  alt="Logo"
-                  height={20}
-                  width={20}
-                  className="d-inline-block align-top" 
-                  /></Nav.Link>
+                        <Nav.Link className='menu-link'>
+                        <Link
+                        to={'/admin'}
+                      >
+                          <img 
+                          src={prifileIcon} 
+                          alt="Logo"
+                          height={20}
+                          width={20}
+                          className="d-inline-block align-top" 
+                    />
+                      </Link>  
+                    </Nav.Link>
                   </Nav>
               </Navbar.Collapse>
               <Navbar.Brand href="https://wako.sport/" className="my-auto">

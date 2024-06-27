@@ -1,10 +1,18 @@
 @import '../../../../mixins.scss';
 
 .trending-top{
+
     width: 720px;
+    @include flex-center;
     img{
         border-radius: 5px;
         width: 100%;
+        @media (max-width: 375px) {
+            width: 350px;
+        }
+    }
+    @media (max-width: 375px) {
+        width: 360px;
     }
 }
 

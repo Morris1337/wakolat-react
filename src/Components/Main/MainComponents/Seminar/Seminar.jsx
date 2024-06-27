@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef } from 'react';
+import { useState, useEffect } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -17,7 +17,7 @@ import './Seminar.scss'
 
 
 export default function Seminar() {
-    const settings = {
+    const [settings, setSettings] = useState ({
         dots: true,
         infinite: true,
         slidesToShow: 4,
@@ -26,9 +26,37 @@ export default function Seminar() {
         speed: 2000,
         autoplaySpeed: 2000,
         cssEase: "linear",
+      });
+
+      const updateSettings = () =>{
+        const screenWidth = window.innerWidth;
+        let slidesToShow = 4;
+    
+        if(screenWidth <= 1400){
+            slidesToShow = 4
+        }
+        if(screenWidth <= 800){
+            slidesToShow = 2
+        }
+        if(screenWidth <= 375){
+            slidesToShow = 1
+        }
+
+        setSettings(prevSettings => ({
+            ...prevSettings,
+            slidesToShow: slidesToShow,
+        }));
       };
+
+      useEffect(() =>{
+        updateSettings();
+        window.addEventListener('resize', updateSettings);
+        return()=>{
+            window.removeEventListener('resize', updateSettings);
+        }
+      },[]);
     return (
-        <div className="carousel-container">
+        <div style={{marginTop:'-80px'}} className="carousel-container">
             <div className='seminar-heading'>
                 <h3>Semenari</h3>
             </div>

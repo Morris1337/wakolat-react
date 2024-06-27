@@ -26,6 +26,52 @@
     font-size: 16px;
   }
 
+  #federacija{
+    .submenu{
+      position: absolute;
+      z-index: 2;
+      display: none;
+      background-color: white;
+      padding: 20px;
+    }
+    &:hover{
+      .submenu{
+        display: flex;
+        #liDoc{
+          .submenu{
+            display: none;
+          }
+          &:hover{
+            .submenu{
+              display: flex;
+            }
+          }
+        }
+        #komis{
+          .submenu{
+            display: none;
+          }
+          &:hover{
+            .submenu{
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .li-header-item{
+    margin-left: 20px;
+    margin-top: 20px;
+    list-style: none;
+    cursor: pointer;
+    a{
+      color: #002e5b;
+      text-decoration: none;
+    }
+  }
+
   .mobile-menu .navbar-toggler-icon{
     margin-bottom: 0!important;
     padding: 16px 14px;

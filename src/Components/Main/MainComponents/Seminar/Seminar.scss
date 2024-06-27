@@ -26,10 +26,10 @@
                 object-position: center;
             }
             @media (max-width: 800px) {
-                flex-direction: column;
+                width: 270px;
             }
             @media (max-width: 375px) {
-
+                width: 300px;
             }
         }
     }

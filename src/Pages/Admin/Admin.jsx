@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-export default class Admin extends Component {
-  render() {
+export default function Admin() {
+
     return (
         <div className="conteiner-admin">
           <div className="admin-menu admin-menu-phone">
@@ -29,5 +29,4 @@ export default class Admin extends Component {
           </div>
         </div>
       );
-  }
 }

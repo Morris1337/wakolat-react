@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef } from 'react';
+import { useState, useEffect } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -14,7 +14,7 @@ import './ClubsList.scss';
 
 
 export default function FederationClubs() {
-  const settings = {
+  const [settings, setSettings] = useState ({
     dots: true,
     infinite: true,
     slidesToShow: 4,
@@ -23,7 +23,35 @@ export default function FederationClubs() {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear"
+  });
+
+  const updateSettings = () =>{
+    const screenWidth = window.innerWidth;
+    let slidesToShow = 4;
+
+    if(screenWidth <= 1400){
+        slidesToShow = 4
+    }
+    if(screenWidth <= 800){
+        slidesToShow = 3
+    }
+    if(screenWidth <= 375){
+        slidesToShow = 2
+    }
+
+    setSettings(prevSettings => ({
+        ...prevSettings,
+        slidesToShow: slidesToShow,
+    }));
   };
+
+  useEffect(() =>{
+    updateSettings();
+    window.addEventListener('resize', updateSettings);
+    return()=>{
+        window.removeEventListener('resize', updateSettings);
+    }
+  },[]);
     return (
         <div className="carousel-container">
             <div className='clubs-heading'>
