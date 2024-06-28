@@ -1,18 +1,18 @@
-import {useState, useEffect} from "react";
+// import {useState, useEffect} from "react";
 
-const api = 'google.com'
+// const api = 'google.com'
 
-function fetchApi(par){
+// function fetchApi(par){
 
-    const [fetchData, setFetchData] = useState()
-    useEffect(() =>{
-        fetch(api + par)
-            .then((data)=>{
-                return data.json()
-            })
-            .then((data)=>{
-                setFetchData(data)
-            })
-    },par)
+//     const [fetchData, setFetchData] = useState()
+//     useEffect(() =>{
+//         fetch(api + par)
+//             .then((data)=>{
+//                 return data.json()
+//             })
+//             .then((data)=>{
+//                 setFetchData(data)
+//             })
+//     },par)
 
-}
+// }

@@ -13,7 +13,7 @@ const Header = () => {
     return (
       <Navbar expand="md" bg="white" variant="light">
             <Container className='header-bottom'>
-                {createPortal(<Navbar.Brand/>, document.getElementById("key"))};
+                {/* {createPortal(<Navbar.Brand/>, document.getElementById("key"))}; */}
               <Navbar.Brand href="/" className="my-auto">
                   <img 
                   src={logo} 
