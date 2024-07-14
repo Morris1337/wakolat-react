@@ -1,0 +1,53 @@
+@import '../../../../mixins.scss';
+
+.post-component{
+    .information{
+        @include grid-template-columns;
+        justify-content: space-around;
+        grid-template-columns: repeat(2, 250px);
+        div{
+            display: flex;
+            flex-direction: column;
+            label{
+                margin: 0 15px;
+            }
+            input{
+                height: 40px;
+                margin: 10px;
+                border-radius: 5px;
+                width: 230px;
+                border: solid 2px rgb(99, 98, 98);
+                border-radius: 5px;
+            }
+            .cometition-coast{
+                @include flex-center;
+                flex-direction: row;
+                justify-content: space-between;
+                input{
+                    width: 180px;
+                }
+                p{
+                    margin-bottom: 0;
+                    margin-right: 10px
+                }
+            }
+        }
+    }
+    .more{
+        @include flex-center;
+        textarea{
+            width: 600px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+    }
+    .button{
+        @include flex-center;
+        justify-content: flex-end;
+        button{
+            border-radius: 5px;
+            width: 120px;
+            height: 40px;
+        }
+    }
+}

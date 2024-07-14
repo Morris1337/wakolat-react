@@ -4,26 +4,20 @@ import Header from './Components/Header/Header.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import Main from './Components/Main/Main.jsx';
 import Admin from './Pages/Admin/Admin.jsx'
+import PublicatePosts from './Components/Main/MainComponents/TrendingArea/PublicatePosts/PublicatePosts.jsx';
+
 
 function App() {
   return (
     <BrowserRouter>
       <div className='App'>
-      <div id='key'></div>
         <Header />
-        {/* <div id='key'></div> */}
-          <Routes>
-            <Route
-            path='/'
-            element={<Main/>}
-            >
-            </Route>
-            <Route
-            path='/admin'
-            element={<Admin/>}
-            ></Route>
-          </Routes>
-        <Footer/>
+        <Routes>
+          <Route path='/' element={<Main />} />
+          <Route path='/admin' element={<Admin />} />
+          <Route path='/publicatePosts' element={<PublicatePosts/>}/>
+        </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

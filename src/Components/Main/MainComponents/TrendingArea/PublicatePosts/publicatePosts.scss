@@ -1,0 +1,65 @@
+@import '../../../../../mixins.scss';
+
+.publication-page{
+    @include flex-center;
+    flex-direction: column;
+    .about-img{
+        @include flex-center;
+        img{
+            width: 770px;
+        }
+    }
+    .about-prea{
+        width: 770px;
+    }
+    .social-share{
+       .section-tittle{
+        width: 770px;
+        @include flex-center;
+        justify-content: flex-start;
+        ul{
+            @include flex-center;
+            margin: 0;
+            padding: 0;
+            li{
+                list-style-type: none;
+                margin: 0 2px;
+            }
+        }
+       }
+    }
+    .comeback-form{
+        @include flex-center;
+        margin-top: 20px;
+        .form-contact{
+            width: 770px;
+            .text-place{
+                @include flex-center;
+                flex-direction: column;
+                .first-place{
+                    width: 600px;
+                }
+                .second-place{
+                    @include flex-center;
+                    div{
+                        width: 290px;
+                        margin: 10px 10px;
+                    }
+                }
+                .therd-place{
+                    width: 600px;
+                }
+            }
+            .publicate-post-button{
+                margin: 10px 0 0 85px;
+                button{
+                    background-color: white;
+                    border: 1px solid rgb(207, 204, 204);
+                    border-radius: 3px;
+                    width: 150px;
+                    height: 70px;
+                }
+            }
+        }
+    }
+}

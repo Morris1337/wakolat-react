@@ -1,0 +1,19 @@
+@import '../../mixins.scss';
+
+
+.conteiner-admin{
+    margin: 50px 0 200px ;
+    .titleAdmin{
+        @include flex-center;
+        margin-bottom: 50px;
+    }
+    .admin-menu{
+        .admin-menu-section{
+            
+        }
+    }
+    #conteiner-form{
+        @include flex-center;
+        margin-top: -150px;
+    }
+}

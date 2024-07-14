@@ -1,0 +1,15 @@
+@import '../../../mixins.scss';
+
+.contryes-style{
+    label{
+        width: 230px;
+        margin: 0 15px;
+    }
+    select{
+        width: 230px;
+        height: 40px;
+        border: solid 2px rgb(99, 98, 98);
+        border-radius: 5px;
+        margin: 10px;
+    }
+}

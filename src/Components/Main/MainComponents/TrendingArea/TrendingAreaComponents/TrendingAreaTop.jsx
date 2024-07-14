@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './TrendingAreaComponents.css'
+import {Link} from 'react-router-dom';
 import postImg from "../../../../../img/post/eiropasIzlase.jpg"
 
 export class TrendingAreaTop extends Component {
@@ -16,7 +17,11 @@ export class TrendingAreaTop extends Component {
                 />
                 <div class="trend-top-cap">
                     <span>News</span>
-                    <h2><a href="details.html">Latvijas kikbokseriem <br /> vairākas medaļas EČ jauniešiem</a></h2>
+                    <Link
+                    to={'/publicatePosts'}
+                    >
+                      <h2><a href="details.html">Latvijas kikbokseriem <br /> vairākas medaļas EČ jauniešiem</a></h2>
+                    </Link>
                 </div>
             </div>
         </div>

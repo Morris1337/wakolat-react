@@ -7,7 +7,6 @@
 
 .trend-top-cap{
     position: relative;
-    z-index: 1;
     margin-top: -150px;
     margin-left: 20px
 }

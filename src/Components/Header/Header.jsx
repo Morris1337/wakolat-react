@@ -7,6 +7,7 @@ import '../../App.scss';
 import logo from './Color-logo_2x-100-removebg-preview.png';
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
 import prifileIcon from './profile-icon.svg'
+import PasswordProtectedLink from '../Header/Comptonents/Pasword/PasswordProtectLink';
 console.log(document.querySelector("#key"))
 
 const Header = () => {
@@ -60,17 +61,12 @@ const Header = () => {
                       <Nav.Link className='menu-link' href='/'>Eksaminacija</Nav.Link>
                       <Nav.Link className='menu-link' href='/'>Kontakti</Nav.Link>
                         <Nav.Link className='menu-link'>
+                        <PasswordProtectedLink>
                         <Link
                         to={'/admin'}
-                      >
-                          <img 
-                          src={prifileIcon} 
-                          alt="Logo"
-                          height={20}
-                          width={20}
-                          className="d-inline-block align-top" 
-                    />
-                      </Link>  
+                        >
+                        </Link>  
+                        </PasswordProtectedLink>
                     </Nav.Link>
                   </Nav>
               </Navbar.Collapse>
