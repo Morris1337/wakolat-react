@@ -1,0 +1,12 @@
+@import '../../../mixins.scss';
+
+.docs_menu{
+    ul{
+        @include flex-center;
+        li{
+            list-style: none;
+            
+            margin-left: 15px;
+        }
+    }
+}

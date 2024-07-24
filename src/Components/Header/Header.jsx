@@ -2,12 +2,14 @@ import React from 'react';
 import {createPortal} from 'react-dom';
 import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import PasswordProtectedLink from './Comptonents/Pasword/PasswordProtectLink';
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.scss';
 import logo from './Color-logo_2x-100-removebg-preview.png';
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
-import prifileIcon from './profile-icon.svg'
-import PasswordProtectedLink from '../Header/Comptonents/Pasword/PasswordProtectLink';
+import prifileIcon from './profile-icon.svg';
 console.log(document.querySelector("#key"))
 
 const Header = () => {
@@ -33,11 +35,11 @@ const Header = () => {
                       <Nav.Link className='menu-link' href='/'>Home</Nav.Link>
                       <Nav.Link className='menu-link' id='federacija' href='/'>Federacija
                       <ul class="submenu">
-                        <li id="liDoc" class="li-header-item"><a class="li-header-link" href="">Dokumenti</a>
+                        <li id="liDoc" class="li-header-item"><Link to={'/Documents'}>Dokumenti</Link>
                             <ul class="submenu">
-                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=0" data-index="0">Noteikumi</a></li>
-                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=1" data-index="1">Dopings</a></li>
-                                <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=2" data-index="2">Gada pārskati</a></li>
+                                <li class="li-header-item"><Link to={'/Noteikumi'}>Noteikumi</Link></li>
+                                <li class="li-header-item"><Link to={'/Dopings'}>Dopings</Link></li>
+                                <li class="li-header-item"><Link to={'/GadaParaksti'}>Gada pārskati</Link></li>
                                 <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=3" data-index="3">Kopsapulces protokoli</a></li>
                                 <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=4" data-index="4">Valdes sēdes protokoli</a></li>
                                 <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=5" data-index="5">Budžets</a></li>
@@ -67,7 +69,7 @@ const Header = () => {
                         >
                         </Link>  
                         </PasswordProtectedLink>
-                    </Nav.Link>
+                        </Nav.Link>
                   </Nav>
               </Navbar.Collapse>
               <Navbar.Brand href="https://wako.sport/" className="my-auto">
