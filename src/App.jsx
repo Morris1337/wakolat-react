@@ -10,6 +10,7 @@ import Documents from './Pages/Federacija/Documents/Documents.jsx';
   import Noteikumi from './Pages/Federacija/Documents/Noteikumi/Noteikumi.jsx';
   import Dopings from './Pages/Federacija/Documents/Dopings/Dopings.jsx';
   import GadaParaksti from './Pages/Federacija/Documents/GadaParaksti/GadaParaksti.jsx';
+  import Biedri from './Pages/Federacija/Biedri/Biedri.jsx';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path='/Noteikumi' element={<Noteikumi/>}></Route>
           <Route path='/GadaParaksti' element={<GadaParaksti/>}></Route>
           <Route path='/Dopings' element={<Dopings/>}></Route>
+          <Route path='/Biedri' element={<Biedri/>}></Route>
         </Routes>
         <Footer />
       </div>

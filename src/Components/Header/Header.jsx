@@ -47,7 +47,7 @@ const Header = () => {
                                 <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=7" data-index="7">Reitings</a></li>                                                    
                             </ul>
                         </li>
-                        <li class="li-header-item"><a class="li-header-link" href="biedri.html">Biedri</a></li>
+                        <li class="li-header-item"><Link to={"/Biedri"}>Biedri</Link></li>
                         <li class="li-header-item"><a class="li-header-link" href="valde.html">Valde</a></li>
                         <li class="li-header-item"><a class="li-header-link" href="lkfIzlase.html">LKF izlase</a></li>
                         <li class="li-header-item"><a class="li-header-link" href="tiesniesi.html">Tiesneši</a></li>
