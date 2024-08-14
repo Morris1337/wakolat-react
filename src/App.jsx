@@ -22,10 +22,11 @@ function App() {
           <Route path='/' element={<Main />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/publicatePosts' element={<PublicatePosts/>}/>
-          <Route path="/documents/*" element={<Documents />}></Route>
-          <Route path='/Noteikumi' element={<Noteikumi/>}></Route>
-          <Route path='/GadaParaksti' element={<GadaParaksti/>}></Route>
-          <Route path='/Dopings' element={<Dopings/>}></Route>
+          <Route path="/documents" element={<Documents />}>
+            <Route path="noteikumi" element={<Noteikumi />} />
+            <Route path="dopings" element={<Dopings />} />
+            <Route path="gadaParaksti" element={<GadaParaksti />} />
+          </Route>
           <Route path='/Biedri' element={<Biedri/>}></Route>
         </Routes>
         <Footer />

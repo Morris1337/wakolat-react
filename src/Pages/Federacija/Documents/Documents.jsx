@@ -1,24 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import './documents.scss'
 
 export default function Documents() {
-
+  const navigate = useNavigate();
   return (
     <>
         <nav className='docs_menu'>
             <ul>
-                <li><Link to="/documents/noteikumi">Noteikumi</Link></li>
-                <li><Link to="/documents/dopings">Dopings</Link></li>
-                <li><Link to="/documents/gada-paraksti">Gada pārskati</Link></li>
+                <li onClick={() => navigate('noteikumi')}>Noteikumi</li>
+                <li onClick={() => navigate('dopings')}>Dopings</li>
+                <li onClick={() => navigate('gadaParaksti')}>Gada pārskati</li>
                 <li><Link></Link></li>
                 <li><Link></Link></li>
                 <li><Link></Link></li>
                 <li><Link></Link></li>
             </ul>
         </nav>
-        <div>
-          Place for content
+        <div className='docs_content'>
+          <Outlet/>
         </div>
     </>
   )

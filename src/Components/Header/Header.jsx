@@ -37,9 +37,9 @@ const Header = () => {
                       <ul class="submenu">
                         <li id="liDoc" class="li-header-item"><Link to={'/Documents'}>Dokumenti</Link>
                             <ul class="submenu">
-                                <li class="li-header-item"><Link to={'/Noteikumi'}>Noteikumi</Link></li>
-                                <li class="li-header-item"><Link to={'/Dopings'}>Dopings</Link></li>
-                                <li class="li-header-item"><Link to={'/GadaParaksti'}>Gada pārskati</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/noteikumi'}>Noteikumi</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/dopings'}>Dopings</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/gadaParaksti'}>Gada pārskati</Link></li>
                                 <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=3" data-index="3">Kopsapulces protokoli</a></li>
                                 <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=4" data-index="4">Valdes sēdes protokoli</a></li>
                                 <li class="li-header-item"><a class="li-header-link" href="doc.html?data-index=5" data-index="5">Budžets</a></li>
