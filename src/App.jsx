@@ -6,7 +6,8 @@ import Main from './Components/Main/Main.jsx';
 import Admin from './Pages/Admin/Admin.jsx'
 import PublicatePosts from './Components/Main/MainComponents/TrendingArea/PublicatePosts/PublicatePosts.jsx';
 import SeparationPosts from './Components/Main/MainComponents/TrendingArea/TrendingAreaComponents/SeparationPosts.jsx';
-import PublicateCompetition from './Components/Main/MainComponents/TrendingArea/PublicateCompetition/PublicateCompetition.jsx';
+import PublicateCompetition from './Components/Main/MainComponents/Competition/PublicateCompetition/PublicateCompetition.jsx';
+import PublicateSeminar from './Components/Main/MainComponents/Seminar/SeminarPosts/PublicateSeminar.jsx';
 
 import Documents from './Pages/Federacija/Documents/Documents.jsx';
   import Noteikumi from './Pages/Federacija/Documents/Noteikumi/Noteikumi.jsx';
@@ -28,6 +29,7 @@ function App() {
           <Route path='/admin' element={<Admin />} />
           <Route path='/publicatePosts' element={<PublicatePosts/>}/>
           <Route path='/PublicateCompetition' element={<PublicateCompetition/>}/>
+          <Route path='/PublicateSeminar' element={<PublicateSeminar/>}></Route>
           {/* <Route path="/" element={<SeparationPosts />} />*/}
           {/* <Route path="/post" element={<PublicatePosts />} />  */}
           <Route path="/documents" element={<Documents />}>

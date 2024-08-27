@@ -1,7 +1,7 @@
 import React from 'react'
 import './TrendingAreaComponents.css'
 import { Link } from 'react-router-dom'
-import PublicateCompetition from '../PublicateCompetition/PublicateCompetition'
+import PublicateCompetition from '../../Competition/PublicateCompetition/PublicateCompetition'
 
 export default function TrendingAreaBottom({img, title, discription}){
     return (

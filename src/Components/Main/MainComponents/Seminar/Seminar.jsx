@@ -63,10 +63,30 @@ export default function Seminar() {
             <div className='clubs-carousel'>
                 <div className='seminar-list slider-container'>
                     <Slider {...settings}> 
-                        <div className='block'><SeminarBlock img={ApzinatibaSporta} link={'funcatchers.lv'} title={"Fun Catchers"} /></div>
-                        <div className='block'><SeminarBlock img={SitSporta} link={'funcatchers.lv'} title={"Balistic Boxing Clubs"} /></div>
-                        <div className='block'><SeminarBlock img={VFSBērniem} link={'funcatchers.lv'} title={"Muay Thai Academy"} /></div>
-                        <div className='block'><SeminarBlock img={TraumaSporta} link={'funcatchers.lv'} title={"Boksa un Kikboksa skola"} /></div>
+                        <div className='block'>
+                            <SeminarBlock 
+                            img={ApzinatibaSporta} 
+                            title={"APZINĀTĪBA SPORTĀ UN SABALANSĒTA UZTURA NOZĪME SPORTĀ"} 
+                            />
+                        </div>
+                        <div className='block'>
+                            <SeminarBlock 
+                            img={SitSporta} 
+                            title={"NOTIKS SEMINĀRS SPORTA SPECIĀLISTIEM"} 
+                            />
+                        </div>
+                        <div className='block' onClick={() => window.location.href = '/PublicateSeminar'}>
+                            <SeminarBlock 
+                            img={VFSBērniem}
+                            title={"Fiziskā sagatavotība ilgtermiņa bērnu "} 
+                            />
+                        </div>
+                        <div className='block'>
+                            <SeminarBlock 
+                            img={TraumaSporta} 
+                            title={"TRAUMAS SPORTĀ UN PIRMĀS PALĪDZĪBAS SNIEGŠANAS PAMATI"} 
+                            />
+                        </div>
                     </Slider >
                 </div>
             </div>
