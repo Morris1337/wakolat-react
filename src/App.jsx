@@ -8,6 +8,7 @@ import PublicatePosts from './Components/Main/MainComponents/TrendingArea/Public
 import SeparationPosts from './Components/Main/MainComponents/TrendingArea/TrendingAreaComponents/SeparationPosts.jsx';
 import PublicateCompetition from './Components/Main/MainComponents/Competition/PublicateCompetition/PublicateCompetition.jsx';
 import PublicateSeminar from './Components/Main/MainComponents/Seminar/SeminarPosts/PublicateSeminar.jsx';
+import Kalendars from './Pages/Kalendars/Kalendars.jsx';
 
 import Documents from './Pages/Federacija/Documents/Documents.jsx';
   import Noteikumi from './Pages/Federacija/Documents/Noteikumi/Noteikumi.jsx';
@@ -42,6 +43,7 @@ function App() {
             <Route path='sacensibuRezultati' element={<SacensibuRezultati/>}/>
           </Route>
           <Route path='/Biedri' element={<Biedri/>}></Route>
+          <Route path='/Kalendars' element={<Kalendars/>}></Route>
         </Routes>
         <Footer />
       </div>

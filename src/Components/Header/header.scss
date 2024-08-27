@@ -25,6 +25,9 @@
           #komis{
             .submenu{
               display: none;
+              a{
+                color: #002e5b;
+              }
             }
             &:hover{
               .submenu{
@@ -63,4 +66,9 @@
   .mobile-menu .navbar-toggler-icon{
     margin-bottom: 0!important;
     padding: 16px 14px;
+  }
+
+  .menu-link{
+    color: #002e5b;
+    ;
   }

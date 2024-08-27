@@ -6,6 +6,11 @@ import FederationClubs from '../ClubList/ClubsList.jsx';
 import bottomImg1  from "./img/venstpils23.jpg"
 import bottomImg2 from "./img/SeminarLIVF.jpeg"
 
+import ApzinatibaSporta from "../Seminar/img/ApzinatibaSporta.jpg"
+import SitSporta from "../Seminar/img/SitSporta.png"
+import TraumaSporta from "../Seminar/img/TraumaSporta.jpeg"
+import VFSBērniem from "../Seminar/img/VFSBērniem.jpg"
+
 const TrendingArea = () => {
   return (
         <>
@@ -30,29 +35,59 @@ const TrendingArea = () => {
                                         <TrendingAreaBottom
                                             img={bottomImg1}
                                             title={"Ventspils Kikboksa Čempionats"}
-                                            discription={'Latvija'}
+                                            discription={'Competition'}
                                         />
                                     </div>
 
                                     <TrendingAreaBottom
                                         img={bottomImg2}
                                         title={"Iela vingrošana seminarts"}
-                                        discription={'Latvija'}
+                                        discription={'Competition'}
                                     />
                                     <TrendingAreaBottom
                                         img={bottomImg1}
                                         title={"Ventspils Kikboksa Čempionats"}
-                                        discription={'Latvija'}
+                                        discription={'Competition'}
                                     />
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-1 trend-right-blocks">
-                            <TrendingAreaRight></TrendingAreaRight>
-                            <TrendingAreaRight></TrendingAreaRight>
-                            <TrendingAreaRight></TrendingAreaRight>
-                            <TrendingAreaRight></TrendingAreaRight>
-                            <TrendingAreaRight></TrendingAreaRight>
+                            <div>
+                                <TrendingAreaRight
+                                img={ApzinatibaSporta}
+                                title={"APZINĀTĪBA SPORTĀ UN SABALANSĒTA UZTURA NOZĪME SPORTĀ"}
+                                discription={'seminars'}
+                            />
+                            </div>
+                            <div>
+                                <TrendingAreaRight
+                                img={SitSporta}
+                                title={"NOTIKS SEMINĀRS SPORTA SPECIĀLISTIEM"}
+                                discription={'seminars'}
+                                />
+                            </div>
+                            <div>
+                                <TrendingAreaRight
+                                img={bottomImg2}
+                                title={"Iela vingrošana seminarts"}
+                                discription={'Competition'}
+                                />
+                            </div>
+                            <div>
+                                <TrendingAreaRight
+                                img={SitSporta}
+                                title={"NOTIKS SEMINĀRS SPORTA SPECIĀLISTIEM"}
+                                discription={'seminars'}
+                                />
+                            </div>
+                            <div>
+                                <TrendingAreaRight
+                                img={ApzinatibaSporta}
+                                title={"APZINĀTĪBA SPORTĀ UN SABALANSĒTA UZTURA NOZĪME SPORTĀ"}
+                                discription={'seminars'}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

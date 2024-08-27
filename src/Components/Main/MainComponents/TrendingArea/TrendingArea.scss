@@ -2,7 +2,7 @@
 
 .trending-top{
 
-    width: 720px;
+    width: 755px;
     @include flex-center;
     img{
         border-radius: 5px;
@@ -59,7 +59,27 @@ span{
 }
 
 .trend-right-blocks{
-    margin-top: -20px;
+    margin-bottom: 100px;
+    div{
+        margin-top: 10px;
+    }
+}
+
+.trand-right-single{
+    .trand-right-img{
+        margin-right: 10px;
+        img{
+            width: 150px;
+            height: 120px;
+            object-fit: cover;
+        }
+    }
+    .trand-right-cap{
+        h4{
+            font-size: 14px;
+            width: 150px;
+        }
+    }
 }
 
 .trend-bottom-img{
@@ -74,3 +94,4 @@ span{
         object-position: center;
     }
 }
+
