@@ -128,7 +128,7 @@ const Header = () => {
                     </ul>
                   )}
 
-                  <Nav.Link className='menu-link' href='/'>Kalendars</Nav.Link>
+<Nav.Link className='menu-link'><Link to={'/Kalendars'} style={{color: '#002e5b', textDecoration: 'none'}}>Kalendars</Link></Nav.Link>
                   <Nav.Link className='menu-link' href='/'>Eksaminacija</Nav.Link>
                   <Nav.Link className='menu-link' href='/'>Kontakti</Nav.Link>
                   <Nav.Link className='menu-link'>

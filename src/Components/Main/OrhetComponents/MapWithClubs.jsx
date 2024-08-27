@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../../../App.css'
@@ -24,8 +24,25 @@ const clubs = [
 ];
 
 const MapWithClubs = () => {
+  const [zoom, setZoom] = useState(window.innerWidth >= 375 ? 7.5 : 20);
+
+  const handleResize = () =>{
+    if(window.innerWidth <= 375){
+      setZoom(10)
+    }else{
+      setZoom(7.5)
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    return () =>{
+      window.removeEventListener('resize', handleResize)
+    }
+  },[]);
+
   return (
-    <MapContainer center={center} zoom={7.5} style={{ height: '500px', width: '1200px' }}>
+    <MapContainer className='club-map-conteiner' center={center} zoom={zoom}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

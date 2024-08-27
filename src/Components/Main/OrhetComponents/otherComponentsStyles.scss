@@ -13,9 +13,16 @@
         margin: 10px;
     }
 }
-
+.club-map-conteiner{
+    width: 1200px;
+    height: 500px;
+    @media (max-width: 375px) {
+        width: 350px;
+        height: 300px;
+    }
+}
 .ClubMap{
     margin-top: 30px;
     margin-bottom: 50px;
-    @include flex-center
+    @include flex-center;
 }
