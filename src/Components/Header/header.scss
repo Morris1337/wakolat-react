@@ -1,65 +1,53 @@
-.header-area {
-    background-color: #333;
-    color: white;
-  }
-  
-  .header-sticky {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .phone-header {
+#responsive-navbar-nav{
+  .computer{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo{
-    margin-left: 20px;
-  }
-
-  .menu-link{
-    margin-left: 30px;
-    color: #002e5b;
-    font-weight: 500;
-    font-size: 16px;
-  }
-
-  #federacija{
-    .submenu{
-      position: absolute;
-      z-index: 2;
-      display: none;
-      background-color: white;
-      padding: 20px;
-    }
-    &:hover{
+    #federacija{
       .submenu{
-        display: flex;
-        #liDoc{
-          .submenu{
-            display: none;
-          }
-          &:hover{
+        position: absolute;
+        z-index: 2;
+        display: none;
+        background-color: white;
+        padding: 20px;
+      }
+      &:hover{
+        .submenu{
+          display: flex;
+          #liDoc{
             .submenu{
-              display: flex;
+              display: none;
+            }
+            &:hover{
+              .submenu{
+                display: flex;
+              }
             }
           }
-        }
-        #komis{
-          .submenu{
-            display: none;
-          }
-          &:hover{
+          #komis{
             .submenu{
-              display: flex;
+              display: none;
+            }
+            &:hover{
+              .submenu{
+                display: flex;
+              }
             }
           }
         }
       }
     }
+}
+.mobile{
+  display: none;
+}
+  @media screen and (max-width: 375px) {
+    .computer{
+      display: none;
+    }
+    .mobile{
+      display: block;
+    }
   }
+}
 
   .li-header-item{
     margin-left: 20px;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import '../documents.scss'
 import FullContactNoteikumi from './Full_contact_noteikumi_compressed.pdf'
 import K1Noteikumi from './K_1_noteikumi_compressed.pdf'
 import KickLightNoteikumiCompressed from './Kick_light_noteikumi_compressed.pdf'

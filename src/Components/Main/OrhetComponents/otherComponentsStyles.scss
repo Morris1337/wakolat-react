@@ -13,3 +13,9 @@
         margin: 10px;
     }
 }
+
+.ClubMap{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    @include flex-center
+}

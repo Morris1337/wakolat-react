@@ -1,0 +1,59 @@
+@import '../../../../../mixins.scss';
+
+.about-img{
+    @include flex-column; 
+    img{
+        width: 1000px;
+        height: 600px;
+        object-fit: cover;
+    }
+}
+
+.competition-name{
+    @include flex-center;
+    margin-top: 50px;
+    margin-bottom: 50px
+}
+
+.competition-top-blocks{
+    @include flex-center;
+    margin-bottom: 50px;
+    .competition-contry{
+        @include flex-center;
+        justify-content: flex-start;
+        margin-top: 10px;
+        h6{
+            margin-left: 15px;
+            margin-top: 3px;
+        }
+    }
+    .competition-top-vertical-line{
+        width: 1px;
+        background-color: black;
+        height: 200px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    h6{
+        display: flex;
+        align-items: center;
+    }
+
+    .competition-top{
+        hr{
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    }
+}
+.compettition-category{
+    @include flex-center;
+}
+.text-competition-content{
+    @include flex-center; 
+    margin-top: 50px;
+    margin-bottom: 50px;
+    p{
+        width: 800px;
+    }
+}

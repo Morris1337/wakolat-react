@@ -1,12 +1,92 @@
 @import '../../../mixins.scss';
 
 .docs_menu{
+    color: #002e5b;
     ul{
         @include flex-center;
         li{
+            @include flex-center;
             list-style: none;
-            
-            margin-left: 15px;
+            background-color: #8080800f;
+            width: 120px;
+            height: 50px;
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
+            &:hover{
+                background-color: #5756569a;
+            };
+        }
+        @media screen and (max-width: 375px) {
+            @include grid-template-columns;
+            grid-template-columns: repeat(2, 130px);
+            li{
+                margin: 5px;
+            }
         }
     }
+    .li-header-link{
+        padding: 1rem;
+        text-decoration: none;
+        border-left: 2px solid #ccc;
+    }
+}
+
+#noteikumi{
+    margin-bottom: 100px;
+    @include flex-column;
+    div{
+        margin-top: 30px;
+    }
+    p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+    }
+    .noteikumiBlock{
+        @include flex-center;
+        button{
+            border: 0;
+            cursor: pointer;
+            &:hover{
+                background-color: rgb(168, 166, 166);
+            }
+        }
+        @media screen and (max-width: 375px) {
+            @include grid-template-columns;
+            grid-template-columns: repeat(2, 150px);
+        }
+        .noteikumiPdf {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            margin: 5px;
+            width: 180px !important;
+            height: 60px !important;
+            @media screen and (max-width: 375px) {
+                width: 140px !important;
+                height: 60px !important;
+                margin: 10px;
+            }
+        }
+    }
+}
+
+#dopings{
+    @include flex-center;
+    margin-bottom: 100px;
+    div{
+        margin-top: 30px;
+        width: 900px;
+    }
+    @media screen and (max-width: 375px) {
+        div{
+            width: 300px !important;
+        }
+
+    }
+    margin-bottom: 100px;
+
 }

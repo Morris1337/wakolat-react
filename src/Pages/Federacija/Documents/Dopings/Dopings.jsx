@@ -1,4 +1,5 @@
 import React from 'react'
+import '../documents.scss'
 
 export default function Dopings() {
   return (

@@ -1,5 +1,7 @@
 import React from 'react'
 import './TrendingAreaComponents.css'
+import { Link } from 'react-router-dom'
+import PublicateCompetition from '../PublicateCompetition/PublicateCompetition'
 
 export default function TrendingAreaBottom({img, title, discription}){
     return (
@@ -15,7 +17,7 @@ export default function TrendingAreaBottom({img, title, discription}){
                         />
                     </div>
                     <div className="trend-bottom-cap">
-                        <span className="color1">{discription}</span>
+                        <span className="color1">{discription}</span>           
                         <h4><a className='bottom-post-name-text' href="#">{title}</a></h4>
                     </div>
                 </div>
