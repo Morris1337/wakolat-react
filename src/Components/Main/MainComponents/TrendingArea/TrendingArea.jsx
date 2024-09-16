@@ -1,7 +1,8 @@
-import React from 'react';
-import { TrendingAreaTop } from './TrendingAreaComponents/TrendingAreaTop.jsx';
+import React, { useEffect, useState } from 'react';
+import TrendingAreaTop from './TrendingAreaComponents/TrendingAreaTop.jsx';
 import TrendingAreaBottom from './TrendingAreaComponents/TrendingAreaBottom.jsx';
 import TrendingAreaRight from './TrendingAreaComponents/TrendingAreaRight.jsx';
+import './TrendingAreaComponents/TrendingAreaComponents.css'
 import FederationClubs from '../ClubList/ClubsList.jsx';
 import bottomImg1  from "./img/venstpils23.jpg"
 import bottomImg2 from "./img/SeminarLIVF.jpeg"
@@ -12,6 +13,17 @@ import TraumaSporta from "../Seminar/img/TraumaSporta.jpeg"
 import VFSBērniem from "../Seminar/img/VFSBērniem.jpg"
 
 const TrendingArea = () => {
+    const [news, setNews] = useState([])
+    useEffect(()=>{async function get_news() {
+        const url = "https://test-api.zapto.org:8001/api/get_news"
+        const result = await fetch(url)
+        const data = await result.json()
+        console.log(data)
+        setNews(data)
+    }
+get_news()}
+,[])
+
   return (
         <>
         {/* Trending Area Start */}
@@ -29,28 +41,30 @@ const TrendingArea = () => {
                     <div class="row trend-center">
                         <div class="col-lg-8">
                             <TrendingAreaTop></TrendingAreaTop>
-                            <div class="trending-bottom">
+                            <div class="trend-block-bottom">
+                            {news.slice(1,4).map((obj) =>  
                                 <div class="row trend-block-bottom">
-                                    <div onClick={() => window.location.href = '/PublicateCompetition'}>
-                                        <TrendingAreaBottom
-                                            img={bottomImg1}
-                                            title={"Ventspils Kikboksa Čempionats"}
-                                            discription={'Competition'}
-                                        />
+                                    <div onClick={() => window.location.href = '/PublicateCompetition'}>                               
+                                        <div className="trend-block-bottom">
+                                            <div  key={obj["id"]} className="single-bottom mb-35">
+                                                <div className="trend-bottom-img mb-30">
+                                                    <img 
+                                                    src={"https://test-api.zapto.org:8001/upload/" + obj["images"]} 
+                                                    alt="img"
+                                                    className='bottom-img'
+                                                    />
+                                                </div>
+                                                <div className="trend-bottom-cap">
+                                                    {/* <span className="color1">{discription}</span>            */}
+                                                    <h4><a className='bottom-post-name-text' href="#">{obj["header"]}</a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <TrendingAreaBottom
-                                        img={bottomImg2}
-                                        title={"Iela vingrošana seminarts"}
-                                        discription={'Competition'}
-                                    />
-                                    <TrendingAreaBottom
-                                        img={bottomImg1}
-                                        title={"Ventspils Kikboksa Čempionats"}
-                                        discription={'Competition'}
-                                    />
                                 </div>
+                                )}
                             </div>
+                            
                         </div>
                         <div class="col-lg-1 trend-right-blocks">
                             <div>
