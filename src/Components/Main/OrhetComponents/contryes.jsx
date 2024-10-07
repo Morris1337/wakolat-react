@@ -1,13 +1,13 @@
 import React from 'react'
 import './otherComponentsStyles.scss';
 
-export default function Contryes() {
+export default function Contryes({ selectedCountry, onCountryChange }) {
 
 
   return (
     <div className='contryes-style'>
         <label for="country">Выберите страну:</label>
-            <select id="country" name="country">
+            <select id="country" name="country" value={selectedCountry} onChange={onCountryChange}>
             <option value="AF">Афганистан</option>
             <option value="AL">Албания</option>
             <option value="DZ">Алжир</option>

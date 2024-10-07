@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
 import TrendingAreaTop from './TrendingAreaComponents/TrendingAreaTop.jsx';
 import TrendingAreaBottom from './TrendingAreaComponents/TrendingAreaBottom.jsx';
 import TrendingAreaRight from './TrendingAreaComponents/TrendingAreaRight.jsx';
+import './TrendingAreaComponents/TrendingAreaComponents.css'
 import './TrendingAreaComponents/TrendingAreaComponents.css'
 import FederationClubs from '../ClubList/ClubsList.jsx';
 import bottomImg1  from "./img/venstpils23.jpg"
@@ -15,7 +17,7 @@ import VFSBērniem from "../Seminar/img/VFSBērniem.jpg"
 const TrendingArea = () => {
     const [news, setNews] = useState([])
     useEffect(()=>{async function get_news() {
-        const url = "https://test-api.zapto.org:8001/api/get_news"
+        const url = "http://87.228.26.161:8020/api/get_news"
         const result = await fetch(url)
         const data = await result.json()
         console.log(data)
@@ -40,7 +42,25 @@ get_news()}
                     </div>
                     <div class="row trend-center">
                         <div class="col-lg-8">
-                            <TrendingAreaTop></TrendingAreaTop>
+                            {news.slice(0,1).map((obj) =>  
+                                <div key={obj["id"]} class="trending-top mb-30">
+                                    <div class="trend-top-img">
+                                        <img 
+                                        src={"http://87.228.26.161:8020/upload/" + obj["image"]} 
+                                        alt=""
+                                        className='top-img'
+                                        />
+                                        <div class="trend-top-cap">
+                                            <span>News</span>
+                                            <Link
+                                            to={`/PublicatePosts/${obj.id}`}
+                                            >
+                                                <h2><a href="details.html">{obj["header"]}</a></h2>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                             <div class="trend-block-bottom">
                             {news.slice(1,4).map((obj) =>  
                                 <div class="row trend-block-bottom">
@@ -49,14 +69,16 @@ get_news()}
                                             <div  key={obj["id"]} className="single-bottom mb-35">
                                                 <div className="trend-bottom-img mb-30">
                                                     <img 
-                                                    src={"https://test-api.zapto.org:8001/upload/" + obj["images"]} 
+                                                    src={"http://87.228.26.161:8020/upload/" + obj["image"]} 
                                                     alt="img"
                                                     className='bottom-img'
                                                     />
                                                 </div>
                                                 <div className="trend-bottom-cap">
-                                                    {/* <span className="color1">{discription}</span>            */}
-                                                    <h4><a className='bottom-post-name-text' href="#">{obj["header"]}</a></h4>
+                                                    <h4>
+                                                        {/* <a className='bottom-post-name-text' href="#">{obj["header"]}</a> */}
+                                                        <Link to={`/PublicatePosts/${obj.id}`}>{obj.header}</Link>
+                                                        </h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -64,44 +86,22 @@ get_news()}
                                 </div>
                                 )}
                             </div>
-                            
+    
                         </div>
                         <div class="col-lg-1 trend-right-blocks">
+                        {news.slice(4,10).map((obj) => 
                             <div>
-                                <TrendingAreaRight
-                                img={ApzinatibaSporta}
-                                title={"APZINĀTĪBA SPORTĀ UN SABALANSĒTA UZTURA NOZĪME SPORTĀ"}
-                                discription={'seminars'}
-                            />
+                                <div class="trand-right-single d-flex">
+                                    <div class="trand-right-img">
+                                        <img src={"https://test-api.zapto.org:8001/upload/" + obj["image"]} alt=""/>
+                                    </div>
+                                    <div class="trand-right-cap">
+                                        {/* <span class="color1">{discription}</span> */}
+                                        <Link to={`/PublicatePosts/${obj.id}`}>{obj.header}</Link>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <TrendingAreaRight
-                                img={SitSporta}
-                                title={"NOTIKS SEMINĀRS SPORTA SPECIĀLISTIEM"}
-                                discription={'seminars'}
-                                />
-                            </div>
-                            <div>
-                                <TrendingAreaRight
-                                img={bottomImg2}
-                                title={"Iela vingrošana seminarts"}
-                                discription={'Competition'}
-                                />
-                            </div>
-                            <div>
-                                <TrendingAreaRight
-                                img={SitSporta}
-                                title={"NOTIKS SEMINĀRS SPORTA SPECIĀLISTIEM"}
-                                discription={'seminars'}
-                                />
-                            </div>
-                            <div>
-                                <TrendingAreaRight
-                                img={ApzinatibaSporta}
-                                title={"APZINĀTĪBA SPORTĀ UN SABALANSĒTA UZTURA NOZĪME SPORTĀ"}
-                                discription={'seminars'}
-                                />
-                            </div>
+                        )}
                         </div>
                     </div>
                 </div>

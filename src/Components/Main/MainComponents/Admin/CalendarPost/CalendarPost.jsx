@@ -45,7 +45,7 @@ export default function CalendarPost() {
             </div>
         </div>
         <div className='button'>
-            <button>Publicet</button>
+            <button type='submit'>Publicet</button>
         </div>
     </div>
   )

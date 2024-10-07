@@ -1,30 +1,22 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import CompetitonBlock from './CompetitonComponents/CompetitionBlock'
 import "./Competition.scss"
-import EUR_Champ from './img/EUR_Championship.jpg'
-import Ghetto from './img/ghetto_fight_ventspils.jpg'
-import LiepajaOpen from './img/Liepaja_Open2023.jpg'
-import latvijaOpen from './img/LV_Open2023.jpeg'
 
 export default function Competition() {
-const comps = [
-{img: EUR_Champ, link: 'funcatcher.lv', title:"Europe Championship", place:"EUR"},
-{img: Ghetto, link: 'funcatcher.lv', title:"Ghetto Fight", place:"LV"},
-{img: LiepajaOpen, link: 'funcatcher.lv', title:"Liepaja Open", place:"LV"},
-{img: latvijaOpen, link: 'funcatcher.lv', title:"Latvija Open", place:"LV"}
-]
 
-  const [activeTab, setActiveTab] = useState("Visi");
+  const [competition, setCompetition] = useState([]);
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
-
-  const filteredComp = comps.filter(comp =>{
-    if(activeTab === "Visi") return true;
-    return comp.place === activeTab;
-  })
+  useEffect(()=>{async function get_competitions() {
+    const url = "http://87.228.26.161:8020/api/get_competitions"
+    const result = await fetch(url)
+    const data = await result.json()
+    console.log(data)
+    setCompetition(data)
+}
+get_competitions()}
+,[])
   
   return (
 
@@ -34,21 +26,23 @@ const comps = [
               <h3 className='competition-title'>
                 Sacensibas
               </h3>
-              <ul className='competition-menu'> 
-                <li className={activeTab === "Visi" ? 'active':''} onClick={()=>handleTabClick("Visi")}>Visi</li>
-                <li className={activeTab === "LV" ? 'active':''} onClick={()=>handleTabClick("LV")}>Latvijas</li>
-                <li className={activeTab === "EUR" ? 'active':''} onClick={()=>handleTabClick("EUR")}>Eiropas</li>
-                <li className={activeTab === "World" ? 'active':''} onClick={()=>handleTabClick("World")}>Pasaules</li>
-              </ul>
             </div>
             <div className='competition-block'>
-              {filteredComp.map((comp) =>(
-                <CompetitonBlock 
-                img={comp.img}
-                link={comp.link}
-                title={comp.title}
-                place={comp.place}
-              />
+              {competition.slice(0,4).map((obj) =>(
+                <div key={obj["id"]} className="weekly-single club-elem">
+                  <div className="weekly-img">
+                      <img 
+                      className='img-clubs' 
+                      src={"http://87.228.26.161:8020/upload/" + obj["image"]} 
+                      alt="img"
+                      />
+                  </div>
+                  <div className="weekly-caption">
+                      <h4>
+                      <Link to={`/PublicateCompetition/${obj.id}`}>{obj.header}</Link>
+                        </h4>
+                  </div>
+                </div> 
               ))}
             </div>
         </div>

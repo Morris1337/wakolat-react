@@ -28,11 +28,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/admin' element={<Admin />} />
-          <Route path='/publicatePosts' element={<PublicatePosts/>}/>
-          <Route path='/PublicateCompetition' element={<PublicateCompetition/>}/>
-          <Route path='/PublicateSeminar' element={<PublicateSeminar/>}></Route>
-          {/* <Route path="/" element={<SeparationPosts />} />*/}
-          {/* <Route path="/post" element={<PublicatePosts />} />  */}
+          <Route path='/publicatePosts/:id' element={<PublicatePosts/>}/>
+          <Route path='/PublicateCompetition/:id' element={<PublicateCompetition/>}/>
+          <Route path='/PublicateSeminar/:id' element={<PublicateSeminar/>}/>
           <Route path="/documents" element={<Documents />}>
             <Route path="noteikumi" element={<Noteikumi />} />
             <Route path="dopings" element={<Dopings />} />

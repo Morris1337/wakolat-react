@@ -1,13 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import SeminarBlock from './SeminarComponents/SeminarBlock';
-import ApzinatibaSporta from "./img/ApzinatibaSporta.jpg"
-import SitSporta from "./img/SitSporta.png"
-import TraumaSporta from "./img/TraumaSporta.jpeg"
-import VFSBērniem from "./img/VFSBērniem.jpg"
+import PublicateSeminar from './SeminarPosts/PublicateSeminar';
 import './Seminar.scss'
 
 // import OwlCarousel from 'next-owl-carousel';
@@ -17,7 +15,32 @@ import './Seminar.scss'
 
 
 export default function Seminar() {
-    const [settings, setSettings] = useState ({
+    const [seminars, setSeminars] = useState([]);
+    
+    useEffect(() => {
+        async function get_seminars() {
+            try {
+                const url = "http://87.228.26.161:8020/api/get_seminars";
+                const result = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json', // Ensure the content type is JSON
+                    },
+                });
+                if (!result.ok) {
+                    throw new Error(`HTTP error! status: ${result.status}`);
+                }
+                const data = await result.json();
+                console.log(data);
+                setSeminars(data);
+            } catch (error) {
+                console.error("Failed to fetch seminars:", error);
+            }
+        }
+        get_seminars();
+    }, []);
+
+    const [settings, setSettings] = useState({
         dots: true,
         infinite: true,
         slidesToShow: 4,
@@ -26,68 +49,59 @@ export default function Seminar() {
         speed: 2000,
         autoplaySpeed: 2000,
         cssEase: "linear",
-      });
+    });
 
-      const updateSettings = () =>{
+    const updateSettings = () => {
         const screenWidth = window.innerWidth;
         let slidesToShow = 4;
-    
-        if(screenWidth <= 1400){
-            slidesToShow = 4
+
+        if (screenWidth <= 1400) {
+            slidesToShow = 4;
         }
-        if(screenWidth <= 800){
-            slidesToShow = 2
+        if (screenWidth <= 800) {
+            slidesToShow = 2;
         }
-        if(screenWidth <= 375){
-            slidesToShow = 1
+        if (screenWidth <= 375) {
+            slidesToShow = 1;
         }
 
         setSettings(prevSettings => ({
             ...prevSettings,
             slidesToShow: slidesToShow,
         }));
-      };
+    };
 
-      useEffect(() =>{
+    useEffect(() => {
         updateSettings();
         window.addEventListener('resize', updateSettings);
-        return()=>{
+        return () => {
             window.removeEventListener('resize', updateSettings);
-        }
-      },[]);
+        };
+    }, []);
+
     return (
-        <div style={{marginTop:'-80px'}} className="carousel-container">
-            <div className='seminar-heading'>
-                <h3>Semenari</h3>
+        <div style={{ marginTop: '-80px' }} className="carousel-container">
+            <div className="seminar-heading">
+                <h3>Semināri</h3>
             </div>
-            <div className='clubs-carousel'>
-                <div className='seminar-list slider-container'>
-                    <Slider {...settings}> 
-                        <div className='block'>
-                            <SeminarBlock 
-                            img={ApzinatibaSporta} 
-                            title={"APZINĀTĪBA SPORTĀ UN SABALANSĒTA UZTURA NOZĪME SPORTĀ"} 
-                            />
-                        </div>
-                        <div className='block'>
-                            <SeminarBlock 
-                            img={SitSporta} 
-                            title={"NOTIKS SEMINĀRS SPORTA SPECIĀLISTIEM"} 
-                            />
-                        </div>
-                        <div className='block' onClick={() => window.location.href = '/PublicateSeminar'}>
-                            <SeminarBlock 
-                            img={VFSBērniem}
-                            title={"Fiziskā sagatavotība ilgtermiņa bērnu "} 
-                            />
-                        </div>
-                        <div className='block'>
-                            <SeminarBlock 
-                            img={TraumaSporta} 
-                            title={"TRAUMAS SPORTĀ UN PIRMĀS PALĪDZĪBAS SNIEGŠANAS PAMATI"} 
-                            />
-                        </div>
-                    </Slider >
+            <div className="clubs-carousel">
+                <div className="seminar-list slider-container">
+                    <Slider {...settings}>
+                        {seminars.map((obj) => (
+                            <div key={obj["id"]} className="weekly-single club-elem">
+                                <div className="weekly-img">
+                                    <img
+                                        className="img-clubs"
+                                        src={"http://87.228.26.161:8020/upload/" + obj["image"]}
+                                        alt="img"
+                                    />
+                                </div>
+                                <div className="weekly-caption">
+                                    <Link to={`/PublicateSeminar/${obj.id}`}>{obj.header}</Link>
+                                </div>
+                            </div>
+                        ))}
+                    </Slider>
                 </div>
             </div>
         </div>

@@ -1,0 +1,14 @@
+/* Настраиваем общий фон редактора и рамки */
+.myCustomTheme{
+    span{
+        background-color: white;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    width: 800px;
+}

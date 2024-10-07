@@ -20,6 +20,11 @@ td {
     color: #fff;
 }
 
+.kalendar{
+    display: flex;
+    justify-content: center;
+}
+
 @media(max-width: 378px){
     table{
         width: 378px!important;
@@ -28,3 +33,4 @@ td {
         width: 378px;
     }
 }
+
