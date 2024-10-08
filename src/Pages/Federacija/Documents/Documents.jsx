@@ -1,9 +1,18 @@
-import React from 'react'
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import React, {useEffect} from 'react'
+import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import './documents.scss'
 
 export default function Documents() {
   const navigate = useNavigate();
+
+  const location = useLocation();
+
+  // Переход по умолчанию к первой графе 'noteikumi' только если путь пуст
+  useEffect(() => {
+    if (location.pathname === '/documents') {
+      navigate('noteikumi');
+    }
+  }, [location.pathname, navigate]);
   return (
     <>
         <nav className='docs_menu'>
