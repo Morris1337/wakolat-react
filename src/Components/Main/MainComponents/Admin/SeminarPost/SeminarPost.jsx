@@ -84,6 +84,7 @@ const formats = [
 
   return (
     <form className='post-component' onSubmit={handleSubmit}>
+      <h2>Seminars</h2>
       <div className='information'>
         <div>
           <label htmlFor="">Virsraksts</label>

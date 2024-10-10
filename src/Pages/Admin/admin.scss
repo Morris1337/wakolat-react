@@ -9,7 +9,15 @@
     }
     .admin-menu{
         .admin-menu-section{
-            
+            li{
+                list-style: none;
+            }
+            button{
+                border-radius: 5px;
+                width: 160px;
+                height: 40px;
+                margin-bottom: 5px;
+            }
         }
     }
     #conteiner-form{
@@ -17,3 +25,32 @@
         margin-top: -150px;
     }
 }
+
+@media (max-width: 800px) {
+    .admin-menu-section {
+        position: relative;
+        z-index: 10;
+        transition: background-color 0.3s ease, transform 0.3s ease; // Плавная анимация для кнопки
+
+        &.active{
+            transform: translateX(53px); // Сдвиг кнопки вправо при активном состоянии
+            width: 120px;
+        }
+        }
+    .menu-toggle-button {
+        position: relative;
+        z-index: 10;
+      display: block; /* Кнопка для управления меню */
+      border-radius: 5px;
+            width: 60px;
+            height: 40px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease; // Плавная анимация для кнопки
+
+    &.active{
+        transform: translateX(53px); // Сдвиг кнопки вправо при активном состоянии
+        width: 120px;
+    }
+    }
+  }

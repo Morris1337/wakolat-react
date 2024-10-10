@@ -50,4 +50,20 @@
             height: 40px;
         }
     }
+
+    @media (max-width: 375px) {
+        margin-top: 200px;
+        .information{        
+            display: flex;
+            flex-direction: column;
+        }
+
+        .more{
+            @include flex-center;
+            width: 350px;
+        }
+         
+      }
+
+    
 }
