@@ -52,10 +52,8 @@ get_news()}
                                         />
                                         <div class="trend-top-cap">
                                             <span>News</span>
-                                            <Link
-                                            to={`/PublicatePosts/${obj.id}`}
-                                            >
-                                                <h2><a href="details.html">{obj["header"]}</a></h2>
+                                            <Link to={`/PublicatePosts/${obj.id}`}>
+                                            <h2><a>{obj["header"]}</a></h2>
                                             </Link>
                                         </div>
                                     </div>
@@ -64,7 +62,7 @@ get_news()}
                             <div class="trend-block-bottom">
                             {news.slice(1,4).map((obj) =>  
                                 <div class="row trend-block-bottom">
-                                    <div onClick={() => window.location.href = '/PublicateCompetition'}>                               
+                                    <div /*onClick={() => window.location.href = '/PublicateCompetition'}*/>                               
                                         <div className="trend-block-bottom">
                                             <div  key={obj["id"]} className="single-bottom mb-35">
                                                 <div className="trend-bottom-img mb-30">
@@ -76,15 +74,14 @@ get_news()}
                                                 </div>
                                                 <div className="trend-bottom-cap">
                                                     <h4>
-                                                        {/* <a className='bottom-post-name-text' href="#">{obj["header"]}</a> */}
-                                                        <Link to={`/PublicatePosts/${obj.id}`}>{obj.header}</Link>
-                                                        </h4>
+                                                    <Link to={`/PublicatePosts/${obj.id}`}>{obj.header}</Link>
+                                                    </h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                )}
+                            )}
                             </div>
     
                         </div>
@@ -93,7 +90,7 @@ get_news()}
                             <div>
                                 <div class="trand-right-single d-flex">
                                     <div class="trand-right-img">
-                                        <img src={"https://test-api.zapto.org:8001/upload/" + obj["image"]} alt=""/>
+                                        <img src={"http://87.228.26.161:8020/upload/" + obj["image"]} alt="img"/>
                                     </div>
                                     <div class="trand-right-cap">
                                         {/* <span class="color1">{discription}</span> */}

@@ -39,6 +39,7 @@ function App() {
             <Route path='valdesSedesProtokoli' element={<ValdesSedesProtokoli/>}/>
             <Route path='budzets' element={<Budzets/>}/>
             <Route path='sacensibuRezultati' element={<SacensibuRezultati/>}/>
+            <Route path="" element={<Navigate to="noteikumi" />} />
           </Route>
           <Route path='/Biedri' element={<Biedri/>}></Route>
           <Route path='/Kalendars' element={<Kalendars/>}></Route>
