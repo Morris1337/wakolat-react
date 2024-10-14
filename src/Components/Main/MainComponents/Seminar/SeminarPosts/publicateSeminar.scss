@@ -76,7 +76,7 @@
         // @media (max-width: 800px) {
         //     flex-direction: column;
         // }
-        @media (max-width: 375px) {
+        @media (max-width: 400px) {
             @include grid-template-columns;
             grid-template-columns: repeat(1, 300px);
             .weekly-img{

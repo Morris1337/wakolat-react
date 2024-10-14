@@ -41,7 +41,7 @@ const Header = () => {
                 />
               <Navbar.Collapse id='responsive-navbar-nav' className="justify-content-center align-items-center">
               <Nav className="align-items-center computer">
-                      <Nav.Link className='menu-link' href='/'>Home</Nav.Link>
+                      <Nav.Link className='menu-link'><Link to={'/main'}>Home</Link></Nav.Link>
                       <Nav.Link className='menu-link click-open-submenu' id='federacija' href='/'>Federacija
                       <ul class="submenu">
                         <li id="liDoc" class="li-header-item"><Link to={'/Documents'}>Dokumenti</Link>
@@ -79,10 +79,12 @@ const Header = () => {
                         </Link>  
                         </PasswordProtectedLink>
                         </Nav.Link>
-                  </Nav>
+              </Nav>
 
                 <Nav className="align-items-center mobile">
-                  <Nav.Link className='menu-link' href='/'>Home</Nav.Link>
+                  <Nav.Link className='menu-link'>
+                    <Link to={'/main'}>Home</Link>
+                  </Nav.Link>
 
                   <Nav.Link 
                     className='menu-link click-open-submenu' 

@@ -17,7 +17,7 @@
                 background-color: #5756569a;
             };
         }
-        @media screen and (max-width: 375px) {
+        @media screen and (max-width: 400px) {
             @include grid-template-columns;
             grid-template-columns: repeat(2, 130px);
             li{
@@ -53,7 +53,7 @@
                 background-color: rgb(168, 166, 166);
             }
         }
-        @media screen and (max-width: 375px) {
+        @media screen and (max-width: 400px) {
             @include grid-template-columns;
             grid-template-columns: repeat(2, 150px);
         }
@@ -65,7 +65,7 @@
             margin: 5px;
             width: 180px !important;
             height: 60px !important;
-            @media screen and (max-width: 375px) {
+            @media screen and (max-width: 400px) {
                 width: 140px !important;
                 height: 60px !important;
                 margin: 10px;
@@ -81,7 +81,7 @@
         margin-top: 30px;
         width: 900px;
     }
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 400px) {
         div{
             width: 300px !important;
         }

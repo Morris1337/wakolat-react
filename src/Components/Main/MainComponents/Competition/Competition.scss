@@ -6,7 +6,7 @@
     .competition-head{
         @include flex-center;
         margin-left: 60px;
-        @media (max-width: 375px) {
+        @media (max-width: 400px) {
             flex-direction: column;
             
         }
@@ -23,7 +23,7 @@
                 list-style: none;
                 cursor: pointer;
             }
-            @media (max-width: 375px) {
+            @media (max-width: 400px) {
                 margin-left: 0;
                 li{
                     margin: 0 10px;
@@ -46,7 +46,7 @@
                 height: 250px; // Размер квадрата
                 overflow: hidden;
                 position: relative;
-                @media (max-width: 375px) {
+                @media (max-width: 400px) {
                     width: 350px;
                     
                 }
@@ -76,7 +76,7 @@
         // @media (max-width: 800px) {
         //     flex-direction: column;
         // }
-        @media (max-width: 375px) {
+        @media (max-width: 400px) {
             @include grid-template-columns;
             grid-template-columns: repeat(1, 300px);
             .weekly-img{

@@ -17,7 +17,7 @@ import VFSBērniem from "../Seminar/img/VFSBērniem.jpg"
 const TrendingArea = () => {
     const [news, setNews] = useState([])
     useEffect(()=>{async function get_news() {
-        const url = "http://87.228.26.161:8020/api/get_news"
+        const url = "http://164.92.147.233:8020/api/get_news"
         const result = await fetch(url)
         const data = await result.json()
         console.log(data)
@@ -46,7 +46,7 @@ get_news()}
                                 <div key={obj["id"]} class="trending-top mb-30">
                                     <div class="trend-top-img">
                                         <img 
-                                        src={"http://87.228.26.161:8020/upload/" + obj["image"]} 
+                                        src={"http://164.92.147.233:8020/upload/" + obj["image"]} 
                                         alt=""
                                         className='top-img'
                                         />
@@ -67,7 +67,7 @@ get_news()}
                                             <div  key={obj["id"]} className="single-bottom mb-35">
                                                 <div className="trend-bottom-img mb-30">
                                                     <img 
-                                                    src={"http://87.228.26.161:8020/upload/" + obj["image"]} 
+                                                    src={"http://164.92.147.233:8020/upload/" + obj["image"]} 
                                                     alt="img"
                                                     className='bottom-img'
                                                     />
@@ -90,7 +90,7 @@ get_news()}
                             <div>
                                 <div class="trand-right-single d-flex">
                                     <div class="trand-right-img">
-                                        <img src={"http://87.228.26.161:8020/upload/" + obj["image"]} alt="img"/>
+                                        <img src={"http://164.92.147.233:8020/upload/" + obj["image"]} alt="img"/>
                                     </div>
                                     <div class="trand-right-cap">
                                         {/* <span class="color1">{discription}</span> */}

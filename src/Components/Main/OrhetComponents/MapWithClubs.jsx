@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';  // Импортируем L из Leaflet
 import '../../../App.css'
 
+import customMarkerIcon from './geo-alt-fill.svg';
 
 const center = [56.970526405300845, 24.105032172615537];
 
@@ -30,6 +32,14 @@ const clubs = [
   // Добавьте остальные клубы
 ];
 
+// Создаем объект кастомной иконки
+const customIcon = new L.Icon({
+  iconUrl: customMarkerIcon, // Путь к изображению маркера
+  iconSize: [25, 41], // Размеры иконки
+  iconAnchor: [12, 41], // Точка якоря (центр маркера)
+  popupAnchor: [0, -41], // Точка появления попапа
+});
+
 const MapWithClubs = () => {
   const [zoom, setZoom] = useState(window.innerWidth >= 375 ? 7.5 : 20);
 
@@ -55,7 +65,7 @@ const MapWithClubs = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {clubs.map(club => (
-        <Marker key={club.id} position={[club.lat, club.lng]}>
+        <Marker key={club.id} position={[club.lat, club.lng]} icon={customIcon}>
           <Popup>
             <h3>{club.name}</h3>
             <p>{club.address}</p>

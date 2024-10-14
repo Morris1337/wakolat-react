@@ -27,13 +27,13 @@
             @media (max-width: 800px) {
                 width: 270px;
             }
-            @media (max-width: 375px) {
+            @media (max-width: 400px) {
                 width: 200px;
                 height: 200px;
             }
         }
     }
-    @media (max-width: 375px) {
+    @media (max-width: 400px) {
         height: 200px;
     }
 }
@@ -45,7 +45,7 @@
     transform: translateX(0);
     @media (max-width: 800px) {
     }
-    @media (max-width: 375px) {
+    @media (max-width: 400px) {
     }
 }
 

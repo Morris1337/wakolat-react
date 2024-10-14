@@ -24,7 +24,7 @@
             @media (max-width: 800px) {
                 flex-direction: column;
             }
-            @media (max-width: 375px) {
+            @media (max-width: 400px) {
                 .one{
                     width: 320px;
                 }
@@ -65,7 +65,7 @@
                         margin-top: 40px;
                     }
                 }
-                @media (max-width: 375px) {
+                @media (max-width: 400px) {
                     @include grid-template-columns;
                     grid-template-columns: repeat(1, 300px);
                     justify-items: center; 
@@ -111,7 +111,7 @@
                 }
             } 
         }
-        @media (max-width: 375px) {
+        @media (max-width: 400px) {
             @include grid-template-columns;
             grid-template-columns: repeat(1, 300px);
             justify-items: center;

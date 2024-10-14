@@ -10,7 +10,7 @@ export default function PublicateCompetition() {
 
 useEffect(() => {
     async function get_one_competition() {
-      const url = "http://87.228.26.161:8020/api/get_one_competition/"; // Передаем ID в запрос
+      const url = "http://164.92.147.233:8020/api/get_one_competition/"; // Передаем ID в запрос
       try {
         const result = await fetch(url, {
           method: 'POST', // Метод запроса
@@ -41,7 +41,7 @@ useEffect(() => {
       <div key={publicateCompetition.id} className="about-right mb-90">
         {/* Файл изображения */}
         <div className="about-img">
-          <img src={`http://87.228.26.161:8020/upload/${publicateCompetition.image}`} alt="Kikboksa čempionāts 2023" />
+          <img src={`http://164.92.147.233:8020/upload/${publicateCompetition.image}`} alt="Kikboksa čempionāts 2023" />
 
           {/* Заголовок */}
           <div className="section-tittle mb-30 pt-30 competition-name">

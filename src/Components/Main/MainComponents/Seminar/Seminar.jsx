@@ -20,7 +20,7 @@ export default function Seminar() {
     useEffect(() => {
         async function get_seminars() {
             try {
-                const url = "http://87.228.26.161:8020/api/get_seminars";
+                const url = "http://164.92.147.233:8020/api/get_seminars";
                 const result = await fetch(url, {
                     method: 'GET',
                     headers: {
@@ -92,7 +92,7 @@ export default function Seminar() {
                                 <div className="weekly-img">
                                     <img
                                         className="img-clubs"
-                                        src={"http://87.228.26.161:8020/upload/" + obj["image"]}
+                                        src={"http://164.92.147.233:8020/upload/" + obj["image"]}
                                         alt="img"
                                     />
                                 </div>

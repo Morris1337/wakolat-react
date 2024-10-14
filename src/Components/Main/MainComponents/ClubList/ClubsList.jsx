@@ -50,7 +50,7 @@ export default function FederationClubs() {
     if(screenWidth <= 800){
         slidesToShow = 3
     }
-    if(screenWidth <= 375){
+    if(screenWidth <= 400){
         slidesToShow = 2
     }
 

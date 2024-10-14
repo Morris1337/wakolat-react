@@ -26,7 +26,7 @@ function App() {
       <div className='App'>
         <Header />
         <Routes>
-          <Route path='/' element={<Main />} />
+          <Route path='/main' element={<Main />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/publicatePosts/:id' element={<PublicatePosts/>}/>
           <Route path='/PublicateCompetition/:id' element={<PublicateCompetition/>}/>

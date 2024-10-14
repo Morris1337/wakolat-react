@@ -13,7 +13,7 @@ export default function PublicatePosts() {
 
     useEffect(() => {
         async function get_one_news() {
-        const url = "http://87.228.26.161:8020/api/get_one_news/"; // Передаем ID в запрос
+        const url = "http://164.92.147.233:8020/api/get_one_news/"; // Передаем ID в запрос
         try {
             const result = await fetch(url, {
             method: 'POST', // Метод запроса
@@ -51,7 +51,7 @@ export default function PublicatePosts() {
   return (
     <div key={publicateNews.id} className="publication-page">
         <div class="about-img">
-            <img src={`http://87.228.26.161:8020/upload/${publicateNews.image}`} alt=""/>
+            <img src={`http://164.92.147.233:8020/upload/${publicateNews.image}`} alt=""/>
         </div>
         <div class="section-tittle">
             <h3>{publicateNews.header}</h3>

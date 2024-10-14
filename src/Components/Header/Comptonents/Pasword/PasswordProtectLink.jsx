@@ -38,7 +38,7 @@ const PasswordProtectedLink = () => {
     formData.append('password', password);
   
     try {
-      const response = await fetch('http://87.228.26.161:8020/auth/login', {
+      const response = await fetch('http://164.92.147.233:8020/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
