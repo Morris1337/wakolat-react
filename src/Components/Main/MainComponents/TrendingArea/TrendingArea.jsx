@@ -41,7 +41,7 @@ get_news()}
                         </div>
                     </div>
                     <div class="row trend-center">
-                        <div class="col-lg-8">
+                        <div class="trend-center-size">
                             {news.slice(0,1).map((obj) =>  
                                 <div key={obj["id"]} class="trending-top mb-30">
                                     <div class="trend-top-img">

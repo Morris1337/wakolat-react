@@ -10,12 +10,12 @@
         position: relative;
         object-fit: cover;
         height: 450px;
-        @media (max-width: 375px) {
+        @media (max-width: 400px) {
             width: 350px;
             height: auto;
         }
     }
-    @media (max-width: 375px) {
+    @media (max-width: 400px) {
         width: 360px;
     }
 }
@@ -51,7 +51,7 @@ span{
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 400px) {
     .trend-block-bottom{
         grid-template-columns: repeat(1, 300px);
         justify-content: center;
@@ -59,7 +59,10 @@ span{
 }
 
 .trend-center{
-    @include flex-center
+    @include flex-center;
+    .trend-center-size{
+        width: 800px;
+    }
 }
 
 .trend-right-blocks{

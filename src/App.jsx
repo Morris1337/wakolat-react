@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import {HashRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Header from './Components/Header/Header.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import Main from './Components/Main/Main.jsx';
@@ -22,10 +22,11 @@ import Documents from './Pages/Federacija/Documents/Documents.jsx';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className='App'>
         <Header />
         <Routes>
+          <Route path="/" element={<Navigate to="/main" />} />
           <Route path='/main' element={<Main />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/publicatePosts/:id' element={<PublicatePosts/>}/>
@@ -46,7 +47,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
