@@ -111,7 +111,7 @@ function PublicateSeminar() {
       </div>
       <br/>
       <div className='text-competition-content'>
-            <div  dangerouslySetInnerHTML={{ __html: publicateSeminar.text }}/>
+            <div className='seminar-text' dangerouslySetInnerHTML={{ __html: publicateSeminar.text }}/>
         </div>
     </div>
     </>

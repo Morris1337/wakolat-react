@@ -19,7 +19,7 @@
             overflow: hidden;
             position: relative;
             img{
-                width: 100%;
+                width: 90%;
                 height: 100%;
                 object-fit: cover;
                 object-position: center;
@@ -34,7 +34,7 @@
         }
     }
     @media (max-width: 400px) {
-        height: 200px;
+        height: 232px;
     }
 }
 
@@ -53,6 +53,18 @@
     display: inline-block; /* Отображаем элементы в одной линии */
     margin-right: 20px; /* Отступ между элементами */
     transition: transform 0.5s ease; /* Добавляем плавный переход */
+}
+
+.weekly-caption{
+    h4{
+        a{
+            text-decoration: none;      
+            border-radius: 5px;
+            padding: 5px;
+            color: black!important;
+            
+        }
+    }
 }
 
 

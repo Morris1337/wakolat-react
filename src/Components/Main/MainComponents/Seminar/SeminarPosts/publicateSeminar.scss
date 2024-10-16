@@ -85,3 +85,9 @@
         }
     }
 }
+.seminar-text{
+    width: 770px!important;
+    @media (max-width: 375px) {
+        width: 350px;
+    }
+}

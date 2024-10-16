@@ -30,7 +30,7 @@ get_competitions()}
             <div className='competition-block'>
               {competition.slice(0,4).map((obj) =>(
                 <div key={obj["id"]} className="weekly-single club-elem">
-                  <div className="weekly-img">
+                  <div className="weekly-img-competition">
                       <img 
                       className='img-clubs' 
                       src={"http://164.92.147.233:8020/upload/" + obj["image"]}

@@ -28,7 +28,7 @@ export default function YouTube() {
     
         if (screenWidth <= 1200) numVisible = 3;
         if (screenWidth <= 800) numVisible = 2;
-        if (screenWidth <= 375) numVisible = 0;
+        if (screenWidth <= 400) numVisible = 0;
     
         setVisibleVideos(videoList.slice(0, numVisible));
       };
@@ -78,7 +78,6 @@ export default function YouTube() {
                     <YouTubeComponents
                     key={index}
                     link={link}
-                    title="YouTube Video Player"
                     isActive={currentVideoIndex === index}
                     onClick={() => setCurrentVideoIndex(index)}
                     />

@@ -17,6 +17,25 @@
     }
     @media (max-width: 400px) {
         width: 360px;
+        .trend-top-cap{
+            a{
+                
+                h2{
+                    margin-right: 12px;
+                }
+            }
+        }
+    }
+    .trend-top-cap{
+        a{
+            text-decoration: none;
+            h2{
+                background-color: rgba(99, 98, 98, 0.616);
+                border-radius: 5px;
+                padding: 5px;
+                color: white!important;
+            }
+        }
     }
 }
 
@@ -37,8 +56,17 @@ span{
     @include grid-template-columns;
     grid-template-columns: repeat(3, 233px);
     column-gap: 10px;
-    margin-top: 25px;
+    margin-top: 75px;
     grid-row: 10px;
+    .trend-bottom-cap{
+        a{
+            text-decoration: none;      
+            border-radius: 5px;
+            padding: 5px;
+            color: black!important;
+            
+        }
+    }
 }
 @media screen and (max-width: 1199px) {
     .trend-block-bottom{
@@ -55,6 +83,9 @@ span{
     .trend-block-bottom{
         grid-template-columns: repeat(1, 300px);
         justify-content: center;
+        .single-bottom{
+            margin-top: 10px;
+        }
     }
 }
 
@@ -70,6 +101,9 @@ span{
     div{
         margin-top: 10px;
     }
+    @media screen and (max-width: 400px) { 
+        margin-top: 20px!important;  
+    }
 }
 
 .trand-right-single{
@@ -81,11 +115,15 @@ span{
             object-fit: cover;
         }
     }
-    .trand-right-cap{
-        h4{
-            font-size: 14px;
-            width: 150px;
+    .trand-right-cap{ 
+        a{
+            text-decoration: none;      
+            border-radius: 5px;
+            padding: 5px;
+            color: black!important;
+            
         }
+        
     }
 }
 

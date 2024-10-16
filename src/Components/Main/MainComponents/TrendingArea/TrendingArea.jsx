@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import TrendingAreaTop from './TrendingAreaComponents/TrendingAreaTop.jsx';
 import TrendingAreaBottom from './TrendingAreaComponents/TrendingAreaBottom.jsx';
 import TrendingAreaRight from './TrendingAreaComponents/TrendingAreaRight.jsx';
+import "./TrendingArea.scss";
 import './TrendingAreaComponents/TrendingAreaComponents.css'
 import './TrendingAreaComponents/TrendingAreaComponents.css'
 import FederationClubs from '../ClubList/ClubsList.jsx';
@@ -53,7 +54,7 @@ get_news()}
                                         <div class="trend-top-cap">
                                             <span>News</span>
                                             <Link to={`/PublicatePosts/${obj.id}`}>
-                                            <h2><a>{obj["header"]}</a></h2>
+                                            <h2>{obj["header"]}</h2>
                                             </Link>
                                         </div>
                                     </div>
@@ -61,9 +62,9 @@ get_news()}
                             )}
                             <div class="trend-block-bottom">
                             {news.slice(1,4).map((obj) =>  
-                                <div class="row trend-block-bottom">
+                                <div class="row">
                                     <div /*onClick={() => window.location.href = '/PublicateCompetition'}*/>                               
-                                        <div className="trend-block-bottom">
+                                        <div>
                                             <div  key={obj["id"]} className="single-bottom mb-35">
                                                 <div className="trend-bottom-img mb-30">
                                                     <img 

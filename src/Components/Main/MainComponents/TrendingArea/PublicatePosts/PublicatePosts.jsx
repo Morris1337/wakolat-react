@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import './publicatePosts.scss'
+import ScrollToTop from '../../../OrhetComponents/ScrollToTop';
 import img from'./eiropasIzlase.jpg'
 import fb from './icon-fb.png'
 import ins from './icon-ins.png'
@@ -50,6 +51,7 @@ export default function PublicatePosts() {
   };
   return (
     <div key={publicateNews.id} className="publication-page">
+      <ScrollToTop />
         <div class="about-img">
             <img src={`http://164.92.147.233:8020/upload/${publicateNews.image}`} alt=""/>
         </div>

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './publicateCompetition.scss';
 import topImg from './Baltic-Competition.png'; 
 import Category from './Category.png';
+import ScrollToTop from '../../../OrhetComponents/ScrollToTop';
 
 export default function PublicateCompetition() {
   const { id } = useParams(); // Получаем id из URL
@@ -38,10 +39,11 @@ useEffect(() => {
   // Отображаем информацию о соревновании
   return (
     <>
+      <ScrollToTop />
       <div key={publicateCompetition.id} className="about-right mb-90">
         {/* Файл изображения */}
         <div className="about-img">
-          <img src={`http://164.92.147.233:8020/upload/${publicateCompetition.image}`} alt="Kikboksa čempionāts 2023" />
+          <img src={`http://164.92.147.233:8020/upload/${publicateCompetition.image}`} alt="Top-Img" />
 
           {/* Заголовок */}
           <div className="section-tittle mb-30 pt-30 competition-name">
@@ -109,7 +111,7 @@ useEffect(() => {
         </div>
         <br />
         <div className='compettition-category'>
-          <img src={Category} alt="Category" />
+          <img src={`http://164.92.147.233:8020/upload/${publicateCompetition.image_second}`} alt="top-img" />
         </div>
         <div className='text-competition-content'>
           <div 
