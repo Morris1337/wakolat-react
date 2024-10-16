@@ -91,7 +91,7 @@ export default function Seminar() {
                             <div key={obj["id"]} className="weekly-single club-elem">
                                 <div className="weekly-img">
                                     <img
-                                        className="img-clubs"
+                                        // className="img-clubs"
                                         src={"http://164.92.147.233:8020/upload/" + obj["image"]}
                                         alt="img"
                                     />
