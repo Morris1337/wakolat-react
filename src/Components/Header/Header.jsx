@@ -57,7 +57,7 @@ const Header = () => {
                             </ul>
                         </li>
                         <li class="li-header-item"><Link to={"/Biedri"}>Biedri</Link></li>
-                        <li class="li-header-item"><a class="li-header-link" href="valde.html">Valde</a></li>
+                        <li class="li-header-item"><Link to={"/Valde"}>Valde</Link></li>
                         <li class="li-header-item"><a class="li-header-link" href="lkfIzlase.html">LKF izlase</a></li>
                         <li class="li-header-item"><a class="li-header-link" href="tiesniesi.html">Tiesneši</a></li>
                         <li id="komis" class="li-header-item"><a class="li-header-link" href="">Komisijas</a>
@@ -116,7 +116,7 @@ const Header = () => {
                         )}
                       </li>
                       <li className="li-header-item"><Link to={"/Biedri"}>Biedri</Link></li>
-                      <li className="li-header-item"><a className="li-header-link" href="valde.html">Valde</a></li>
+                      <li className="li-header-item"><Link to={"/Valde"}>Valde</Link></li>
                       <li className="li-header-item"><a className="li-header-link" href="lkfIzlase.html">LKF izlase</a></li>
                       <li className="li-header-item">
                         <a onClick={toggleKomisijas} style={{ cursor: 'pointer' }}>Komisijas</a>

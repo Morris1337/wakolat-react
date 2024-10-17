@@ -1,0 +1,115 @@
+@mixin displayCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6, p, hr{
+    padding: 0;
+    margin: 0;
+    @include displayCenter;
+}
+
+hr{
+    border: solid 1px;
+    margin: 5px;
+}
+
+main{
+    padding: 20px;
+}
+
+.status{
+    font-size: 16px;
+}
+
+
+.valde-president{
+    padding: 10px;
+    @include displayCenter;
+    .valde{
+        width: 194px;
+        z-index: 2;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 200px;
+            height: 190px;
+            object-fit: cover;
+        }
+
+    }
+}
+
+.valde-other{
+    padding: 10px;
+    @include displayCenter;
+    .valde{
+        margin: 20px;
+        width: 194px;
+        z-index: 2;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 200px;
+            height: 190px;
+            object-fit: cover;
+        }
+        h4{
+            font-size: 20px!important;
+        }
+    }
+}
+
+// tiesnieši
+
+.tiesniesi-all{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 600px);
+    justify-items: center;
+    justify-content: center;
+    .tiesniesi{
+        display: grid;
+        grid-template-columns: repeat(2, 200px);
+        margin: 20px;
+        width: 400px;
+        z-index: 2;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 200px;
+            height: 190px;
+            object-fit: cover;
+        }
+        h4{
+            font-size: 20px!important;
+        }
+    }
+}
+
+.izslase-all{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    gap: 20px;
+    justify-items: center;
+    justify-content: center;
+    .izslase{
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        width: 200px;
+        z-index: 2;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 200px;
+            height: 190px;
+            object-fit: cover;
+        }
+        h4{
+            font-size: 20px!important;
+        }
+    }
+}

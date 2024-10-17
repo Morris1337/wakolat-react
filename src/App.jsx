@@ -19,6 +19,7 @@ import Documents from './Pages/Federacija/Documents/Documents.jsx';
   import ValdesSedesProtokoli from './Pages/Federacija/Documents/ValdesSedesProtokoli/ValdesSedesProtokoli.jsx';
   import Budzets from './Pages/Federacija/Documents/Budzets/Budzets.jsx';
   import SacensibuRezultati from './Pages/Federacija/Documents/SacensibuRezultati/SacensibuRezultati.jsx';
+import Valde from './Pages/Federacija/Valde/Valde.jsx';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="" element={<Navigate to="noteikumi" />} />
           </Route>
           <Route path='/Biedri' element={<Biedri/>}></Route>
+          <Route path='/Valde' element={<Valde/>}></Route>
           <Route path='/Kalendars' element={<Kalendars/>}></Route>
         </Routes>
         <Footer />
