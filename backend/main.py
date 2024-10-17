@@ -134,15 +134,19 @@ def get_calendar(
 def add_news(
     header: str = Form(...),
     image: UploadFile = File(...),  # Обработка файла,
+    file: Optional[UploadFile] = File(None),
     text: str = Form(...),
     date: str = Form(...)
 ) -> None:
+    
+    result = save_file(file) if file else None
     
     filename = save_file(image)
     db_manager.add_news(header = header,
                         image = filename,
                         text = text,
-                        date = date
+                        date = date,
+                        file = result
                         )
     return
 

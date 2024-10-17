@@ -14,6 +14,7 @@ class News(BaseModel):
     header: str
     date: str
     image: str
+    file: str
     text: str
 
 

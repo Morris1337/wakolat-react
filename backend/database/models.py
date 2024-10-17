@@ -11,6 +11,7 @@ class News(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     header: Mapped[str] = mapped_column(String(100), nullable=False)
     image: Mapped[str] = mapped_column(String(100), nullable=True)
+    file: Mapped[str] = mapped_column(String(100), nullable=True)
     text: Mapped[str] = mapped_column(Text, nullable=True)
     date: Mapped[str] = mapped_column(String(30), nullable=True)
     

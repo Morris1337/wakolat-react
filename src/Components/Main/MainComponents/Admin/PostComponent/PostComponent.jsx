@@ -8,6 +8,7 @@ export default function PostComponent() {
 // Состояние для хранения данных формы
   const [header, setHeader] = useState("");
   const [images, setImages] = useState(null);
+  const [file, setFile] = useState(null);
   const [date, setDate] = useState("");
   const [text, setText] = useState("");
 
@@ -19,6 +20,7 @@ export default function PostComponent() {
     const formData = new FormData();
     formData.append("header", header);
     formData.append("image", images);  // предполагается, что загружается один файл
+    formData.append("file", file);
     formData.append("text", text);
     formData.append("date", date);
 
@@ -94,6 +96,13 @@ const formats = [
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 />
+            <div>
+                <label htmlFor="">File</label>
+                <input 
+                type="file" 
+                onChange={(e) => setFile(e.target.files[0])}
+                />
+            </div>
             </div>
         </div>
         <div className='more'>

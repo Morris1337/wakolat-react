@@ -21,10 +21,10 @@ class DB_manager:
         "создание БД и таблиц"
         Base.metadata.create_all(self.engine)
 
-    def add_news(self, header, image, text, date):
+    def add_news(self, header, image, file, text, date):
         "добавить новость"
         with Session(self.engine) as session:
-            q = insert(News).values(header=header, image=image, text=text, date=date)
+            q = insert(News).values(header=header, image=image, file=file, text=text, date=date)
             session.execute(q)
             session.commit()
         return 
@@ -56,7 +56,7 @@ class DB_manager:
     def get_news(self, count: int = 9) -> list:
         "отдаст 9 заголовков+картинка на главную"
         with Session(self.engine) as session:
-            q = select(News.id, News.header, News.date, News.image)\
+            q = select(News.id, News.header, News.date, News.image, News.file)\
                 .order_by(desc(News.id))\
                 .limit(count)
             res = session.execute(q)
@@ -76,7 +76,7 @@ class DB_manager:
     def get_one_news(self, id: int) -> dict:
         "полностью 1 новость"
         with Session(self.engine) as session:
-            q = select(News.id, News.header, News.text, News.date, News.image)\
+            q = select(News.id, News.header, News.text, News.date, News.image, News.file)\
                 .where(News.id == id)
             row = session.execute(q).fetchone()
         
