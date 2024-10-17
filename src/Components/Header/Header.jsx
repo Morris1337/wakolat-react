@@ -45,7 +45,7 @@ const Header = () => {
                       <Nav.Link className='menu-link click-open-submenu' id='federacija' href='/'>Federacija
                       <ul class="submenu">
                         <li id="liDoc" class="li-header-item"><Link to={'/Documents'}>Dokumenti</Link>
-                            <ul class="submenu">
+                            <ul class="submenu lidoc-sub">
                                 <li class="li-header-item"><Link to={'/documents/noteikumi'}>Noteikumi</Link></li>
                                 <li class="li-header-item"><Link to={'/documents/dopings'}>Dopings</Link></li>
                                 <li class="li-header-item"><Link to={'/documents/gadaParaksti'}>Gada pārskati</Link></li>

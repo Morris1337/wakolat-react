@@ -82,7 +82,7 @@ export default function Seminar() {
     return (
         <div style={{ marginTop: '-80px' }} className="carousel-container">
             <div className="seminar-heading">
-                <h3>Semināri</h3>
+                <h3>Citi pasakumi</h3>
             </div>
             <div className="clubs-carousel">
                 <div className="seminar-list slider-container">

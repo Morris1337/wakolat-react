@@ -63,7 +63,7 @@ export default function YouTube() {
                         </button>
                     </div>
                     <div className='top-caption-span'>
-                        <span class="color1">Multimediju bibliotēka</span>
+                        {/* <span class="color1">Multimediju bibliotēka</span> */}
                     </div>
                 </div>
             </div>
