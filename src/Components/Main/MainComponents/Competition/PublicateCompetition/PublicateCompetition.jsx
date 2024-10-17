@@ -110,9 +110,11 @@ useEffect(() => {
           </div>
         </div>
         <br />
-        <div className='compettition-category'>
-          <img src={`http://164.92.147.233:8020/upload/${publicateCompetition.image_second}`} alt="top-img" />
-        </div>
+        <div className='competition-category'>
+  <a href={`http://164.92.147.233:8020/upload/${publicateCompetition.image_second}`} target="_blank" rel="noopener noreferrer">
+    Открыть PDF
+  </a>
+</div>
         <div className='text-competition-content'>
           <div 
             dangerouslySetInnerHTML={{ __html: publicateCompetition.text }}
