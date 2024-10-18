@@ -4,7 +4,21 @@
 .clubs-heading{
     @include flex-center;
     margin-left: -750px;
-
+    cursor: pointer;
+    h3{
+        padding-bottom: 30px;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+    &:hover{
+        h3{
+            a{
+                color: red;
+            }
+        }
+    }
 }
 
 .clubs-list{

@@ -71,39 +71,43 @@ const formats = [
 
   return (
     <form className='post-component' onSubmit={handleSubmit}>
-      <h2>Publikacija</h2>
-        <div className='information'>
-            <div>
-              <label htmlFor="">Virsraksts</label>
-              <input 
-              type="text" 
-              placeholder='Virsraksts' 
-              value={header}
-              onChange={(e) => setHeader(e.target.value)}
-              />
-            </div>
-            <div>
-                <label htmlFor="">Foto</label>
+        <h2>Publikacija</h2>
+          <div className='information'>
+              <div>
+                <label htmlFor="">Virsraksts</label>
                 <input 
-                type="file" 
-                onChange={(e) => setImages(e.target.files[0])}
+                type="text" 
+                placeholder='Virsraksts' 
+                value={header}
+                onChange={(e) => setHeader(e.target.value)}
                 />
+              </div>
+              <div>
+                  <label htmlFor="">Foto</label>
+                  <input 
+                  type="file" 
+                  onChange={(e) => setImages(e.target.files[0])}
+                  />
+              </div>
+              <div>
+                  <label htmlFor="">Datums</label>
+                  <input 
+                  type="date" 
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  />
+              <div>
+                  <label htmlFor="">File</label>
+                  <input 
+                  type="file" 
+                  onChange={(e) => setFile(e.target.files[0])}
+                  />
+              </div>
             </div>
-            <div>
-                <label htmlFor="">Datums</label>
-                <input 
-                type="date" 
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                />
-            <div>
-                <label htmlFor="">File</label>
-                <input 
-                type="file" 
-                onChange={(e) => setFile(e.target.files[0])}
-                />
-            </div>
-            </div>
+            <label>
+              <input type="checkbox" id="myCheckbox"/>
+              Отметить
+            </label>
         </div>
         <div className='more'>
             <ReactQuill 

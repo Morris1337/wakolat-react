@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -70,7 +71,7 @@ export default function FederationClubs() {
     return (
         <div className="carousel-container">
             <div className='clubs-heading'>
-                <h3>Federācijas klubi</h3>
+                <h3><Link to={"/biedri"}>Federācijas klubi</Link></h3>
             </div>
             <div className='clubs-carousel'>
                 <div className='clubs-list slider-container'>

@@ -1,6 +1,7 @@
 import React from 'react'
 import BiedriCard from './BiedriCard.jsx'
 import BiedriCardWithOutLogo from './BiedriCardWithOutLogo.jsx'
+import ScrollToTop from '../../../Components/Main/OrhetComponents/ScrollToTop.jsx'
 import fcImg from './img/LogoFcKick-2.jpg'
 import bbc from './img/BBC.png'
 import kbs from './img/KBS-Riga-01.png'
@@ -22,6 +23,7 @@ import MapWithClubs from '../../../Components/Main/OrhetComponents/MapWithClubs.
 export default function Biedri() {
   return (
     <>
+    <ScrollToTop />
       <h2 class="display-center">
         Latvijas Kikboksa Federācija Biedri
       </h2>
