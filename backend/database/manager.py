@@ -62,7 +62,7 @@ class DB_manager:
             res = session.execute(q)
         return [{"id": row[0], "header": row[1], "date": row[2], "image": row[3]} for row in res]
         
-    def get_news_champ(self, count: int = 9) -> list:
+    def get_news_champ(self, count: int = None) -> list:
         "отдаст 9 заголовков+картинка на главную"
         with Session(self.engine) as session:
             q = select(News.id, News.header, News.date, News.image)\
