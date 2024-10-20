@@ -10,6 +10,7 @@ export default function PostComponent() {
   const [images, setImages] = useState(null);
   const [file, setFile] = useState(null);
   const [date, setDate] = useState("");
+  const [champ, setChamp] = useState(false);
   const [text, setText] = useState("");
 
   // Функция для обработки отправки формы
@@ -20,7 +21,10 @@ export default function PostComponent() {
     const formData = new FormData();
     formData.append("header", header);
     formData.append("image", images);  // предполагается, что загружается один файл
-    formData.append("file", file);
+    if (file) {
+      formData.append("file", file);
+    }
+    formData.append("champ", champ);
     formData.append("text", text);
     formData.append("date", date);
 
@@ -44,6 +48,10 @@ export default function PostComponent() {
 
   const handleTextChange = (value) => {
     setText(value); // Обновляем состояние при изменении текста
+  };
+
+  const handleCheckboxChange = (e) => {
+    setChamp(e.target.checked); // Обновляем состояние чекбокса
   };
 
  // Модули для панели инструментов
@@ -104,10 +112,13 @@ const formats = [
                   />
               </div>
             </div>
-            <label>
-              <input type="checkbox" id="myCheckbox"/>
-              Отметить
-            </label>
+            <label>Отметить</label>
+              <input 
+              type="checkbox" 
+              name="champ" 
+              checked={champ} 
+              onChange={handleCheckboxChange}
+              />
         </div>
         <div className='more'>
             <ReactQuill 

@@ -2,10 +2,12 @@ from typing import Annotated, Optional
 import shutil
 from random import choices
 from string import ascii_lowercase, digits
+import os
 
 from fastapi import FastAPI, Depends, HTTPException, status, Form, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 from database.manager import db_manager
 from pydantic_models.models import (
@@ -16,8 +18,7 @@ from auth.auth import app_auth
 from auth.models import UserAuth
 from auth.auth import get_current_user
 
-# from auth.auth import get_current_user, app_auth, UserAuth
-# from admin.admin import app_admin
+FILE_DIRECTORY = "upload"
 UPLOAD_FOLDER = "upload"
 
 app = FastAPI()
@@ -59,6 +60,15 @@ def get_news(
 ) -> list[News_mini]:
     res = db_manager.get_news()
     return res
+
+
+@app.get("/api/get_news_champ")
+def get_news(
+    # current_user: Annotated[UserAuth, Depends(get_current_user)]
+) -> list[News_mini]:
+    res = db_manager.get_news_champ()
+    return res
+
 
 @app.get("/api/get_competitions")
 def get_competitions(
@@ -133,20 +143,26 @@ def get_calendar(
 @app.post("/api/add_news")
 def add_news(
     header: str = Form(...),
-    image: UploadFile = File(...),  # Обработка файла,
+    image: UploadFile = File(...), 
     file: Optional[UploadFile] = File(None),
     text: str = Form(...),
-    date: str = Form(...)
+    date: str = Form(...),
+    champ: Optional[bool] = Form(False)
 ) -> None:
     
-    result = save_file(file) if file else None
+    filename_image = save_file(image)
+
+    if file:
+        filename_file = save_file(file)
+    else:
+        filename_file = None
     
-    filename = save_file(image)
     db_manager.add_news(header = header,
-                        image = filename,
+                        image = filename_image,
+                        pdf = filename_file,
                         text = text,
                         date = date,
-                        file = result
+                        champ = champ
                         )
     return
 
@@ -240,6 +256,19 @@ def add_calendar(
                         )
     return
 
+
+
+@app.get("/download/{filename}")
+async def download_file(filename: str):
+    file_path = os.path.join(FILE_DIRECTORY, filename)
+
+    # Проверка существования файла
+    if not os.path.isfile(file_path):
+        raise HTTPException(status_code=404, detail="File not found")
+
+    response = FileResponse(file_path, media_type='application/octet-stream')
+    response.headers["Content-Disposition"] = f"attachment; filename={filename}"
+    return response
 
 
 

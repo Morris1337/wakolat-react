@@ -21,10 +21,10 @@ class DB_manager:
         "создание БД и таблиц"
         Base.metadata.create_all(self.engine)
 
-    def add_news(self, header, image, file, text, date):
+    def add_news(self, header, image, pdf, text, date, champ):
         "добавить новость"
         with Session(self.engine) as session:
-            q = insert(News).values(header=header, image=image, file=file, text=text, date=date)
+            q = insert(News).values(header=header, image=image, pdf=pdf, text=text, date=date, champ=champ)
             session.execute(q)
             session.commit()
         return 
@@ -56,12 +56,22 @@ class DB_manager:
     def get_news(self, count: int = 9) -> list:
         "отдаст 9 заголовков+картинка на главную"
         with Session(self.engine) as session:
-            q = select(News.id, News.header, News.date, News.image, News.file)\
+            q = select(News.id, News.header, News.date, News.image)\
                 .order_by(desc(News.id))\
                 .limit(count)
             res = session.execute(q)
         return [{"id": row[0], "header": row[1], "date": row[2], "image": row[3]} for row in res]
         
+    def get_news_champ(self, count: int = 9) -> list:
+        "отдаст 9 заголовков+картинка на главную"
+        with Session(self.engine) as session:
+            q = select(News.id, News.header, News.date, News.image)\
+                .where(News.champ == True)\
+                .order_by(desc(News.id))\
+                .limit(count)
+            res = session.execute(q)
+        return [{"id": row[0], "header": row[1], "date": row[2], "image": row[3]} for row in res]
+
     # от хотел по 4 на группу - НО ПОКА ПРОСТО СПИСОК ПОСЛЕДНИХ
     def get_competitions(self, count: int = 15) -> list[dict]:
         "сореванования на главную по группам"
@@ -76,14 +86,14 @@ class DB_manager:
     def get_one_news(self, id: int) -> dict:
         "полностью 1 новость"
         with Session(self.engine) as session:
-            q = select(News.id, News.header, News.text, News.date, News.image, News.file)\
+            q = select(News.id, News.header, News.text, News.date, News.image, News.pdf)\
                 .where(News.id == id)
             row = session.execute(q).fetchone()
         
         if not row:
             return None
         
-        return {"id": row[0], "header": row[1], "text": row[2], "date": row[3], "image": row[4]}
+        return {"id": row[0], "header": row[1], "text": row[2], "date": row[3], "image": row[4], "pdf": row[5]}
         
 
     def get_seminars(self, count: int = 6) -> list:

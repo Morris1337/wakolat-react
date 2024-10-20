@@ -58,10 +58,12 @@ export default function PublicatePosts() {
         <div class="section-tittle">
             <h3>{publicateNews.header}</h3>
         </div>
-        <div className='competition-category'>
-          <a href={`http://164.92.147.233:8020/upload/${publicateNews.file}`} target="_blank" rel="noopener noreferrer">
-            Открыть PDF
-          </a>
+        <div className="competition-category">
+          {publicateNews.pdf ? (
+            <a href={`http://164.92.147.233:8020/upload/${publicateNews.pdf}`} target="_blank" rel="noopener noreferrer">
+              Открыть PDF
+            </a>
+          ) : null}
         </div>
         <div class="about-prea">
             <div dangerouslySetInnerHTML={{ __html: publicateNews.text }}/>
