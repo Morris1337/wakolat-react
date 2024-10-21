@@ -3,119 +3,159 @@ import { Link } from 'react-router-dom';
 import './sacensibuRezultati.scss';
 
 export default function SacensibuRezultati() {
-  const [newsChamp, setNewsChamp] = useState([]);
-  const [visibleEvents, setVisibleEvents] = useState({}); // Состояние для отслеживания видимых мероприятий по годам
+  const [newsChamp, setNewsChamp] = useState({});
+  const [counts, setCounts] = useState({});
+  const [activeYear, setActiveYear] = useState(null); // Хранит активный год
 
   useEffect(() => {
-    async function get_news() {
-      const url = "http://164.92.147.233:8020/api/get_news_champ";
-      try {
-        const result = await fetch(url);
-        const data = await result.json();
-        console.log(data);
-        setNewsChamp(data);
-      } catch (error) {
-        console.error("Ошибка при загрузке данных:", error);
-      }
-    }
-    get_news();
+    // Изначально загружаем мероприятия для всех годов
+    getNewsForYear();
   }, []);
 
+  const getNewsForYear = async () => {
+    const url = "http://164.92.147.233:8020/api/get_news_champ";
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}), // Пустое тело запроса
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      console.log('Полученные данные:', data);
+
+      // Группируем данные по годам
+      const groupedByYear = data.reduce((acc, item) => {
+        const postYear = new Date(item.date).getFullYear();
+        if (!acc[postYear]) {
+          acc[postYear] = [];
+        }
+        acc[postYear].push(item);
+        return acc;
+      }, {});
+
+      console.log('Группировка по годам:', groupedByYear);
+      setNewsChamp(groupedByYear);
+
+      // Устанавливаем начальные значения для количества отображаемых мероприятий
+      const initialCounts = {};
+      const currentYear = new Date().getFullYear();
+
+      for (let year = currentYear; year > currentYear - 5; year--) {
+        initialCounts[year] = groupedByYear[year] ? 0 : 0; // Обнуляем счетчик для всех лет
+      }
+      
+      if (groupedByYear[currentYear]) {
+        initialCounts[currentYear] = 4; // Показываем 4 для текущего года
+      }
+
+      console.log('Начальные значения счетчиков:', initialCounts);
+      setCounts(initialCounts);
+    } catch (error) {
+      console.error("Ошибка при загрузке данных:", error);
+    }
+  };
+
   const renderNewsWithYears = () => {
-    let lastYear = null; // Переменная для хранения последнего отображенного года
-    const yearBlocks = []; // Массив для группировки новостей по годам
-    let currentBlock = []; // Текущий блок постов для года
+    const currentYear = new Date().getFullYear();
+    const last5Years = [];
 
-    newsChamp.forEach((obj) => {
-      const postYear = new Date(obj.date).getFullYear(); // Получаем год из даты поста
+    // Формируем массив последних 5 лет
+    for (let year = currentYear; year > currentYear - 5; year--) {
+      last5Years.push(year);
+    }
 
-      // Если год изменился, создаем новый блок для года
-      if (postYear !== lastYear) {
-        // Если есть текущий блок, добавляем его в массив блоков
-        if (currentBlock.length > 0) {
-          yearBlocks.push(
-            <React.Fragment key={lastYear}>
-              <div className="last-competition-block">
-                {currentBlock.slice(0, visibleEvents[lastYear] ? currentBlock.length : 4)} {/* Показываем только 4 или все мероприятия */}
-              </div>
-              {currentBlock.length > 4 && (
+    return last5Years.map((year) => {
+      const yearNews = newsChamp[year] || [];
+      const visibleCount = counts[year] || 0; // Отображаем только visibleCount элементов
+
+      return (
+        <React.Fragment key={year}>
+          <h2
+            className="year-heading"
+            onClick={() => handleYearClick(year)}
+          >
+            {year}
+          </h2>
+          {activeYear === year && ( // Проверяем активный год
+            <div className="last-competition-block">
+              {yearNews.slice(0, visibleCount).map((obj) => (
+                <div className="last-competition" key={obj.id}>
+                  <div className="card">
+                    <div className="img-block">
+                      <img
+                        src={`http://164.92.147.233:8020/upload/${obj.image}`}
+                        alt="img"
+                        className="img"
+                      />
+                    </div>
+                    <div className="date-block">
+                      <h6 className="date">
+                        <p>{obj.date}</p>
+                      </h6>
+                    </div>
+                    <div className="header-block">
+                      <h4>
+                        <Link to={`/PublicatePosts/${obj.id}`}>
+                          {obj.header}
+                        </Link>
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {yearNews.length > visibleCount && (
                 <div className="show-more-container">
-                  <button onClick={() => handleShowMore(lastYear)}>
-                    {visibleEvents[lastYear] ? 'Скрыть' : 'Открыть больше'}
+                  <button onClick={() => handleShowMore(year)}>
+                    Открыть больше
                   </button>
                 </div>
               )}
-            </React.Fragment>
-          );
-        }
-
-        // Добавляем заголовок года
-        yearBlocks.push(
-          <h2 key={postYear} className="year-heading" onClick={() => handleYearClick(postYear)}>
-            {postYear}
-          </h2>
-        );
-
-        currentBlock = []; // Очищаем текущий блок для нового года
-        lastYear = postYear;
-      }
-
-      currentBlock.push(
-        <div className="last-competition" key={obj.id}>
-          <div className="card">
-            <div className="img-block">
-              <img 
-                src={`http://164.92.147.233:8020/upload/${obj.image}`} 
-                alt="img"
-                className="img" 
-              />
-            </div>
-            <div className="date-block">
-              <h6 className="date">
-                <p>{obj.date}</p>
-              </h6>
-            </div>
-            <div className="header-block">
-              <h4>
-                <Link to={`/PublicatePosts/${obj.id}`}>{obj.header}</Link>
-              </h4>
-            </div>
-          </div>
-        </div>
-      );
-    });
-
-    // Добавляем последний год и его посты, если есть
-    if (currentBlock.length > 0) {
-      yearBlocks.push(
-        <React.Fragment key={lastYear}>
-          <div className="last-competition-block">
-            {currentBlock.slice(0, visibleEvents[lastYear] ? currentBlock.length : 4)} {/* Показываем только 4 или все мероприятия */}
-          </div>
-          {currentBlock.length > 4 && (
-            <div className="show-more-container">
-              <button onClick={() => handleShowMore(lastYear)}>
-                {visibleEvents[lastYear] ? 'Aizvert' : 'Atvert vairak'}
-              </button>
+              {visibleCount > 4 && (
+                <div className="show-more-container">
+                  <button onClick={() => handleShowLess(year)}>
+                    Скрыть
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </React.Fragment>
       );
-    }
-
-    return yearBlocks;
+    });
   };
 
   const handleShowMore = (year) => {
-    setVisibleEvents((prev) => ({ ...prev, [year]: !prev[year] })); // Переключаем видимость мероприятий для выбранного года
+    const newCount = (counts[year] || 0) + 4; // Увеличиваем количество отображаемых элементов на 4
+    setCounts((prev) => ({
+      ...prev,
+      [year]: newCount,
+    }));
+  };
+
+  const handleShowLess = (year) => {
+    setCounts((prev) => ({
+      ...prev,
+      [year]: 4, // Сбрасываем количество элементов до 4 для конкретного года
+    }));
   };
 
   const handleYearClick = (year) => {
-    // При клике на год переключаем отображение всех мероприятий этого года
-    setVisibleEvents((prev) => ({
-      ...prev,
-      [year]: prev[year] === undefined ? true : !prev[year] // Переключаем состояние видимости
-    }));
+    if (activeYear === year) {
+      setActiveYear(null); // Скрыть мероприятия, если активный год повторно нажат
+    } else {
+      setActiveYear(year); // Устанавливаем выбранный год как активный
+      setCounts((prev) => ({
+        ...prev,
+        [year]: prev[year] === 0 ? 4 : prev[year], // Если ранее количество было 0, показываем 4
+      }));
+    }
   };
 
   return (

@@ -12,7 +12,7 @@ from fastapi.responses import FileResponse
 from database.manager import db_manager
 from pydantic_models.models import (
     News, News_mini, Competition, Competition_mini, Seminar, Seminar_mini, Calendar, 
-    Responce_one_object, Responce_add_calendar
+    Responce_one_object, Responce_add_calendar, Responce_count
 )
 from auth.auth import app_auth
 from auth.models import UserAuth
@@ -54,19 +54,23 @@ def save_file(file: UploadFile, filename:str = None):
 
 
 
-@app.get("/api/get_news")
+@app.post("/api/get_news")
 def get_news(
+    responce: Responce_count
     # current_user: Annotated[UserAuth, Depends(get_current_user)]
 ) -> list[News_mini]:
-    res = db_manager.get_news()
+    count = responce.count
+    res = db_manager.get_news(count)
     return res
 
 
-@app.get("/api/get_news_champ")
+@app.post("/api/get_news_champ")
 def get_news(
+    responce: Responce_count
     # current_user: Annotated[UserAuth, Depends(get_current_user)]
 ) -> list[News_mini]:
-    res = db_manager.get_news_champ()
+    count = responce.count
+    res = db_manager.get_news_champ(count)
     return res
 
 

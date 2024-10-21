@@ -78,6 +78,8 @@ class Calendar(BaseModel):
 class Responce_one_object(BaseModel):
     id: int
     
+class Responce_count(BaseModel):
+    count: int = 9
 
 class Responce_add_calendar(BaseModel):
     header: str
