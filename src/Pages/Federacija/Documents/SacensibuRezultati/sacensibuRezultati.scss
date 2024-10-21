@@ -1,6 +1,6 @@
 @import '../../../../mixins.scss';
 
-.last-competition-block{
+.events-for-year{
 @include grid-template-columns;
 grid-template-columns: repeat(2, 550px);
 justify-content: center;
