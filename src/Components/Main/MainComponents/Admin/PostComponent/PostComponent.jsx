@@ -36,10 +36,10 @@ export default function PostComponent() {
       });
       if (response.ok) {
         // Обрабатываем успешный ответ
-        console.log("Пост успешно отправлен");
+        alert("Пост успешно отправлен");
       } else {
         // Обрабатываем ошибку
-        console.error("Ошибка при отправке поста");
+        alert("Ошибка при отправке поста");
       }
     } catch (error) {
       console.error("Запрос не удался", error);

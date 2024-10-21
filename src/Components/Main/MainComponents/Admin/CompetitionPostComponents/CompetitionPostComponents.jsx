@@ -52,7 +52,7 @@ export default function CompetitionPostComponent() {
          if (response.ok) {
             alert("Пост успешно отправлен");
          } else {
-            console.error("Ошибка при отправке поста");
+            alert("Ошибка при отправке поста");
          }
       } catch (error) {
          console.error("Запрос не удался", error);

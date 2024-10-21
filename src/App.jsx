@@ -1,5 +1,6 @@
 import React from 'react';
 import {HashRouter, Route, Routes, Navigate } from 'react-router-dom';
+import './App.scss';
 import Header from './Components/Header/Header.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import Main from './Components/Main/Main.jsx';
@@ -9,6 +10,7 @@ import SeparationPosts from './Components/Main/MainComponents/TrendingArea/Trend
 import PublicateCompetition from './Components/Main/MainComponents/Competition/PublicateCompetition/PublicateCompetition.jsx';
 import PublicateSeminar from './Components/Main/MainComponents/Seminar/SeminarPosts/PublicateSeminar.jsx';
 import Kalendars from './Pages/Kalendars/Kalendars.jsx';
+import backgroundImages from './Components/Main/OrhetComponents/Background/Background.jsx';
 
 import Documents from './Pages/Federacija/Documents/Documents.jsx';
   import Noteikumi from './Pages/Federacija/Documents/Noteikumi/Noteikumi.jsx';
@@ -22,10 +24,13 @@ import Documents from './Pages/Federacija/Documents/Documents.jsx';
 import Valde from './Pages/Federacija/Valde/Valde.jsx';
 
 function App() {
+  const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+  const backgroundImage = backgroundImages[randomIndex];
   return (
     <HashRouter>
       <div className='App'>
         <Header />
+        <div className="main-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <Routes>
           <Route path="/" element={<Navigate to="/main" />} />
           <Route path='/main' element={<Main />} />
@@ -47,6 +52,7 @@ function App() {
           <Route path='/Valde' element={<Valde/>}></Route>
           <Route path='/Kalendars' element={<Kalendars/>}></Route>
         </Routes>
+        </div>
         <Footer />
       </div>
     </HashRouter>

@@ -3,3 +3,11 @@ main{
         margin: 40px 400px;
     }
 }
+
+
+
+h1 {
+    position: relative;
+    z-index: 2; /* Чтобы текст был над наложением */
+    color: white; /* Цвет текста */
+}
