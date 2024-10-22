@@ -13,15 +13,15 @@ const Main = () => {
     return (
         <main>
             <TrendingArea />
-            <hr />
+            {/* <hr /> */}
             <FederationClubs />
-            <hr />
+            {/* <hr /> */}
             <Competition />
-            <hr />
+            {/* <hr /> */}
             <Seminar />
-            <hr />
+            {/* <hr /> */}
             <YouTube />
-            <hr />
+            {/* <hr /> */}
         </main>
     );
 };

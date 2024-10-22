@@ -10,32 +10,29 @@
 }
 
 /* src/Components/Main/Main.css */
-.main-container {
-    background: 
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), /* Плавный переход */
-        url('./OrhetComponents/Background/Background.jsx'); /* Укажите здесь любое изображение по умолчанию, если необходимо */
+.main-container { /* Путь к изображению по умолчанию */
     position: relative;
     width: 100%;
-    height: auto; /* Или 100vh, если хотите, чтобы занимал всю высоту экрана */
-    background-size: cover;
-    background-position: center;
-    overflow: hidden; /* Чтобы предотвратить прокрутку фона */
-    padding: 20px; /* Добавьте отступы по желанию */
-    z-index: 0; /* Положительное значение для z-index */
+    height: auto;
+    background-size: cover; /* Оставляем оригинальный размер изображения */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Запрещаем повторение изображения */
+    background-attachment: fixed;
+    overflow: hidden;
+    padding: 20px;
+    z-index: 0;
 }
 
-
 .overlay {
-    // background-image: url('./OrhetComponents/Background/img/Background1.jpg');
-    // overflow: hidden;
-    // background-size: cover;
-    // background-position: center;
-    // width: 100%;
-    // position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(226, 224, 224, 0.5); /* Полупрозрачное черное наложение */
-    z-index: -9; /* Убедитесь, что наложение выше фона */
+    background: 
+        linear-gradient(to bottom, white, rgba(255, 255, 255, 0)), /* Градиент сверху вниз */
+        linear-gradient(to top, rgb(255, 255, 255), rgba(226, 224, 224, 0));   /* Градиент снизу вверх */
+    // background-color: rgb(226 224 224 / 73%); /* Полупрозрачное наложение */
+    // background: linear-gradient(to bottom, white, black);
+    z-index: -9;
 }

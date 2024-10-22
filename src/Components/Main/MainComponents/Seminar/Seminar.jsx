@@ -80,7 +80,7 @@ export default function Seminar() {
     }, []);
 
     return (
-        <div style={{ marginTop: '-80px' }} className="carousel-container">
+        <div style={{ marginTop: '80px' }} className="carousel-container">
             <div className="seminar-heading">
                 <h3>Citi pasakumi</h3>
             </div>

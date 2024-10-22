@@ -26,12 +26,14 @@ import Valde from './Pages/Federacija/Valde/Valde.jsx';
 function App() {
   const randomIndex = Math.floor(Math.random() * backgroundImages.length);
   const backgroundImage = backgroundImages[randomIndex];
-  return (
+    return (
     <HashRouter>
       <div className='App'>
         <Header />
+        <div className='header-cube'></div>
         <div className="main-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
-        <Routes>
+        <div className='overlay'></div>
+        <Routes className="content-wrapper">
           <Route path="/" element={<Navigate to="/main" />} />
           <Route path='/main' element={<Main />} />
           <Route path='/admin' element={<Admin />} />
@@ -53,6 +55,7 @@ function App() {
           <Route path='/Kalendars' element={<Kalendars/>}></Route>
         </Routes>
         </div>
+        <div className='footer-cube'></div>
         <Footer />
       </div>
     </HashRouter>
