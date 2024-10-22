@@ -62,16 +62,14 @@
             }
         }
         .weekly-caption{
-            background-color: rgb(255, 255, 255, 0.8);
-            display: block;
+            background-color: rgba(99, 98, 98, 0.616)!important;            display: block;
             transition: transform 0.3s ease;
             h4{
                 a{
                     text-decoration: none;      
                     border-radius: 5px;
                     padding: 5px;
-                    color: black!important;
-                    
+                    color: white!important;  
                 }
             }
         }
