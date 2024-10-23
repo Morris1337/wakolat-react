@@ -3,23 +3,25 @@ import React from 'react'
 import YouTubeComponents from './YouTubeComponents/YouTubeComponents';
 import './Youtube.scss'
 import arrow from './img/icon/arrow.png'
+import VideoList from './Video';
 
 export default function YouTube() { 
-    const videoList = [
-      'https://www.youtube.com/embed/38mOhjMOUFc?si=cwQUwOboIskc7hlZ&controls=0',
-      'https://www.youtube.com/embed/ztsKQAMLoRo?si=8305LqKC1yHjWJ7y&controls=0',
-      'https://www.youtube.com/embed/38mOhjMOUFc?si=cwQUwOboIskc7hlZ&controls=0',
-      'https://www.youtube.com/embed/ztsKQAMLoRo?si=8305LqKC1yHjWJ7y&controls=0'
-    ];
+    // const videoList = [
+    //   'https://www.youtube.com/embed/38mOhjMOUFc?si=cwQUwOboIskc7hlZ&controls=0',
+    //   'https://www.youtube.com/embed/ztsKQAMLoRo?si=8305LqKC1yHjWJ7y&controls=0',
+    //   'https://www.youtube.com/embed/38mOhjMOUFc?si=cwQUwOboIskc7hlZ&controls=0',
+    //   'https://www.youtube.com/embed/ztsKQAMLoRo?si=8305LqKC1yHjWJ7y&controls=0',
+    //   'https://fb.watch/voLehlYuPf/'
+    // ];
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
     const [visibleVideos, setVisibleVideos] = useState([]);
 
     const handleNextVideo = () => {
-        setCurrentVideoIndex((currentVideoIndex + 1) % videoList.length);
+        setCurrentVideoIndex((currentVideoIndex + 1) % VideoList.length);
       };
     
       const handlePreviousVideo = () => {
-        setCurrentVideoIndex((currentVideoIndex - 1 + videoList.length) % videoList.length);
+        setCurrentVideoIndex((currentVideoIndex - 1 + VideoList.length) % VideoList.length);
       };
 
       const updateVisibleVideos = () => {
@@ -30,7 +32,7 @@ export default function YouTube() {
         if (screenWidth <= 800) numVisible = 2;
         if (screenWidth <= 400) numVisible = 0;
     
-        setVisibleVideos(videoList.slice(0, numVisible));
+        setVisibleVideos(VideoList.slice(0, numVisible));
       };
     
       useEffect(() => {
@@ -47,7 +49,7 @@ export default function YouTube() {
         <div className='you-tube-center-content'>
             <div>
                 <iframe                  
-                    src= {videoList[currentVideoIndex]}
+                    src= {VideoList[currentVideoIndex]}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
