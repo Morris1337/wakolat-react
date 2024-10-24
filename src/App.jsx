@@ -22,6 +22,7 @@ import Documents from './Pages/Federacija/Documents/Documents.jsx';
   import Budzets from './Pages/Federacija/Documents/Budzets/Budzets.jsx';
   import SacensibuRezultati from './Pages/Federacija/Documents/SacensibuRezultati/SacensibuRezultati.jsx';
 import Valde from './Pages/Federacija/Valde/Valde.jsx';
+import Eksamenacija from './Pages/Eksamenacija/Eksamenacija.jsx';
 
 function App() {
   const randomIndex = Math.floor(Math.random() * backgroundImages.length);
@@ -53,6 +54,7 @@ function App() {
           <Route path='/Biedri' element={<Biedri/>}></Route>
           <Route path='/Valde' element={<Valde/>}></Route>
           <Route path='/Kalendars' element={<Kalendars/>}></Route>
+          <Route path='/Eksamenacija' element={<Eksamenacija/>}></Route>
         </Routes>
         </div>
         <div className='footer-cube'></div>

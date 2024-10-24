@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {createPortal} from 'react-dom';
 import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import PasswordProtectedLink from './Comptonents/Pasword/PasswordProtectLink';
 
 
@@ -21,6 +22,11 @@ const Header = () => {
   const toggleFederacija = () => setOpenFederacija(!openFederacija);
   const toggleDokumenti = () => setOpenDokumenti(!openDokumenti);
   const toggleKomisijas = () => setOpenKomisijas(!openKomisijas);
+
+  const scrollToFooter = () => {
+    const footer = document.getElementById('footer');
+    footer.scrollIntoView({ behavior: 'smooth' });
+  };
 
     return (
       <Navbar expand="md" bg="white" variant="light">
@@ -42,7 +48,7 @@ const Header = () => {
               <Navbar.Collapse id='responsive-navbar-nav' className="justify-content-center align-items-center">
               <Nav className="align-items-center computer">
                       <Nav.Link className='menu-link'><Link to={'/main'}>Home</Link></Nav.Link>
-                      <Nav.Link className='menu-link click-open-submenu' id='federacija' href='/'>Federacija
+                      <Nav.Link className='menu-link click-open-submenu' id='federacija'>Federacija
                       <ul class="submenu">
                         <li id="liDoc" class="li-header-item"><Link to={'/Documents'}>Dokumenti</Link>
                             <ul class="submenu lidoc-sub">
@@ -52,7 +58,7 @@ const Header = () => {
                                 <li class="li-header-item"><Link to={'/documents/kopsapulcesProtokoli'}>Kopsapulces protokoli</Link></li>
                                 <li class="li-header-item"><Link to={'/documents/valdesSedesProtokoli'}>Valdes sēdes protokoli</Link></li>
                                 <li class="li-header-item"><Link to={'/documents/budzets'}>Budžets</Link></li>
-                                <li class="li-header-item"><Link to={'/documents/sacensibuRezultati'}>Sacensību rezultāti</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/sacensibuRezultati'}>Notikušas sacensības</Link></li>
                                 {/* <li class="li-header-item"><Link to={'/documents/reiting'}>Reitings</Link></li>                                                     */}
                             </ul>
                         </li>
@@ -69,8 +75,10 @@ const Header = () => {
                     </ul>
                       </Nav.Link>
                       <Nav.Link className='menu-link'><Link to={'/Kalendars'} style={{color: '#002e5b', textDecoration: 'none'}}>Kalendars</Link></Nav.Link>
-                      <Nav.Link className='menu-link' href='/'>Eksaminacija</Nav.Link>
-                      <Nav.Link className='menu-link' href='/'>Kontakti</Nav.Link>
+                      <Nav.Link className='menu-link' ><Link to={"/Eksamenacija"}>Eksamenacija</Link></Nav.Link>
+                      <Nav.Link className='menu-link' onClick={scrollToFooter}>
+                      Kontakti
+                  </Nav.Link>
                         <Nav.Link className='menu-link'>
                         <PasswordProtectedLink>
                         <Link
@@ -89,7 +97,7 @@ const Header = () => {
                   <Nav.Link 
                     className='menu-link click-open-submenu' 
                     id='federacija' 
-                    href='#' 
+                    // href='#' 
                     onClick={toggleFederacija}
                   >
                     Federacija
@@ -111,7 +119,7 @@ const Header = () => {
                             <li className="li-header-item"><Link to={'/documents/kopsapulcesProtokoli'}>Kopsapulces протоколи</Link></li>
                             <li className="li-header-item"><Link to={'/documents/valdesSedesProtokoli'}>Valdes sēdes протоколи</Link></li>
                             <li className="li-header-item"><Link to={'/documents/budzets'}>Budžets</Link></li>
-                            <li className="li-header-item"><Link to={'/documents/sacensibuRezultati'}>Sacensību rezultāti</Link></li>
+                            <li className="li-header-item"><Link to={'/documents/sacensibuRezultati'}>Notikušas sacensības</Link></li>
                           </ul>
                         )}
                       </li>
@@ -131,8 +139,10 @@ const Header = () => {
                   )}
 
 <Nav.Link className='menu-link'><Link to={'/Kalendars'} style={{color: '#002e5b', textDecoration: 'none'}}>Kalendars</Link></Nav.Link>
-                  <Nav.Link className='menu-link' href='/'>Eksaminacija</Nav.Link>
-                  <Nav.Link className='menu-link' href='/'>Kontakti</Nav.Link>
+                  <Nav.Link className='menu-link' ><Link to={"/Eksamenacija"}>Eksamenacija</Link></Nav.Link>
+                  <Nav.Link className='menu-link' onClick={scrollToFooter}>
+                      Kontakti
+                  </Nav.Link>
                   <Nav.Link className='menu-link'>
                     <PasswordProtectedLink>
                       <Link to={'/admin'}></Link>

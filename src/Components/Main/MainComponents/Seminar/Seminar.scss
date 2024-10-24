@@ -4,7 +4,10 @@
     @include flex-center;
     position: relative;
     right: 460px;
+}
 
+.slick-dots{
+    display: none!important;
 }
 
 .seminar-list{
@@ -12,6 +15,10 @@
     @include flex-center;
     overflow-x: hidden;
     transition: transform 0.5s ease;
+    .slick-dots{
+        display: none!important;
+    }
+    
     .slick-slider{
         width: 100%;
         .weekly-img{

@@ -14,7 +14,7 @@ import TopTen from './img/PlatimumSponsors/9uem3o8rlz24rd8mjqedi2k4gtmaa1eu-remo
 
 export default function Footer() {
   return (
-    <div className='footer'>
+    <div id='footer' className='footer'>
         <div className='platinum-sponsors'>
             <h3>
                 Platinum sponsors

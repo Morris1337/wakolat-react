@@ -63,8 +63,8 @@
     list-style: none;
     cursor: pointer;
     a{
-      color: #002e5b;
-      text-decoration: none;
+      color: #002e5b!important;
+      text-decoration: none!important;
     }
   }
 
@@ -76,4 +76,18 @@
   .menu-link{
     color: #002e5b;
     ;
+  }
+
+  .responsive-navbar-nav .menu-link .nav-link{
+    color: #002e5b!important;
+      text-decoration: none!important;
+    a{
+      color: #002e5b!important;
+      text-decoration: none!important;
+    }
+  }
+
+  a{
+    color: #002e5b!important;
+    text-decoration: none!important;
   }

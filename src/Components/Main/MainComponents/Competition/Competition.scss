@@ -1,4 +1,7 @@
 @import "../../../../mixins.scss";
+.slick-dots{
+    display: none!important;
+}
 .competition{
     @include flex-column;
     position: relative;
