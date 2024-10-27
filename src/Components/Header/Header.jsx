@@ -9,6 +9,7 @@ import PasswordProtectedLink from './Comptonents/Pasword/PasswordProtectLink';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.scss';
 import logo from './Color-logo_2x-100-removebg-preview.png';
+import Olymp from './OlympicComitet.jpg'
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
 import prifileIcon from './profile-icon.svg';
 console.log(document.querySelector("#key"))
@@ -48,7 +49,7 @@ const Header = () => {
               <Navbar.Collapse id='responsive-navbar-nav' className="justify-content-center align-items-center">
               <Nav className="align-items-center computer">
                       <Nav.Link className='menu-link'><Link to={'/main'}>Home</Link></Nav.Link>
-                      <Nav.Link className='menu-link click-open-submenu' id='federacija'>Federacija
+                      <Nav.Link className='menu-link click-open-submenu' id='federacija'>Federācija
                       <ul class="submenu">
                         <li id="liDoc" class="li-header-item"><Link to={'/Documents'}>Dokumenti</Link>
                             <ul class="submenu lidoc-sub">
@@ -58,7 +59,7 @@ const Header = () => {
                                 <li class="li-header-item"><Link to={'/documents/kopsapulcesProtokoli'}>Kopsapulces protokoli</Link></li>
                                 <li class="li-header-item"><Link to={'/documents/valdesSedesProtokoli'}>Valdes sēdes protokoli</Link></li>
                                 <li class="li-header-item"><Link to={'/documents/budzets'}>Budžets</Link></li>
-                                <li class="li-header-item"><Link to={'/documents/sacensibuRezultati'}>Notikušas sacensības</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/sacensibuRezultati'}>Notikušās sacensības</Link></li>
                                 {/* <li class="li-header-item"><Link to={'/documents/reiting'}>Reitings</Link></li>                                                     */}
                             </ul>
                         </li>
@@ -69,13 +70,13 @@ const Header = () => {
                         <li id="komis" class="li-header-item"><a class="li-header-link" href="">Komisijas</a>
                             <ul class="ul-header-komis submenu">
                                 <li class="li-header-item"><a class="li-header-link" href="">Tiesnešu komisija</a></li>
-                                <li class="li-header-item"><a class="li-header-link" href="">Ērikas komisija</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="">Ētikas komisija</a></li>
                             </ul>
                         </li>
                     </ul>
                       </Nav.Link>
-                      <Nav.Link className='menu-link'><Link to={'/Kalendars'} style={{color: '#002e5b', textDecoration: 'none'}}>Kalendars</Link></Nav.Link>
-                      <Nav.Link className='menu-link' ><Link to={"/Eksamenacija"}>Eksamenacija</Link></Nav.Link>
+                      <Nav.Link className='menu-link'><Link to={'/Kalendars'} style={{color: '#002e5b', textDecoration: 'none'}}>Kalendārs</Link></Nav.Link>
+                      <Nav.Link className='menu-link' ><Link to={"/Eksamenacija"}>Eksaminācija</Link></Nav.Link>
                       <Nav.Link className='menu-link' onClick={scrollToFooter}>
                       Kontakti
                   </Nav.Link>
@@ -157,6 +158,15 @@ const Header = () => {
                   height={70}
                   width={70}
                   className="d-inline-block align-top" 
+                  />
+                </Navbar.Brand>
+                <Navbar.Brand  className="my-auto olymp">
+                  <img 
+                  src={Olymp} 
+                  alt="Logo"
+                  height={70}
+                  width={70}
+                  className="d-inline-block align-top olymp" 
                   />
                 </Navbar.Brand>
           </Container>

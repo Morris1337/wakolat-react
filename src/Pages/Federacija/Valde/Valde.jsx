@@ -15,19 +15,19 @@ export default function Valde() {
         <div class="valde-president">
             <div class="valde">
                 <div>
-                    <img src={darja} alt="darjaStrutinskaPhoto"/>
+                    {/* <img src={darja} alt="darjaStrutinskaPhoto"/> */}
                 </div>
                 <div>
-                    <h3>Darja Srutinska</h3>
+                    <h3>Darja Strutinska</h3>
                     <hr/>
-                    <p class="status">VALDES PRIEKŠSĒDĒTĀJS</p>
+                    <p class="status">VALDES PRIEKŠSĒDĒTĀJA</p>
                 </div>
             </div>
         </div>
         <div class="valde-other">
             <div class="valde">
                 <div>
-                    <img src={Linda} alt="darjaStrutinskaPhoto"/>
+                    {/* <img src={Linda} alt="darjaStrutinskaPhoto"/> */}
                 </div>
                 <div>
                     <h4>Linda Ābele</h4>
@@ -37,32 +37,32 @@ export default function Valde() {
             </div>
             <div class="valde">
                 <div>
-                    <img src={Sanja} alt="darjaStrutinskaPhoto"/>
-                </div>
-                <div>
-                    <h4>Aleksandrs Maslovs</h4>
-                    <hr/>
-                    <p class="status">VALDES LOCEKLIS</p>
-                </div>
-            </div>
-            <div class="valde">
-                <div>
-                    <img src={Igor} alt="darjaStrutinskaPhoto"/>
-                </div>
-                <div>
-                    <h4>Igors Likovs</h4>
-                    <hr/>
-                    <p class="status">VICEPREZIDENTE</p>
-                </div>
-            </div>
-            <div class="valde">
-                <div>
-                    <img src={vladimir} alt="darjaStrutinskaPhoto"/>
+                    {/* <img src={Sanja} alt="darjaStrutinskaPhoto"/> */}
                 </div>
                 <div>
                     <h4>Vladimirs Jeršovs</h4>
                     <hr/>
                     <p class="status">ĢENERĀLSEKRETĀRS</p>
+                </div>
+            </div>
+            <div class="valde">
+                <div>
+                    {/* <img src={Igor} alt="darjaStrutinskaPhoto"/> */}
+                </div>
+                <div>
+                    <h4>Igors Likovs</h4>
+                    <hr/>
+                    <p class="status">VICEPREZIDENTS</p>
+                </div>
+            </div>
+            <div class="valde">
+                <div>
+                    {/* <img src={vladimir} alt="darjaStrutinskaPhoto"/> */}
+                </div>
+                <div>
+                    <h4>Aleksandrs Maslovs</h4>
+                    <hr/>
+                    <p class="status">VALDES LOCEKLIS</p>
                 </div>
             </div>
         </div>

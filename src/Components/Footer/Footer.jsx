@@ -40,10 +40,11 @@ export default function Footer() {
                 <img src={LKF_Logo} alt="" />
             </div>
             <div  className='footer-text'>
-                <h6>Latvijas Kikboksa Federācija</h6>
-                <p><b>Adrese:</b> Žagatu iela 20-80, Rīga, Latvija, LV-1084.</p>
-                <p><b>Telefons:</b> +371 26226838</p>
-                <p><b>E-pasts:</b> info@wakolat.lv</p>
+                <h5>Biedrība "Latvijas Kikboksa Federācija"</h5>
+                <p><b>Reģistrācijas Nr.: </b> 40008027906</p>
+                <p><b>Juridiskā Adrese: </b> Žagatu iela 20-80, Rīga, Latvija, LV-1084.</p>
+                <p><b>Telefons: </b> +371 26359633</p>
+                <p><b>E-pasts: </b> info@wakolat.lv</p>
             </div>
             <div className='WAKO-logo'>
                 <img src={WAKO} alt="" />

@@ -24,7 +24,7 @@ get_competitions()}
         <div className='competition'>
             <div className='competition-head'>
               <h3 className='competition-title'>
-                Sacensibas
+                Sacensības
               </h3>
             </div>
             <div className='competition-block'>

@@ -25,7 +25,7 @@ export default function Biedri() {
     <>
     <ScrollToTop />
       <h2 class="display-center">
-        Latvijas Kikboksa Federācija Biedri
+        Latvijas Kikboksa Federācijas Biedri
       </h2>
       <div className='biedri-cards'>
           <div><BiedriCard img={Favorit} clubTitle={'Sporta klubs „Favorīts”'} city={'Mālu iela 10, Ventspils, LV-3604'}/></div>
@@ -49,7 +49,6 @@ export default function Biedri() {
           <div><BiedriCardWithOutLogo clubTitle={'Lāčplēša Cīņu Leģions'} city={'Ķekava'}/></div>
           <div><BiedriCard img={GoldenGlory} clubTitle={'Golden Glory'} city={'Rīga'}/></div>
           <div><BiedriCardWithOutLogo clubTitle={'Boksa un kikboksa klubs "Olympic Boxing Team"'} city={'Rīga'}/></div>
-          <div><BiedriCardWithOutLogo clubTitle={'Cīņu Mākslas Centrs BUDO'} city={'Latvija'}/></div>
       </div>
       <div className='ClubMap'>
         <MapWithClubs/>
