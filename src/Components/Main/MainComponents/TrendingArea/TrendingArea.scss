@@ -10,10 +10,26 @@
         position: relative;
         object-fit: cover;
         height: 450px;
-        @media (max-width: 400px) {
+        @media (max-width: 412px) {
             width: 350px;
             height: auto;
             margin-left: -47px;
+        }
+        @media (max-width: 420px) {
+            width: 350px;
+            height: auto;
+            margin-left: -47px;
+        }
+    }
+    @media (max-width: 420px) {
+        width: 360px;
+        .trend-top-cap{
+            a{
+                
+                h2{
+                    margin-right: 12px;
+                }
+            }
         }
     }
     @media (max-width: 400px) {
@@ -79,7 +95,15 @@ span{
         grid-template-columns: repeat(2, 180px);
     }
 }
-
+@media screen and (max-width: 420px) {
+    .trend-block-bottom{
+        grid-template-columns: repeat(1, 300px);
+        justify-content: center;
+        .single-bottom{
+            margin-top: 10px;
+        }
+    }
+}
 @media screen and (max-width: 400px) {
     .trend-block-bottom{
         grid-template-columns: repeat(1, 300px);
@@ -101,6 +125,9 @@ span{
     margin-bottom: 100px;
     div{
         margin-top: 10px;
+    }
+    @media screen and (max-width: 420px) { 
+        margin-top: 20px!important;  
     }
     @media screen and (max-width: 400px) { 
         margin-top: 20px!important;  

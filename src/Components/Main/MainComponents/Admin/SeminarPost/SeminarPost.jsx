@@ -31,7 +31,7 @@ export default function SeminarPost() {
     formData.append("file", file);
     formData.append("country", selectedCountry);
     formData.append("city", city);
-    formData.append("date", date);
+    formData.append("date_start", date);
     formData.append("email", email);
     formData.append("phone_number", phone);
     formData.append("date_start", competitionStart);

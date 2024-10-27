@@ -2,7 +2,7 @@ import React from 'react'
 import BiedriCard from './BiedriCard.jsx'
 import BiedriCardWithOutLogo from './BiedriCardWithOutLogo.jsx'
 import ScrollToTop from '../../../Components/Main/OrhetComponents/ScrollToTop.jsx'
-import fcImg from './img/LogoFcKick-2.jpg'
+import fcImg from './img/fc.jpg'
 import bbc from './img/BBC.png'
 import kbs from './img/KBS-Riga-01.png'
 import Kuldiga from './img/Cīņu_klubs_Kuldīga.jpeg'
@@ -17,6 +17,10 @@ import Tkachenko from './img/TkachenkoTeam.png'
 import Galeev from './img/GaleevTeam.jpg'
 import GoldenGlory from './img/GoldenGlory.jpg'
 import MTA from './img/MTA.jpg'
+import LČG from './img/LČG.jpg'
+import LSPA from './img/LSPA.jpg'
+import TMG from './img/TMG.jpg'
+import VKL from './img/VKL.jpg'
 import './biedri.scss'
 import MapWithClubs from '../../../Components/Main/OrhetComponents/MapWithClubs.jsx'
 
@@ -43,10 +47,10 @@ export default function Biedri() {
           <div><BiedriCard img={Silver_griffin} clubTitle={'Silver Griffin'} city={'Rēzekne, Atbrīvošanas aleja 166A'}/></div>
           <div><BiedriCard img={LiepajaKik} clubTitle={'Liepājas Kikboksinga Klubs “K Sports”'} city={'Brīvības iela 117, Liepāja, LV-3401'}/></div>
           <div><BiedriCard img={MTA} clubTitle={'Bērnu un jauniešu centrs "Bolderāja"'} city={'Rīga'}/></div>
-          <div><BiedriCardWithOutLogo clubTitle={'LSPA sporta klubs'} city={'Rīga'}/></div>
-          <div><BiedriCardWithOutLogo clubTitle={'Ventspils Kikboksa Leģions'} city={'Ventspils'}/></div>
-          <div><BiedriCardWithOutLogo clubTitle={'TM Gym'} city={'Rīga'}/></div>
-          <div><BiedriCardWithOutLogo clubTitle={'Lāčplēša Cīņu Leģions'} city={'Ķekava'}/></div>
+          <div><BiedriCard img={LSPA} clubTitle={'LSPA sporta klubs'} city={'Rīga'}/></div>
+          <div><BiedriCard img={VKL} clubTitle={'Ventspils Kikboksa Leģions'} city={'Olimpiskais centrs "Ventspils" Sporta iela 7/9, Ventspilī'}/></div>
+          <div><BiedriCard img={TMG} clubTitle={'TM Gym'} city={'Rīga'}/></div>
+          <div><BiedriCard img={LČG} clubTitle={'Lāčplēša Cīņu Leģions'} city={'Ķekava'}/></div>
           <div><BiedriCard img={GoldenGlory} clubTitle={'Golden Glory'} city={'Rīga'}/></div>
           <div><BiedriCardWithOutLogo clubTitle={'Boksa un kikboksa klubs "Olympic Boxing Team"'} city={'Rīga'}/></div>
       </div>

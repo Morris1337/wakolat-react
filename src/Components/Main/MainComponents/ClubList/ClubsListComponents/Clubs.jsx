@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Clubs.scss"
 
 export default function Clubs({img, link, title}) {
   return (

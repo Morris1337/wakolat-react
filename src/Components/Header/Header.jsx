@@ -10,6 +10,7 @@ import '../../App.scss';
 import logo from './Color-logo_2x-100-removebg-preview.png';
 import Olymp from './OlympicComitet.jpg'
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
+import EURWAKO from './EURWAKO.png';
 import prifileIcon from './profile-icon.svg';
 console.log(document.querySelector("#key"))
 
@@ -24,18 +25,27 @@ const Header = () => {
   const toggleKomisijas = () => setOpenKomisijas(!openKomisijas);
 
   const scrollToFooter = () => {
-    const footer = document.getElementById('footer');
-    footer.scrollIntoView({ behavior: 'smooth' });
+    const contact = document.getElementById('contact');
+    contact.scrollIntoView({ behavior: 'smooth' });
   };
 
     return (
       <Navbar expand="md" bg="white" variant="light">
             <Container className='header-bottom copmuter'>
                 {/* {createPortal(<Navbar.Brand/>, document.getElementById("key"))}; */}
-              <Navbar.Brand href="/" className="my-auto">
+              <Navbar.Brand href="/" className="LKFLOGO">
                   <img 
                   src={logo} 
                   alt="Logo"
+                  height={60}
+                  width={120}
+                  className="d-inline-block align-top" 
+                  />
+              </Navbar.Brand>
+              <Navbar.Brand href="/" className="eur-wako">
+                  <img 
+                  src={EURWAKO} 
+                  alt="EWako"
                   height={60}
                   width={120}
                   className="d-inline-block align-top" 
@@ -100,7 +110,7 @@ const Header = () => {
                     // href='#' 
                     onClick={toggleFederacija}
                   >
-                    Federacija
+                    Federācija
                   </Nav.Link>
 
                   {openFederacija && (
@@ -138,8 +148,8 @@ const Header = () => {
                     </ul>
                   )}
 
-<Nav.Link className='menu-link'><Link to={'/Kalendars'} style={{color: '#002e5b', textDecoration: 'none'}}>Kalendars</Link></Nav.Link>
-                  <Nav.Link className='menu-link' ><Link to={"/Eksamenacija"}>Eksamenacija</Link></Nav.Link>
+<Nav.Link className='menu-link'><Link to={'/Kalendars'} style={{color: '#002e5b', textDecoration: 'none'}}>Kalendārs</Link></Nav.Link>
+                  <Nav.Link className='menu-link' ><Link to={"/Eksamenacija"}>Eksaminācija</Link></Nav.Link>
                   <Nav.Link className='menu-link' onClick={scrollToFooter}>
                       Kontakti
                   </Nav.Link>
@@ -168,6 +178,15 @@ const Header = () => {
                   className="d-inline-block align-top olymp" 
                   />
                 </Navbar.Brand>
+                <Navbar.Brand href="/" className="eur-wako-mobile">
+                  <img 
+                  src={EURWAKO} 
+                  alt="Logo"
+                  height={60}
+                  width={120}
+                  className="d-inline-block align-top" 
+                  />
+              </Navbar.Brand>
           </Container>
       </Navbar>
     );

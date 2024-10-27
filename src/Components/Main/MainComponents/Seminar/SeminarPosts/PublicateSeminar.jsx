@@ -79,7 +79,7 @@ function PublicateSeminar() {
             {/* Дата соревнований */}
             <div className="competition-contry">
               <h5>Seminara datums:</h5>
-              <h6>{publicateSeminar.date_start} - {publicateSeminar.date_end}</h6>
+              <h6>{publicateSeminar.date_start}</h6>
             </div>
           </div>
 

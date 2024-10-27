@@ -24,6 +24,14 @@
             @media (max-width: 800px) {
                 flex-direction: column;
             }
+            @media (max-width: 420px) {
+                .one{
+                    width: 320px;
+                }
+                .two{
+                    width: 320px;
+                }   
+            }
             @media (max-width: 400px) {
                 .one{
                     width: 320px;
@@ -64,6 +72,11 @@
                     .one, .two, .three, .four{
                         margin-top: 40px;
                     }
+                }
+                @media (max-width: 420px) {
+                    @include grid-template-columns;
+                    grid-template-columns: repeat(1, 300px);
+                    justify-items: center; 
                 }
                 @media (max-width: 400px) {
                     @include grid-template-columns;
@@ -111,9 +124,12 @@
                 }
             } 
         }
-        @media (max-width: 400px) {
+        @media (max-width: 420px) {
+            hr{
+                display: flex!important;
+            }
             @include grid-template-columns;
-            grid-template-columns: repeat(1, 300px);
+            grid-template-columns: repeat(1, 350px);
             justify-items: center;
             .LKF-logo, .WAKO-logo, .footer-text, .ministtrijas-logo{
                 margin-top: 40px;
@@ -123,6 +139,28 @@
                     border-radius: 7px;
                 }
             } 
+        }
+        @media (max-width: 400px) {
+            hr{
+                display: flex!important;
+            }
+            @include grid-template-columns;
+            grid-template-columns: repeat(1, 350px);
+            justify-items: center;
+            .LKF-logo, .WAKO-logo, .footer-text, .ministtrijas-logo{
+                margin-top: 40px;
+                .izglitiba-ministrija{
+                    background-color: white;
+                    padding: 5px;
+                    border-radius: 7px;
+                }
+            } 
+        }
+        hr{
+            display: none;
+        }
+        b{
+            margin-right: 5px!important;
         }
     }
 }

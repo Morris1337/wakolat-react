@@ -51,6 +51,25 @@
         }
     }
 
+    @media (max-width: 420px) {
+        margin-top: 200px;
+        .information{        
+            display: flex;
+            flex-direction: column;
+            div{
+                input{
+                    width: 300px;
+                }
+            }
+        }
+
+        .more{
+            @include flex-center;
+            width: 400px;
+        }
+         
+      }
+
     @media (max-width: 400px) {
         margin-top: 200px;
         .information{        

@@ -1,6 +1,16 @@
 @import '../../../../mixins.scss';
 @import './ClubsListComponents/Clubs.scss';
 
+.carousel-container{
+    margin-right: -50px;
+}
+.slick-slide{
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center;
+    // margin-left: 50px!important;
+}
+
 .clubs-heading{
     @include flex-center;
     margin-left: -750px;
@@ -31,11 +41,11 @@
     .slick-slider{
         width: 100%;
         .weekly-img{
-            width: 350px;
+            // width: 350px;
             overflow: hidden;
             position: relative;
             img{
-                width: 90%;
+                width: 100%;
                 height: 100%;
                 object-fit: cover;
                 object-position: center;
@@ -43,11 +53,18 @@
             @media (max-width: 800px) {
                 width: 270px;
             }
+            @media (max-width: 420px) {
+                width: 200px;
+                height: 200px;
+            }
             @media (max-width: 400px) {
                 width: 200px;
                 height: 200px;
             }
         }
+    }
+    @media (max-width: 420px) {
+        height: 232px;
     }
     @media (max-width: 400px) {
         height: 232px;
@@ -55,6 +72,9 @@
 }
 
 .club-elem{
+    height: auto;
+    display: flex;
+    align-items: center;
     flex: 0 0 auto;
     margin-left: 20px;
     transition: transform 0.5s ease;

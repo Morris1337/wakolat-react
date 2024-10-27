@@ -2,9 +2,10 @@
     flex: 0 0 auto;
     margin-left: 100px;
     .weekly-img{
+        height: 330px;
         img {
             transition: transform 0.5s ease;
-            width: 250px;
+            width: 200px;
         }
     }
     .weekly-caption{

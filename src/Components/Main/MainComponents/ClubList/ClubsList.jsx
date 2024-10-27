@@ -11,7 +11,7 @@ import Clubs from './ClubsListComponents/Clubs';
 import MTA from './img/Muay_Thai_Academy.jpg';
 // import TopRing from './img/TOP_RING LOGO_GOLD PRINT.jpg';
 // import SKITS from './img/LOGO-SKITS-oreginal.jpg';
-import fcImg from '../../../../Pages/Federacija/Biedri/img/LogoFcKick-2.jpg'
+import fcImg from '../../../../Pages/Federacija/Biedri/img/fc.jpg'
 import bbc from '../../../../Pages/Federacija/Biedri/img/BBC.png'
 import kbs from '../../../../Pages/Federacija/Biedri/img/KBS-Riga-01.png'
 import Kuldiga from '../../../../Pages/Federacija/Biedri/img/Cīņu_klubs_Kuldīga.jpeg'
@@ -51,6 +51,9 @@ export default function FederationClubs() {
     if(screenWidth <= 800){
         slidesToShow = 3
     }
+    if(screenWidth <= 420){
+        slidesToShow = 2
+    }
     if(screenWidth <= 400){
         slidesToShow = 2
     }
@@ -75,7 +78,7 @@ export default function FederationClubs() {
             </div>
             <div className='clubs-carousel'>
                 <div className='clubs-list slider-container'>
-                <Slider {...settings}>                  
+                <Slider className='llist' {...settings}>                  
                     <div><Clubs img={fcImg} link={'funcatchers.lv'} title={"Fun Catchers"} /></div>
                     <div><Clubs img={bbc} link={'funcatchers.lv'} title={"Balistic Boxing Clubs"} /></div>
                     <div><Clubs img={kbs} link={'funcatchers.lv'} title={"Boksa un Kikboksa skola"} /></div>

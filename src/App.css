@@ -49,7 +49,9 @@ span {
     grid-template-columns: repeat(3, 180px); } }
 @media screen and (max-width: 767px) {
   .trend-block-bottom {
-    grid-template-columns: repeat(2, 180px); } }
+    grid-template-columns: repeat(1, 180px);
+    margin-left: -130px;
+  } }
 @media screen and (max-width: 400px) {
   .trend-block-bottom {
     grid-template-columns: repeat(1, 300px);

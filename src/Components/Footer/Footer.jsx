@@ -14,7 +14,7 @@ import TopTen from './img/PlatimumSponsors/9uem3o8rlz24rd8mjqedi2k4gtmaa1eu-remo
 
 export default function Footer() {
   return (
-    <div id='footer' className='footer'>
+    <div className='footer'>
         <div className='platinum-sponsors'>
             <h3>
                 Platinum sponsors
@@ -39,12 +39,14 @@ export default function Footer() {
             <div className='LKF-logo'>
                 <img src={LKF_Logo} alt="" />
             </div>
-            <div  className='footer-text'>
+            <div className='footer-text' id='contact'>
                 <h5>Biedrība "Latvijas Kikboksa Federācija"</h5>
-                <p><b>Reģistrācijas Nr.: </b> 40008027906</p>
-                <p><b>Juridiskā Adrese: </b> Žagatu iela 20-80, Rīga, Latvija, LV-1084.</p>
-                <p><b>Telefons: </b> +371 26359633</p>
-                <p><b>E-pasts: </b> info@wakolat.lv</p>
+                <p><b>Reģistrācijas Nr.:</b>40008027906</p>
+                <hr />
+                <p><b>Juridiskā <br />Adrese:</b>Žagatu iela 20-80, <br /> Rīga, Latvija, LV-1084.</p>
+                <hr />
+                <p><b>Telefons:</b>+371 26359633</p>
+                <p><b>E-pasts:</b>info@wakolat.lv</p>
             </div>
             <div className='WAKO-logo'>
                 <img src={WAKO} alt="" />

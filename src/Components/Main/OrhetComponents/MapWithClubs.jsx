@@ -27,7 +27,7 @@ const clubs = [
   { id: 16, lat: 56.94966908855586, lng: 24.19032121118777, name: "Bērnu un jauniešu centrs 'Bolderāja'", address: "Augusta Deglava iela 69D, Vidzemes priekšpilsēta, Rīga, LV-1082" },
   { id: 17, lat: 57.03667994071368, lng: 24.046201619929715, name: "Bērnu un jauniešu centrs 'Bolderāja'", address: "Miglas iela 9, Kurzemes rajons, Rīga, LV-1016" },
   { id: 18, lat: 56.936546073215304, lng: 24.19604539769532, name: "Bērnu un jauniešu centrs 'Bolderāja'", address: "Ilūkstes iela 10, Latgales priekšpilsēta, Rīga, LV-1082" },
-
+  { id: 19, lat: 57.387151, lng: 21.571251, name: "Ventspils Kikboksa Leģions", address: "Olimpiskais centrs `Ventspils`, Sporta iela 7/9, Ventspilī" },
 
   // Добавьте остальные клубы
 ];

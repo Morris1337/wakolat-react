@@ -8,7 +8,13 @@
         img{
             width: 770px;
         }
-        @media (max-width: 375px) {
+        @media (max-width: 420px) {
+            img{
+            width: 350px;
+            height: 350px;
+            }
+        }
+        @media (max-width: 400px) {
             img{
             width: 350px;
             height: 350px;
@@ -17,7 +23,10 @@
     }
     .about-prea{
         width: 770px;
-        @media (max-width: 375px) {
+        @media (max-width: 400px) {
+            width: 350px;
+        }
+        @media (max-width: 420px) {
             width: 350px;
         }
     }
