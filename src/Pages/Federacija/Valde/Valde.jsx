@@ -21,6 +21,7 @@ export default function Valde() {
                     <h3>Darja Strutinska</h3>
                     <hr/>
                     <p class="status">VALDES PRIEKŠSĒDĒTĀJA</p>
+                    <p><b>e-pasts:</b> darja.strutinska@wakolat.lv</p>
                 </div>
             </div>
         </div>
@@ -33,6 +34,7 @@ export default function Valde() {
                     <h4>Linda Ābele</h4>
                     <hr/>
                     <p class="status">VICEPREZIDENTE</p>
+                    <p><b>e-pasts:</b> boksaskola.riga@gmail.com</p>
                 </div>
             </div>
             <div class="valde">
@@ -43,6 +45,7 @@ export default function Valde() {
                     <h4>Vladimirs Jeršovs</h4>
                     <hr/>
                     <p class="status">ĢENERĀLSEKRETĀRS</p>
+                    <p><b>e-pasts:</b> vladimirs.jersovs@wakolat.lv</p>
                 </div>
             </div>
             <div class="valde">
@@ -53,6 +56,7 @@ export default function Valde() {
                     <h4>Igors Likovs</h4>
                     <hr/>
                     <p class="status">VICEPREZIDENTS</p>
+                    <p><b>e-pasts:</b> favoritigor@inbox.lv</p>
                 </div>
             </div>
             <div class="valde">
@@ -63,6 +67,7 @@ export default function Valde() {
                     <h4>Aleksandrs Maslovs</h4>
                     <hr/>
                     <p class="status">VALDES LOCEKLIS</p>
+                    <p><b>e-pasts:</b> masliquefitness@gmail.com</p>
                 </div>
             </div>
         </div>
