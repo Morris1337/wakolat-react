@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {createPortal} from 'react-dom';
+// import {createPortal} from 'react-dom';
 import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import PasswordProtectedLink from './Comptonents/Pasword/PasswordProtectLink';
 
 
@@ -20,6 +20,7 @@ const Header = () => {
   const [openKomisijas, setOpenKomisijas] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   // const location = useLocation();
+  const navigate = useNavigate();
 
   // Функции для переключения состояния
   const toggleFederacija = () => setOpenFederacija(!openFederacija);
@@ -33,6 +34,27 @@ const Header = () => {
     const contact = document.getElementById('contact');
     contact.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const handleClick = (event) => {
+    if (window.innerWidth < 820) {
+      event.preventDefault(); // Отменяет переход по ссылке на маленьких экранах
+    } else {
+      navigate('/Documents'); // Переход по ссылке при экране больше 820 пикселей
+    }
+  };
+
+  const handleLinkClick = (event) => {
+  const contact = document.getElementById('contact');
+
+  if (window.innerWidth < 820) {
+    event.preventDefault();
+    if (contact) {
+      contact.scrollIntoView({ behavior: 'smooth' }); // Прокрутка к контактам на маленьких экранах
+    }
+  } else {
+    navigate('/Documents'); // Переход на страницу для больших экранов
+  }
+};
 
     return (
       <Navbar expand="md" bg="white" variant="light">
@@ -63,35 +85,35 @@ const Header = () => {
                 />
               <Navbar.Collapse in={menuOpen} id='responsive-navbar-nav' className="justify-content-center align-items-center">
               <Nav className="align-items-center computer">
-                      <Nav.Link className='menu-link'><Link to={'/main'}>Home</Link></Nav.Link>
-                      <Nav.Link className='menu-link click-open-submenu' id='federacija'>Federācija
+                      <Nav.Link className='menu-link'><Link to={'/main'} onClick={closeMenu}>Home</Link></Nav.Link>
+                      <Nav.Link className='menu-link click-open-submenu' id='federacija' onClick={closeMenu}>Federācija
                       <ul class="submenu">
-                        <li id="liDoc" class="li-header-item"><Link to={'/Documents'}>Dokumenti</Link>
+                        <li id="liDoc" class="li-header-item"><Link onClick={handleClick}>Dokumenti</Link>
                             <ul class="submenu lidoc-sub">
-                                <li class="li-header-item"><Link to={'/documents/noteikumi'}>Noteikumi</Link></li>
-                                <li class="li-header-item"><Link to={'/documents/dopings'}>Dopings</Link></li>
-                                <li class="li-header-item"><Link to={'/documents/gadaParaksti'}>Gada pārskati</Link></li>
-                                <li class="li-header-item"><Link to={'/documents/kopsapulcesProtokoli'}>Kopsapulces protokoli</Link></li>
-                                <li class="li-header-item"><Link to={'/documents/valdesSedesProtokoli'}>Valdes sēdes protokoli</Link></li>
-                                <li class="li-header-item"><Link to={'/documents/budzets'}>Budžets</Link></li>
-                                <li class="li-header-item"><Link to={'/documents/sacensibuRezultati'}>Notikušās sacensības</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/noteikumi'} onClick={closeMenu}>Noteikumi</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/dopings'} onClick={closeMenu}>Dopings</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/gadaParaksti'} onClick={closeMenu}>Gada pārskati</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/kopsapulcesProtokoli'} onClick={closeMenu}>Kopsapulces protokoli</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/valdesSedesProtokoli'} onClick={closeMenu}>Valdes sēdes protokoli</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/budzets'} onClick={closeMenu}>Budžets</Link></li>
+                                <li class="li-header-item"><Link to={'/documents/sacensibuRezultati'} onClick={closeMenu}>Notikušās sacensības</Link></li>
                                 {/* <li class="li-header-item"><Link to={'/documents/reiting'}>Reitings</Link></li>                                                     */}
                             </ul>
                         </li>
-                        <li class="li-header-item"><Link to={"/Biedri"}>Biedri</Link></li>
-                        <li class="li-header-item"><Link to={"/Valde"}>Valde</Link></li>
-                        <li class="li-header-item"><a class="li-header-link" href="lkfIzlase.html">LKF izlase</a></li>
-                        <li class="li-header-item"><a class="li-header-link" href="tiesniesi.html">Tiesneši</a></li>
-                        <li id="komis" class="li-header-item"><a class="li-header-link" href="">Komisijas</a>
+                        <li class="li-header-item" onClick={closeMenu}><Link to={"/Biedri"} onClick={closeMenu}>Biedri</Link></li>
+                        <li class="li-header-item"><Link to={"/Valde"} onClick={closeMenu}>Valde</Link></li>
+                        <li class="li-header-item"><a class="li-header-link" href="lkfIzlase.html" onClick={closeMenu}>LKF izlase</a></li>
+                        <li class="li-header-item"><a class="li-header-link" href="tiesniesi.html" onClick={closeMenu}>Tiesneši</a></li>
+                        <li id="komis" class="li-header-item"><a class="li-header-link" href="" onClick={closeMenu}>Komisijas</a>
                             <ul class="ul-header-komis submenu">
-                                <li class="li-header-item"><a class="li-header-link" href="">Tiesnešu komisija</a></li>
-                                <li class="li-header-item"><a class="li-header-link" href="">Ētikas komisija</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="" onClick={closeMenu}>Tiesnešu komisija</a></li>
+                                <li class="li-header-item"><a class="li-header-link" href="" onClick={closeMenu}>Ētikas komisija</a></li>
                             </ul>
                         </li>
                     </ul>
                       </Nav.Link>
                       <Nav.Link className='menu-link'><Link to={'/Kalendars'} style={{color: '#002e5b', textDecoration: 'none'}}>Kalendārs</Link></Nav.Link>
-                      <Nav.Link className='menu-link' ><Link to={"/Eksamenacija"}>Eksaminācija</Link></Nav.Link>
+                      <Nav.Link className='menu-link' ><Link to={"/Eksamenacija"} onClick={closeMenu}>Eksaminācija</Link></Nav.Link>
                       <Nav.Link className='menu-link' onClick={scrollToFooter}>
                       Kontakti
                   </Nav.Link>
