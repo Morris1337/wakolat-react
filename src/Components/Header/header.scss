@@ -160,14 +160,16 @@
     z-index: 20;
     background-color: white;
     border-radius: 20px;
-    width: 200px;
+    width: fit-content;
+    height: fit-content;
+    padding: 25px;
+    margin-left: -130px;
     .submenu {
       display: none; // По умолчанию скрыто
       &.open {
         display: block; // Отображается при добавлении класса open
       }
     }
-    margin-left: -10px;
     a{
       // padding: 5px;
       margin: 10px 10px;

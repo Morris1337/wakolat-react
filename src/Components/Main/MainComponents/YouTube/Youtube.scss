@@ -16,9 +16,9 @@
                 width: 800px;
                 height: 400px;
             }
-            @media (max-width: 800px) {
+            @media (max-width: 820px) {
                 width: 600px;
-                height: 200px;
+                height: 300px;
             }
             @media (max-width: 420px) {
                 width: 300px;
@@ -79,6 +79,9 @@
                 position: relative;
                 z-index: none;
             }
+            @media screen and (max-width: 820px) {
+                margin-top: -65px;
+            }
         }
         @include flex-center;
         justify-content: space-around;
@@ -94,8 +97,8 @@
             @media (max-width: 1200px) {
                 grid-template-columns: repeat(3, 200px);
             }
-            @media (max-width: 800px) {
-                grid-template-columns: repeat(2, 200px);
+            @media (max-width: 820px) {
+                grid-template-columns: repeat(3, 200px);
             }
             @media (max-width: 420px) {
                 grid-template-columns: repeat(1, 200px);

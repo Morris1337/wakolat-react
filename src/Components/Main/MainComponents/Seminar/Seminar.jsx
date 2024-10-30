@@ -58,8 +58,8 @@ export default function Seminar() {
         if (screenWidth <= 1400) {
             slidesToShow = 4;
         }
-        if (screenWidth <= 800) {
-            slidesToShow = 2;
+        if (screenWidth <= 820) {
+            slidesToShow = 3;
         }
         if (screenWidth <= 420) {
             slidesToShow = 1;
