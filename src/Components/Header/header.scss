@@ -1,5 +1,29 @@
+@import '../../mixins.scss';
+
 #responsive-navbar-nav{
   .computer{
+    @media screen and (max-width: 820px) {
+      .landscape{
+        display: flex;
+      }
+      .computer{
+        display: none;
+      }
+      .mobile{
+        display: none;
+      }
+    }
+    // @media screen and (min-width: 821px) {
+    //   .landscape{
+    //     display: none;
+    //   }
+    //   .computer{
+    //     display: none;
+    //   }
+    //   .mobile{
+    //     display: block;
+    //   }
+    // }
     display: flex;
     #federacija{
       .submenu{
@@ -41,6 +65,10 @@
             }
           }
         }
+        .hidden{
+          display: none;
+        }
+        
       }
     }
 }
@@ -51,12 +79,18 @@
     .computer{
       display: none;
     }
+    .landscape{
+      display: none;
+    }
     .mobile{
       display: block;
     }
   }
   @media screen and (max-width: 400px) {
     .computer{
+      display: none;
+    }
+    .landscape{
       display: none;
     }
     .mobile{
@@ -134,6 +168,55 @@
   
   @media (min-width: 821px) {
     .mobile-menu-toggle {
+      display: none;
+    }
+  }
+
+  .landscape {
+    position: absolute;
+    @include flex-column;
+    z-index: 20;
+    background-color: white;
+    border-radius: 20px;
+    width: 200px;
+    .submenu {
+      display: none; // По умолчанию скрыто
+      &.open {
+        display: block; // Отображается при добавлении класса open
+      }
+    }
+    a{
+      padding: 5px;
+      margin: 0 5px;
+    }
+  }
+
+  // .landscape-menu-icon{
+  //   img{
+  //     width: 50px;
+  //     height: 50px;
+  //   }
+  //   .landscape{
+  //     .open{
+  //       display: block;
+  //     }
+  //   }
+  // }
+  .landscape-menu-wrapper {
+    display: none; /* По умолчанию скрыто */
+  
+    &.open {
+      display: block; /* Отображается, когда добавлен класс open */
+    }
+  }
+  
+  .landscape-menu-icon {
+    img {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+    @media screen and (min-width: 820px) and (max-width: 420px) {
       display: none;
     }
   }

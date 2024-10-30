@@ -21,7 +21,7 @@
             .two{
                 width: 400px;
             }
-            @media (max-width: 800px) {
+            @media (max-width: 820px) {
                 flex-direction: column;
             }
             @media (max-width: 420px) {
@@ -163,4 +163,10 @@
             margin-right: 5px!important;
         }
     }
+
 }
+// @media screen and (max-width: 820px){
+//     .footer{
+//         width: 820px;
+//     }
+// }
