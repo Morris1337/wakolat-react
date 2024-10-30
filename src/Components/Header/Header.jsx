@@ -12,34 +12,28 @@ import Olymp from './OlympicComitet.jpg'
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
 import EURWAKO from './EURWAKO.png';
 import prifileIcon from './profile-icon.svg';
+import MobileMenu from './Comptonents/Menu/MobileMenu';
 console.log(document.querySelector("#key"))
 
 const Header = () => {
-  const [openFederacija, setOpenFederacija] = useState(false);
-  const [openDokumenti, setOpenDokumenti] = useState(false);
-  const [openKomisijas, setOpenKomisijas] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  // const location = useLocation();
   const navigate = useNavigate();
-
-  // Функции для переключения состояния
-  const toggleFederacija = () => setOpenFederacija(!openFederacija);
-  const toggleDokumenti = () => setOpenDokumenti(!openDokumenti);
-  const toggleKomisijas = () => setOpenKomisijas(!openKomisijas);
 
   const closeMenu = () => setMenuOpen(false);
 
-
   const scrollToFooter = () => {
     const contact = document.getElementById('contact');
-    contact.scrollIntoView({ behavior: 'smooth' });
+    if (contact) {
+      contact.scrollIntoView({ behavior: 'smooth' });
+      
+    }
   };
 
   const handleClick = (event) => {
     if (window.innerWidth < 820) {
-      event.preventDefault(); // Отменяет переход по ссылке на маленьких экранах
+      event.preventDefault();
     } else {
-      navigate('/Documents'); // Переход по ссылке при экране больше 820 пикселей
+      navigate('/Documents');
     }
   };
 
@@ -80,7 +74,7 @@ const Header = () => {
               </Navbar.Brand>
               <Navbar.Toggle 
                 aria-controls='responsive-navbar-nav'
-                className='mobile-menu'
+                className='mobile-menu mobile-menu-toggle'
                 onClick={() => setMenuOpen(!menuOpen)} // Переключение состояния меню
                 />
               <Navbar.Collapse in={menuOpen} id='responsive-navbar-nav' className="justify-content-center align-items-center">
@@ -128,64 +122,7 @@ const Header = () => {
               </Nav>
 
                 <Nav className="align-items-center mobile">
-                  <Nav.Link className='menu-link' onClick={closeMenu}>
-                    <Link to={'/main'}>Home</Link>
-                  </Nav.Link>
-
-                  <Nav.Link 
-                    className='menu-link click-open-submenu' 
-                    id='federacija' 
-                    // href='#' 
-                    onClick={toggleFederacija}
-                  >
-                    Federācija
-                  </Nav.Link>
-
-                  {openFederacija && (
-                    <ul className="ul-header-fed submenu">
-                      <li 
-                      id="liDoc" 
-                      className="li-header-item" 
-                      onClick={toggleDokumenti}
-                      >Dokumenti
-                        {openDokumenti && (
-                          <ul 
-                          className="ul-header-dok submenu" onClick={closeMenu}>
-                            <li className="li-header-item"><Link to={'/documents/noteikumi'} onClick={closeMenu}>Noteikumi</Link></li>
-                            <li className="li-header-item"><Link to={'/documents/dopings'} onClick={closeMenu}>Dopings</Link></li>
-                            <li className="li-header-item"><Link to={'/documents/gadaParaksti'} onClick={closeMenu}>Gada pārskati</Link></li>
-                            <li className="li-header-item"><Link to={'/documents/kopsapulcesProtokoli'} onClick={closeMenu}>Kopsapulces протоколи</Link></li>
-                            <li className="li-header-item"><Link to={'/documents/valdesSedesProtokoli'} onClick={closeMenu}>Valdes sēdes протоколи</Link></li>
-                            <li className="li-header-item"><Link to={'/documents/budzets'} onClick={closeMenu}>Budžets</Link></li>
-                            <li className="li-header-item"><Link to={'/documents/sacensibuRezultati'} onClick={closeMenu}>Notikušas sacensības</Link></li>
-                          </ul>
-                        )}
-                      </li>
-                      <li className="li-header-item"><Link to={"/Biedri"} onClick={closeMenu}>Biedri</Link></li>
-                      <li className="li-header-item"><Link to={"/Valde"} onClick={closeMenu}>Valde</Link></li>
-                      <li className="li-header-item" ><Link to={"/"} onClick={closeMenu}>LKF izlase</Link></li>
-                      <li className="li-header-item">
-                        <a onClick={toggleKomisijas} style={{ cursor: 'pointer' }}>Komisijas</a>
-                        {openKomisijas && (
-                          <ul className="ul-header-komis submenu">
-                            <li className="li-header-item"><Link onClick={closeMenu}>Tiesnešu komisija</Link></li>
-                            <li className="li-header-item"><Link onClick={closeMenu}>Ērikas komisija</Link></li>
-                          </ul>
-                        )}
-                      </li>
-                    </ul>
-                  )}
-
-<Nav.Link className='menu-link'><Link to={'/Kalendars'} style={{color: '#002e5b', textDecoration: 'none'}} onClick={closeMenu}>Kalendārs</Link></Nav.Link>
-                  <Nav.Link className='menu-link' ><Link to={"/Eksamenacija"} onClick={closeMenu}>Eksaminācija</Link></Nav.Link>
-                  <Nav.Link className='menu-link' onClick={scrollToFooter}>
-                      Kontakti
-                  </Nav.Link>
-                  <Nav.Link className='menu-link'>
-                    <PasswordProtectedLink>
-                      <Link to={'/admin'} onClick={closeMenu}></Link>
-                    </PasswordProtectedLink>
-                  </Nav.Link>
+                    <MobileMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
                 </Nav>
               </Navbar.Collapse>
               <Navbar.Brand href="https://wako.sport/" className="my-auto">
