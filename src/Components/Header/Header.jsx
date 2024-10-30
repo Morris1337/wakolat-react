@@ -77,25 +77,26 @@ const Header = () => {
                   className="d-inline-block align-top" 
                   />
               </Navbar.Brand>
-              <Navbar.Toggle 
+              {/* <Navbar.Toggle 
                 aria-controls='responsive-navbar-nav'
                 className='mobile-menu mobile-menu-toggle'
                 onClick={() => setMenuOpen(!menuOpen)} // Переключение состояния меню
-                />
-              <Navbar.Collapse in={menuOpen} id='responsive-navbar-nav' className="justify-content-center align-items-center">
-                <Nav className="align-items-center computer">
+                /> */}
+              <div in={menuOpen} id='responsive-navbar-nav' className="justify-content-center align-items-center">
+                <div className="align-items-center computer">
                   <ComputerMenu/>
-                </Nav>
-                  <div className="landscape-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
+                </div>
+                <div className="landscape-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
                     <img src={list} alt="Menu Icon" />
                   </div>
                   <div className={`landscape-menu-wrapper ${landscapeMenuOpen ? 'open' : ''}`}>
                     <LandscapeMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
                   </div>
-                <Nav className="align-items-center mobile">
-                    <MobileMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
-                </Nav>
-              </Navbar.Collapse>
+                  {/* <Nav className="align-items-center mobile">
+                      <MobileMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
+                  </Nav> */}
+
+              </div>
               <Navbar.Brand href="https://wako.sport/" className="my-auto">
                   <img 
                   src={wakoLogo} 

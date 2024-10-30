@@ -39,9 +39,8 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
       <Nav.Link className='menu-link'>
         <Link to={'/main'} onClick={handleLinkClick}>Home</Link>
       </Nav.Link>
-      
       <Nav.Link className='menu-link' id='federacija' onClick={handleFederacijaToggle}>
-        Federācija
+        <Link>Federācija</Link>
         <ul className={`submenu ${isSubmenuVisible ? 'open' : ''}`}>
           <li id="liDoc" className="li-header-item">
             <Link to="#" onClick={handleDocumentiToggle}>Dokumenti</Link>
@@ -76,10 +75,10 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
             <Link to={"/Valde"}>Valde</Link>
           </li>
           <li className="li-header-item">
-            <a className="li-header-link" href="lkfIzlase.html" onClick={handleLinkClick}>LKF izlase</a>
+            <Link className="li-header-link" href="lkfIzlase.html" onClick={handleLinkClick}>LKF izlase</Link>
           </li>
           <li className="li-header-item">
-            <a className="li-header-link" href="tiesniesi.html" onClick={handleLinkClick}>Tiesneši</a>
+            <Link className="li-header-link" href="tiesniesi.html" onClick={handleLinkClick}>Tiesneši</Link>
           </li>
           <li id="komis" class="li-header-item"><Link to='#' class="li-header-link" onClick={handleKomisToggle}>Komisijas</Link>
           <ul class={`ul-header-komis submenu ${isKomisVisible ? 'open' : ''}`}>
@@ -93,8 +92,12 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
       <Nav.Link className='menu-link'>
         <Link to={'/Kalendars'} onClick={handleLinkClick}>Kalendārs</Link>
       </Nav.Link>
-      <Nav.Link className='menu-link' onClick={handleLinkClick}>Eksaminācija</Nav.Link>
-      <Nav.Link className='menu-link' onClick={scrollToFooter}>Kontakti</Nav.Link>
+      <Nav.Link className='menu-link' onClick={handleLinkClick}>
+        <Link>Eksaminācija</Link>
+      </Nav.Link>
+      <Nav.Link className='menu-link' onClick={scrollToFooter}>
+        <Link>Kontakti</Link>
+      </Nav.Link>
       
       <div className='menu-link'>
         <PasswordProtectedLink>
