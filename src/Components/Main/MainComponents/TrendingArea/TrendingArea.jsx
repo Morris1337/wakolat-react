@@ -28,7 +28,7 @@ const TrendingArea = () => {
         <>
             {/* Trending Area Start */}
             <div className="trending-area fix">
-                <div className="container">
+                <div className="">
                     <div className="trending-main">
                         <div className="row trend-center">
                             <div className="trend-center-size">

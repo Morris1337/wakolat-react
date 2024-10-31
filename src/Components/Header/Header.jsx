@@ -56,9 +56,10 @@ const Header = () => {
 };
 
     return (
-      <Navbar expand="md" bg="white" variant="light">
-            <Container className='header-bottom copmuter'>
+      <Navbar className='header-block' expand="md" bg="white" variant="light">
+            <div className='header-bottom copmuter container-header'>
                 {/* {createPortal(<Navbar.Brand/>, document.getElementById("key"))}; */}
+              <div className='logos-block'>
               <Navbar.Brand href="/" className="LKFLOGO">
                   <img 
                   src={logo} 
@@ -68,6 +69,15 @@ const Header = () => {
                   className="d-inline-block align-top" 
                   />
               </Navbar.Brand>
+              <Navbar.Brand  className="my-auto olymp-mobile">
+                  <img 
+                  src={Olymp} 
+                  alt="Logo"
+                  height={70}
+                  width={70}
+                  className="d-inline-block align-top olymp" 
+                  />
+                </Navbar.Brand>
               <Navbar.Brand href="/" className="eur-wako">
                   <img 
                   src={EURWAKO} 
@@ -77,26 +87,20 @@ const Header = () => {
                   className="d-inline-block align-top" 
                   />
               </Navbar.Brand>
-              {/* <Navbar.Toggle 
-                aria-controls='responsive-navbar-nav'
-                className='mobile-menu mobile-menu-toggle'
-                onClick={() => setMenuOpen(!menuOpen)} // Переключение состояния меню
-                /> */}
+              </div>
               <div in={menuOpen} id='responsive-navbar-nav' className="justify-content-center align-items-center">
                 <div className="align-items-center computer">
                   <ComputerMenu/>
                 </div>
                 <div className="landscape-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
-                    <img src={list} alt="Menu Icon" />
-                  </div>
-                  <div className={`landscape-menu-wrapper ${landscapeMenuOpen ? 'open' : ''}`}>
-                    <LandscapeMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
-                  </div>
-                  {/* <Nav className="align-items-center mobile">
-                      <MobileMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
-                  </Nav> */}
+                  <img src={list} alt="Menu Icon" />
+                </div>
+                <div className={`landscape-menu-wrapper ${landscapeMenuOpen ? 'open' : ''}`}>
+                  <LandscapeMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
+                </div>
 
               </div>
+              <div className='logos-block'>
               <Navbar.Brand href="https://wako.sport/" className="my-auto">
                   <img 
                   src={wakoLogo} 
@@ -124,7 +128,8 @@ const Header = () => {
                   className="d-inline-block align-top" 
                   />
               </Navbar.Brand>
-          </Container>
+              </div>
+          </div>
       </Navbar>
     );
   }
