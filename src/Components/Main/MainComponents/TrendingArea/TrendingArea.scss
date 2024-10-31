@@ -15,7 +15,7 @@
             height: auto;
             margin-left: -47px;
         }
-        @media (max-width: 412px) {
+        @media (max-width: 420px) {
             width: 350px;
             height: auto;
             margin-left: -47px;
@@ -32,8 +32,11 @@
             }
         }
     }
-    @media (max-width: 400px) {
+    @media (max-width: 420px) {
         width: 360px;
+        // margin-left: -25px;
+        display: flex;
+        justify-content: center;
         .trend-top-cap{
             a{
                 
@@ -107,19 +110,30 @@ span{
 }
 @media screen and (max-width: 420px) {
     .trend-block-bottom{
-        grid-template-columns: repeat(1, 300px);
+        @include flex-column;
         justify-content: center;
+        margin-left: 0!important;
         .single-bottom{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin-top: 10px;
-        }
-    }
-}
-@media screen and (max-width: 400px) {
-    .trend-block-bottom{
-        grid-template-columns: repeat(1, 300px);
-        justify-content: center;
-        .single-bottom{
-            margin-top: 10px;
+            .trend-bottom-img{
+                img{
+                    width: 250px!important;
+                    height: 180px;
+                }
+            }
+            .trend-bottom-cap{
+                
+                h4{
+                    
+                    a{
+                        text-align: center;
+                        width: 250px;
+                    }
+                }
+            }
         }
     }
 }
@@ -142,10 +156,11 @@ span{
         grid-template-columns: repeat(2, 350px);
     }
     @media screen and (max-width: 420px) { 
+        @include flex-column;
+        justify-content: center;
         margin-top: 20px!important;  
-    }
-    @media screen and (max-width: 400px) { 
-        margin-top: 20px!important;  
+        // margin-left: -50px;
+        grid-template-columns: repeat(1, 350px);
     }
 }
 
@@ -162,9 +177,12 @@ span{
         a{
             text-decoration: none;      
             border-radius: 5px;
-            padding: 5px;
+            // padding: 5px;
             color: black!important;
             
+        }
+        @media screen and (max-width: 420px) {
+            width: 150px;
         }
         
     }
