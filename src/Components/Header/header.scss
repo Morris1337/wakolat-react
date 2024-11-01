@@ -115,6 +115,9 @@
   img{
     width: 50px!important;
   }
+  &.open{
+    left: 150px;
+  }
 }
 
   .li-header-item{
@@ -233,19 +236,42 @@
       margin: 10px 10px;
       @media screen and (max-width: 420px) {
         margin: 0;
+
       }
+    }
+    @media screen and (max-width:420px) {
+      height: 100%;
+      margin-left: 0;
+      width: 200px;
     }
   }
 
   .landscape-menu-wrapper {
     display: none; /* По умолчанию скрыто */
-    // @media screen () {
-      
-    // }
     &.open {
       display: block; /* Отображается, когда добавлен класс open */
     }
-    
+    @media screen and (max-width:420px) {
+      position: fixed;
+      top: 0;
+      left: -250px; /* начальная позиция */
+      width: 250px;
+      height: 100%;
+      // background-color: #333;
+      color: white;
+      overflow-x: hidden;
+      transition: 0.6s ease; /* плавная анимация */
+      // padding-top: 60px;
+      &.open{
+        left: 0px;
+        top: -1px;
+        z-index: 21;
+        // background: aqua;
+        .mobile-menu-icon{
+          margin-left: 150px;
+        }
+      }
+    }
   }
   
   .landscape-menu-icon {
@@ -257,10 +283,25 @@
     }
   }
   .align-items-center{
-    align-items: flex-start!important;
-    @media screen and (max-width:420px) {
-      margin-right: 40px;
-    }
+    // align-items: flex-start!important;
+    // @media screen and (max-width:420px) {
+    //   margin-right: 40px;
+    // }
+    // @media screen and (max-width:420px) {
+    //   position: fixed;
+    //   top: 0;
+    //   left: -250px; /* начальная позиция */
+    //   width: 250px;
+    //   height: 100%;
+    //   // background-color: #333;
+    //   color: white;
+    //   overflow-x: hidden;
+    //   transition: 0.3s ease; /* плавная анимация */
+    //   padding-top: 60px;
+    //   &.open{
+    //     left: 181px; /* меню выезжает */
+    //   }
+    // }
   }
 
   .align-top{

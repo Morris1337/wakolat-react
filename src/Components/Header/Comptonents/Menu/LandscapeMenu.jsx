@@ -7,6 +7,7 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
   const [isSubmenuVisible, setIsSubmenuVisible] = useState(false);
   const [isDocumentiVisible, setIsDocumentiVisible] = useState(false);
   const [isKomisVisible, setIsKomisVisible] = useState(false);
+  const [landscapeMenuOpen, setLandscapeMenuOpen] = useState(false);
 
   // Обработчик клика на "Federācija"
   const handleFederacijaToggle = () => {
@@ -35,7 +36,7 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
   };
 
   return (
-    <div className="align-items-center landscape">
+    <div className={`align-items-center landscape ${landscapeMenuOpen ? 'open' : ''}`}>
       <Nav.Link className='menu-link'>
         <Link to={'/main'} onClick={handleLinkClick}>Home</Link>
       </Nav.Link>

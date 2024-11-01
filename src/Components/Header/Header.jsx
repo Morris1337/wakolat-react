@@ -20,12 +20,14 @@ console.log(document.querySelector("#key"))
 
 const Header = () => {
   const [landscapeMenuOpen, setLandscapeMenuOpen] = useState(false);
+  const [menuChangeIcon, setMenuChangeIcon] = useState();
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const closeMenu = () => {
     setLandscapeMenuOpen(false);
-    setMenuOpen(false)
+    setMenuChangeIcon()
+    setMenuOpen(false);
   };
 
   const scrollToFooter = () => {
@@ -59,8 +61,11 @@ const Header = () => {
 
     return (
       <>
+      <div>
+        <div className='mobile-menu-background'></div>
       <div className="mobile-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
         <img src={list2} alt="Menu Icon" />
+      </div>
       </div>
       <Navbar className='header-block' expand="md" bg="white" variant="light">
             <div className='header-bottom copmuter container-header'>
@@ -103,6 +108,9 @@ const Header = () => {
               </div>
                 <div className={`landscape-menu-wrapper ${landscapeMenuOpen ? 'open' : ''}`}>
                   <LandscapeMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
+                  <div className={`mobile-menu-icon ${menuChangeIcon ? 'open' : ''}`} onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
+                    <img src={list3} alt="Menu Icon" />
+                  </div>
                 </div>
 
               </div>
