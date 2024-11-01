@@ -14,6 +14,8 @@ import wakoLogo from './Wako_page-0001-removebg-preview.png';
 import EURWAKO from './EURWAKO.png';
 import prifileIcon from './profile-icon.svg';
 import list from './list.svg'
+import list2 from './arrow-right-square-fill.svg'
+import list3 from './arrow-left-square-fill.svg'
 console.log(document.querySelector("#key"))
 
 const Header = () => {
@@ -56,6 +58,10 @@ const Header = () => {
 };
 
     return (
+      <>
+      <div className="mobile-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
+        <img src={list2} alt="Menu Icon" />
+      </div>
       <Navbar className='header-block' expand="md" bg="white" variant="light">
             <div className='header-bottom copmuter container-header'>
                 {/* {createPortal(<Navbar.Brand/>, document.getElementById("key"))}; */}
@@ -93,8 +99,8 @@ const Header = () => {
                   <ComputerMenu/>
                 </div>
                 <div className="landscape-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
-                  <img src={list} alt="Menu Icon" />
-                </div>
+                <img src={list} alt="Menu Icon" />
+              </div>
                 <div className={`landscape-menu-wrapper ${landscapeMenuOpen ? 'open' : ''}`}>
                   <LandscapeMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
                 </div>
@@ -131,6 +137,7 @@ const Header = () => {
               </div>
           </div>
       </Navbar>
+      </>
     );
   }
 
