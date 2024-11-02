@@ -8,7 +8,6 @@ import ComputerMenu from './Comptonents/Menu/ComputerMenu';
 import LandscapeMenu from './Comptonents/Menu/LandscapeMenu.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.scss';
-// import './header.scss'
 import logo from './Color-logo_2x-100-removebg-preview.png';
 import Olymp from './OlympicComitet.jpg'
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
@@ -106,8 +105,8 @@ const Header = () => {
                   <ComputerMenu/>
                 </div>
                 <div className="landscape-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
-                <img src={list} alt="Menu Icon" />
-              </div>
+                  <img src={list} alt="Menu Icon" />
+                </div>
                 <div className={`landscape-menu-wrapper ${landscapeMenuOpen ? 'open' : ''}`}>
                   <LandscapeMenu closeMenu={closeMenu} scrollToFooter={scrollToFooter} />
                   <div className={`mobile-menu-icon ${menuChangeIcon ? 'open' : ''}`} onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>

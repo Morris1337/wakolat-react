@@ -3,7 +3,7 @@ import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstr
 import {Link, useNavigate} from 'react-router-dom';
 import PasswordProtectedLink from '../Pasword/PasswordProtectLink';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../../App.scss';
 
 export default function ComputerMenu() {
@@ -49,22 +49,34 @@ export default function ComputerMenu() {
       <li id="liDoc" class="li-header-item"><Link onClick={handleClick}>Dokumenti</Link>
           <ul class="submenu lidoc-sub">
               <li class="li-header-item"><Link to={'/documents/noteikumi'} onClick={closeMenu}>Noteikumi</Link></li>
+              <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/dopings'} onClick={closeMenu}>Dopings</Link></li>
+              <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/gadaParaksti'} onClick={closeMenu}>Gada pārskati</Link></li>
+              <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/kopsapulcesProtokoli'} onClick={closeMenu}>Kopsapulces protokoli</Link></li>
+              <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/valdesSedesProtokoli'} onClick={closeMenu}>Valdes sēdes protokoli</Link></li>
+              <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/budzets'} onClick={closeMenu}>Budžets</Link></li>
+              <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/sacensibuRezultati'} onClick={closeMenu}>Notikušās sacensības</Link></li>
               {/* <li class="li-header-item"><Link to={'/documents/reiting'}>Reitings</Link></li>                                                     */}
           </ul>
       </li>
+      <hr className='verical-line'/>
       <li class="li-header-item" onClick={closeMenu}><Link to={"/Biedri"} onClick={closeMenu}>Biedri</Link></li>
+      <hr className='verical-line'/>
       <li class="li-header-item"><Link to={"/Valde"} onClick={closeMenu}>Valde</Link></li>
+      <hr className='verical-line'/>
       <li class="li-header-item"><a class="li-header-link" href="lkfIzlase.html" onClick={closeMenu}>LKF izlase</a></li>
+      <hr className='verical-line'/>
       <li class="li-header-item"><a class="li-header-link" href="tiesniesi.html" onClick={closeMenu}>Tiesneši</a></li>
+      <hr className='verical-line'/>
       <li id="komis" class="li-header-item"><a class="li-header-link" href="" onClick={closeMenu}>Komisijas</a>
           <ul class="ul-header-komis submenu">
               <li class="li-header-item"><a class="li-header-link" href="" onClick={closeMenu}>Tiesnešu komisija</a></li>
+              <hr className='verical-line'/>
               <li class="li-header-item"><a class="li-header-link" href="" onClick={closeMenu}>Ētikas komisija</a></li>
           </ul>
       </li>

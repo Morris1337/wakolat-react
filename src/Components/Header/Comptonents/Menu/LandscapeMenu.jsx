@@ -44,7 +44,7 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
           alt="Logo"
           height={60}
           width={120}
-          className="d-inline-block align-top" 
+          className="d-inline-block align-top lkflogo-mobile" 
           />
       </Navbar.Brand>
       <Nav.Link className='menu-link'>
@@ -55,45 +55,57 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
         <ul className={`more-menus submenu ${isSubmenuVisible ? 'open' : ''}`}>
           <li id="liDoc" className="li-header-item">
             <Link to="#" onClick={handleDocumentiToggle}>Dokumenti</Link>
-            <ul className={`submenu ${isDocumentiVisible ? 'open' : ''}`}>
+            <ul className={`submenu more-more-menus ${isDocumentiVisible ? 'open' : ''}`}>
               <li className="li-header-item">
                 <Link to={'/documents/noteikumi'} onClick={handleLinkClick}>Noteikumi</Link>
               </li>
+              <hr className='verical-line'/>
               <li className="li-header-item">
                 <Link to={'/documents/dopings'} onClick={handleLinkClick}>Dopings</Link>
               </li>
+              <hr className='verical-line'/>
               <li className="li-header-item">
                 <Link to={'/documents/gadaParaksti'} onClick={handleLinkClick}>Gada pārskati</Link>
               </li>
+              <hr className='verical-line'/>
               <li className="li-header-item">
                 <Link to={'/documents/kopsapulcesProtokoli'} onClick={handleLinkClick}>Kopsapulces protokoli</Link>
               </li>
+              <hr className='verical-line'/>
               <li className="li-header-item">
                 <Link to={'/documents/valdesSedesProtokoli'} onClick={handleLinkClick}>Valdes sēdes protokoli</Link>
               </li>
+              <hr className='verical-line'/>
               <li className="li-header-item">
                 <Link to={'/documents/budzets'} onClick={handleLinkClick}>Budžets</Link>
               </li>
+              <hr className='verical-line'/>
               <li className="li-header-item">
                 <Link to={'/documents/sacensibuRezultati'} onClick={handleLinkClick}>Notikušās sacensības</Link>
               </li>
             </ul>
           </li>
+          <hr className='verical-line'/>
           <li className="li-header-item" onClick={handleLinkClick}>
             <Link to={"/Biedri"}>Biedri</Link>
           </li>
+          <hr className='verical-line'/>
           <li className="li-header-item" onClick={handleLinkClick}>
             <Link to={"/Valde"}>Valde</Link>
           </li>
+          <hr className='verical-line'/>
           <li className="li-header-item">
             <Link className="li-header-link" href="lkfIzlase.html" onClick={handleLinkClick}>LKF izlase</Link>
           </li>
+          <hr className='verical-line'/>
           <li className="li-header-item">
             <Link className="li-header-link" href="tiesniesi.html" onClick={handleLinkClick}>Tiesneši</Link>
           </li>
+          <hr className='verical-line'/>
           <li id="komis" class="li-header-item"><Link to='#' class="li-header-link" onClick={handleKomisToggle}>Komisijas</Link>
           <ul class={`ul-header-komis submenu ${isKomisVisible ? 'open' : ''}`}>
               <li class="li-header-item"><a class="li-header-link" href="" onClick={handleLinkClick}>Tiesnešu komisija</a></li>
+              <hr className='verical-line'/>
               <li class="li-header-item"><a class="li-header-link" href="" onClick={handleLinkClick}>Ētikas komisija</a></li>
           </ul>
       </li>
