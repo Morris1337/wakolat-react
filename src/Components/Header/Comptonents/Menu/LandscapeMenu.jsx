@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Nav } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PasswordProtectedLink from '../Pasword/PasswordProtectLink';
+import logo from '../../Color-logo_2x-100-removebg-preview.png';
 
 export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
   const [isSubmenuVisible, setIsSubmenuVisible] = useState(false);
@@ -37,12 +38,21 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
 
   return (
     <div className={`align-items-center landscape ${landscapeMenuOpen ? 'open' : ''}`}>
+      <Navbar.Brand href="/" className="LKFLOGO">
+          <img 
+          src={logo} 
+          alt="Logo"
+          height={60}
+          width={120}
+          className="d-inline-block align-top" 
+          />
+      </Navbar.Brand>
       <Nav.Link className='menu-link'>
         <Link to={'/main'} onClick={handleLinkClick}>Home</Link>
       </Nav.Link>
       <Nav.Link className='menu-link' id='federacija' onClick={handleFederacijaToggle}>
         <Link>Federācija</Link>
-        <ul className={`submenu ${isSubmenuVisible ? 'open' : ''}`}>
+        <ul className={`more-menus submenu ${isSubmenuVisible ? 'open' : ''}`}>
           <li id="liDoc" className="li-header-item">
             <Link to="#" onClick={handleDocumentiToggle}>Dokumenti</Link>
             <ul className={`submenu ${isDocumentiVisible ? 'open' : ''}`}>

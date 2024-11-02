@@ -8,6 +8,7 @@ import ComputerMenu from './Comptonents/Menu/ComputerMenu';
 import LandscapeMenu from './Comptonents/Menu/LandscapeMenu.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.scss';
+// import './header.scss'
 import logo from './Color-logo_2x-100-removebg-preview.png';
 import Olymp from './OlympicComitet.jpg'
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
@@ -61,11 +62,12 @@ const Header = () => {
 
     return (
       <>
-      <div>
+      <div className='menu-mobile-open-icon-block' onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
         <div className='mobile-menu-background'></div>
-      <div className="mobile-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
-        <img src={list2} alt="Menu Icon" />
-      </div>
+        <div className="mobile-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
+          <img src={list2} alt="Menu Icon" />
+          {/* <img src={landscapeMenuOpen ? list3 : list2} alt="Menu Icon" /> */}
+        </div>
       </div>
       <Navbar className='header-block' expand="md" bg="white" variant="light">
             <div className='header-bottom copmuter container-header'>
