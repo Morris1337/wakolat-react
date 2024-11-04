@@ -7,6 +7,9 @@
     @media screen and (max-width: 820px) {
         right: 265px;
     }
+    @media screen and (max-width:420px) {
+        right: 0;
+    }
 }
 .carousel-container{
     margin-left: -50px;

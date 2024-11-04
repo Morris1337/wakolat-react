@@ -79,7 +79,7 @@ export default function FederationClubs() {
             <div className='clubs-carousel'>
                 <div className='clubs-list slider-container'>
                 <Slider className='llist' {...settings}>                  
-                    <div><Clubs img={fcImg} link={'funcatchers.lv'} title={"Fun Catchers"} /></div>
+                    <div><Clubs img={fcImg} link={'funcatchers.lv'} title={"Fun Catchers"} epasts={''}/></div>
                     <div><Clubs img={bbc} link={'funcatchers.lv'} title={"Balistic Boxing Clubs"} /></div>
                     <div><Clubs img={kbs} link={'funcatchers.lv'} title={"Boksa un Kikboksa skola"} /></div>
                     <div><Clubs img={MTA} link={'funcatchers.lv'} title={"Bērnu un jauniešu centrs 'Bolderāja'"} /></div>

@@ -65,6 +65,10 @@ const Header = () => {
         <div className='mobile-menu-background'></div>
         <div className="mobile-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
           <img src={list2} alt="Menu Icon" />
+          {/* <p>M</p>
+          <p>E</p>
+          <p>N</p>
+          <p>U</p> */}
           {/* <img src={landscapeMenuOpen ? list3 : list2} alt="Menu Icon" /> */}
         </div>
       </div>

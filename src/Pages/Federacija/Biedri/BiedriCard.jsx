@@ -1,7 +1,7 @@
 import React from 'react'
 import './biedri.scss'
 
-export default function BiedriCard({img, clubTitle, city}) {
+export default function BiedriCard({img, clubTitle, city, epasts, phone}) {
   return (
     <div className="flip-container">
         <div className="shield flipper">
@@ -12,6 +12,8 @@ export default function BiedriCard({img, clubTitle, city}) {
                 <div className="about-club">
                     <h4 className="name">{clubTitle}</h4>
                     <p>{city}</p>
+                    <p>{phone}</p>
+                    <p>{epasts}</p>
                 </div>
             </div>
         </div>
