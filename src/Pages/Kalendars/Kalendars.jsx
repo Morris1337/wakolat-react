@@ -43,7 +43,7 @@ const Kalendars = () => {
 
         <div className='kalendar'>
         <iframe
-            src="https://calendar.google.com/calendar/embed?src=funcatcherslv%40gmail.com&ctz=Europe%2FRiga&hl=lv"
+            src="https://calendar.google.com/calendar/embed?src=c_0ad6c3472b9618a3ca38f64c873b9353d97ee9c6d200cd5850baf17f8d73287a%40group.calendar.google.com&ctz=Europe%2FRiga&hl=lv"
             style={{ border: 0 }}
             width="800"
             height="600"
