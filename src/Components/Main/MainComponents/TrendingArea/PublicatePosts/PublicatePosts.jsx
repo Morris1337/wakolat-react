@@ -14,7 +14,7 @@ export default function PublicatePosts() {
 
     useEffect(() => {
         async function get_one_news() {
-        const url = "http://164.92.147.233:8020/api/get_one_news/"; // Передаем ID в запрос
+        const url = "https://myproject123.zapto.org/api/get_one_news"; // Передаем ID в запрос
         try {
             const result = await fetch(url, {
             method: 'POST', // Метод запроса
@@ -53,14 +53,14 @@ export default function PublicatePosts() {
     <div key={publicateNews.id} className="publication-page">
       <ScrollToTop />
         <div class="about-img">
-            <img src={`http://164.92.147.233:8020/upload/${publicateNews.image}`} alt=""/>
+            <img src={`https://myproject123.zapto.org/upload/${publicateNews.image}`} alt=""/>
         </div>
         <div class="section-tittle">
             <h3>{publicateNews.header}</h3>
         </div>
         <div className="competition-category">
           {publicateNews.pdf ? (
-            <a href={`http://164.92.147.233:8020/upload/${publicateNews.pdf}`} target="_blank" rel="noopener noreferrer">
+            <a href={`https://myproject123.zapto.org/upload/${publicateNews.pdf}`} target="_blank" rel="noopener noreferrer">
               Открыть PDF
             </a>
           ) : null}

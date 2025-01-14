@@ -8,7 +8,7 @@ const TrendingArea = () => {
 
     useEffect(() => {
         async function get_news() {
-            const url = "http://164.92.147.233:8020/api/get_news";
+            const url = "https://myproject123.zapto.org/api/get_news";
             const count = 10; // количество постов, которые вы хотите получить
             const response = await fetch(url, {
                 method: 'POST',
@@ -36,7 +36,7 @@ const TrendingArea = () => {
                                     <div key={obj["id"]} className="trending-top mb-30">
                                         <div className="trend-top-img">
                                             <img 
-                                                src={"http://164.92.147.233:8020/upload/" + obj["image"]} 
+                                                src={"https://myproject123.zapto.org/upload/" + obj["image"]} 
                                                 alt=""
                                                 className='top-img'
                                             />
@@ -55,7 +55,7 @@ const TrendingArea = () => {
                                             <div className="single-bottom mb-35">
                                                 <div className="trend-bottom-img mb-30">
                                                     <img 
-                                                        src={"http://164.92.147.233:8020/upload/" + obj["image"]} 
+                                                        src={"https://myproject123.zapto.org/upload/" + obj["image"]} 
                                                         alt="img"
                                                         className='bottom-img'
                                                     />
@@ -75,7 +75,7 @@ const TrendingArea = () => {
                                     <div key={obj["id"]}>
                                         <div className="trand-right-single d-flex">
                                             <div className="trand-right-img">
-                                                <img src={"http://164.92.147.233:8020/upload/" + obj["image"]} alt="img"/>
+                                                <img src={"https://myproject123.zapto.org/upload/" + obj["image"]} alt="img"/>
                                             </div>
                                             <div className="trand-right-cap">
                                                 <Link to={`/PublicatePosts/${obj.id}`}>{obj.header}</Link>

@@ -10,9 +10,33 @@ function PublicateSeminar() {
   const { id } = useParams(); // Получаем id из URL
   const [publicateSeminar, setPublicateSeminar] = useState(null); // Исправляем начальное состояние
 
+  function formatDate(dateString) {
+    if (!dateString) {
+      return ""; // Если дата отсутствует, вернуть пустую строку
+    }
+    const date = new Date(dateString);
+    if (isNaN(date)) {
+      return ""; // Если дата некорректна, вернуть пустую строку
+    }
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с 0
+    const year = date.getFullYear();
+    const hours = dateString.includes("T") // Проверяем наличие времени в строке
+      ? String(date.getHours()).padStart(2, '0')
+      : "";
+    const minutes = dateString.includes("T") // Проверяем наличие минут
+      ? String(date.getMinutes()).padStart(2, '0')
+      : "";
+    return hours && minutes
+      ? `${day}/${month}/${year}, ${hours}:${minutes}`
+      : `${day}/${month}/${year}`;
+  }
+  
+  
+
   useEffect(() => {
     async function get_one_seminar() {
-      const url = "http://164.92.147.233:8020/api/get_one_seminar/"; // Передаем ID в запрос
+      const url = "https://myproject123.zapto.org/api/get_one_seminar"; // Передаем ID в запрос
       try {
         const result = await fetch(url, {
           method: 'POST', // Метод запроса
@@ -42,7 +66,7 @@ function PublicateSeminar() {
     <div key={publicateSeminar.id} className="about-right mb-90">
       {/* Файл изображения */}
       <div className="about-img">
-        <img src={`http://164.92.147.233:8020/upload/${publicateSeminar.image}`} alt="Kikboksa čempionāts 2023" />
+        <img src={`https://myproject123.zapto.org/upload/${publicateSeminar.image}`} alt="Kikboksa čempionāts 2023" />
 
         {/* Заголовок */}
         <div className="section-tittle mb-30 pt-30 competition-name">
@@ -79,7 +103,7 @@ function PublicateSeminar() {
             {/* Дата соревнований */}
             <div className="competition-contry">
               <h5>Seminara datums:</h5>
-              <h6>{publicateSeminar.date_start}</h6>
+              <h6>{formatDate(publicateSeminar.date_start)}</h6>
             </div>
           </div>
 
@@ -95,7 +119,7 @@ function PublicateSeminar() {
                 </h5>
               </div>
               <div>
-                <h6>{publicateSeminar.date_registration}</h6>
+              <h6>{formatDate(publicateSeminar.date_registration)}</h6>
               </div>
               <hr />
               {/* Взнос за участие */}

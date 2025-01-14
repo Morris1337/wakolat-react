@@ -30,7 +30,7 @@ export default function PostComponent() {
 
 
     try {
-      const response = await fetch("http://164.92.147.233:8020/api/add_news", {
+      const response = await fetch("https://myproject123.zapto.org/api/add_news", {
         method: "POST",
         body: formData,
       });
