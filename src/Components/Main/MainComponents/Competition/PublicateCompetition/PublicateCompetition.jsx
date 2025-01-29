@@ -9,9 +9,33 @@ export default function PublicateCompetition() {
   const { id } = useParams(); // Получаем id из URL
   const [publicateCompetition, setPublicateCompetition] = useState(null); // Исправляем начальное состояние
 
+  function formatDate(dateString) {
+    if (!dateString) {
+      return ""; // Если дата отсутствует, вернуть пустую строку
+    }
+    const date = new Date(dateString);
+    if (isNaN(date)) {
+      return ""; // Если дата некорректна, вернуть пустую строку
+    }
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с 0
+    const year = date.getFullYear();
+    const hours = dateString.includes("T") // Проверяем наличие времени в строке
+      ? String(date.getHours()).padStart(2, '0')
+      : "";
+    const minutes = dateString.includes("T") // Проверяем наличие минут
+      ? String(date.getMinutes()).padStart(2, '0')
+      : "";
+    return hours && minutes
+      ? `${day}/${month}/${year}, ${hours}:${minutes}`
+      : `${day}/${month}/${year}`;
+  }
+  
+  
+
 useEffect(() => {
     async function get_one_competition() {
-      const url = "https://myproject123.zapto.org/api/get_one_competition/"; // Передаем ID в запрос
+      const url = "https://myproject123.zapto.org/api/get_one_competition"; // Передаем ID в запрос
       try {
         const result = await fetch(url, {
           method: 'POST', // Метод запроса
@@ -79,7 +103,9 @@ useEffect(() => {
               {/* Дата соревнований */}
               <div className="competition-contry">
                 <h5>Sacensības datums:</h5>
-                <h6>{publicateCompetition.date_start} - {publicateCompetition.date_end}</h6>
+                <h6>
+                  {formatDate(publicateCompetition.date_start)} - {formatDate(publicateCompetition.date_end)}
+                </h6>
               </div>
             </div>
 
@@ -95,7 +121,7 @@ useEffect(() => {
                   </h5>
                 </div>
                 <div>
-                  <h6>{publicateCompetition.date_registration}</h6>
+                   <h6>{formatDate(publicateCompetition.date_registration)}</h6>
                 </div>
                 <hr />
                 {/* Взнос за участие */}

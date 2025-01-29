@@ -14,7 +14,7 @@ export default function PublicatePosts() {
 
     useEffect(() => {
         async function get_one_news() {
-        const url = "https://myproject123.zapto.org/api/get_one_news/"; // Передаем ID в запрос
+        const url = "https://myproject123.zapto.org/api/get_one_news"; // Передаем ID в запрос
         try {
             const result = await fetch(url, {
             method: 'POST', // Метод запроса
