@@ -11,7 +11,7 @@ export default function SacensibuRezultati() {
   }, []);
 
   const getNews = async () => {
-    const url = "http://164.92.147.233:8020/api/get_news_champ";
+    const url = "https://myproject123.zapto.org/api/get_news_champ";
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -81,7 +81,7 @@ export default function SacensibuRezultati() {
                         <div className="card">
                           <div className="img-block">
                             <img
-                              src={`http://164.92.147.233:8020/upload/${event.image}`}
+                              src={`https://myproject123.zapto.org/upload/${event.image}`}
                               alt="img"
                               className="img"
                             />

@@ -21,6 +21,7 @@ import Documents from './Pages/Federacija/Documents/Documents.jsx';
   import ValdesSedesProtokoli from './Pages/Federacija/Documents/ValdesSedesProtokoli/ValdesSedesProtokoli.jsx';
   import Budzets from './Pages/Federacija/Documents/Budzets/Budzets.jsx';
   import SacensibuRezultati from './Pages/Federacija/Documents/SacensibuRezultati/SacensibuRezultati.jsx';
+  import SportistuRegistrs from './Pages/Federacija/Documents/SportistuRegistrs/SportistuRegistrs.jsx';
 import Valde from './Pages/Federacija/Valde/Valde.jsx';
 import Eksamenacija from './Pages/Eksamenacija/Eksamenacija.jsx';
 
@@ -49,6 +50,7 @@ function App() {
             <Route path='valdesSedesProtokoli' element={<ValdesSedesProtokoli/>}/>
             <Route path='budzets' element={<Budzets/>}/>
             <Route path='sacensibuRezultati' element={<SacensibuRezultati/>}/>
+            <Route path='sportistuRegistrs' element={<SportistuRegistrs/>}/>
             <Route path="" element={<Navigate to="noteikumi" />} />
           </Route>
           <Route path='/Biedri' element={<Biedri/>}></Route>

@@ -11,7 +11,7 @@ export default function PublicateCompetition() {
 
 useEffect(() => {
     async function get_one_competition() {
-      const url = "http://164.92.147.233:8020/api/get_one_competition/"; // Передаем ID в запрос
+      const url = "https://myproject123.zapto.org/api/get_one_competition/"; // Передаем ID в запрос
       try {
         const result = await fetch(url, {
           method: 'POST', // Метод запроса
@@ -43,7 +43,7 @@ useEffect(() => {
       <div key={publicateCompetition.id} className="about-right mb-90">
         {/* Файл изображения */}
         <div className="about-img">
-          <img src={`http://164.92.147.233:8020/upload/${publicateCompetition.image}`} alt="Top-Img" />
+          <img src={`https://myproject123.zapto.org/upload/${publicateCompetition.image}`} alt="Top-Img" />
 
           {/* Заголовок */}
           <div className="section-tittle mb-30 pt-30 competition-name">
@@ -111,7 +111,7 @@ useEffect(() => {
         </div>
         <br />
         <div className='competition-category'>
-          <a href={`http://164.92.147.233:8020/upload/${publicateCompetition.image_second}`} target="_blank" rel="noopener noreferrer">
+          <a href={`https://myproject123.zapto.org/upload/${publicateCompetition.image_second}`} target="_blank" rel="noopener noreferrer">
             Открыть PDF
           </a>
         </div>

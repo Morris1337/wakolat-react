@@ -83,6 +83,10 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
               <li className="li-header-item">
                 <Link to={'/documents/sacensibuRezultati'} onClick={handleLinkClick}>Notikušās sacensības</Link>
               </li>
+              <li className="li-header-item">
+                <Link to={'/documents/sportistuRegistrs'} onClick={handleLinkClick}>Sportistu reģistrs</Link>
+              </li>
+
             </ul>
           </li>
           <hr className='verical-line'/>

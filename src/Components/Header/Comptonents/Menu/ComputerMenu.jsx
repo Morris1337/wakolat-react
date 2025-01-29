@@ -61,7 +61,8 @@ export default function ComputerMenu() {
               <li class="li-header-item"><Link to={'/documents/budzets'} onClick={closeMenu}>Budžets</Link></li>
               <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/sacensibuRezultati'} onClick={closeMenu}>Notikušās sacensības</Link></li>
-              {/* <li class="li-header-item"><Link to={'/documents/reiting'}>Reitings</Link></li>                                                     */}
+              <hr className='verical-line'/>
+              <li class="li-header-item"><Link to={'/documents/sportistuRegistrs'}>Sportistu reģistrs</Link></li>                                                    
           </ul>
       </li>
       <hr className='verical-line'/>

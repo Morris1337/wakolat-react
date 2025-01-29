@@ -9,7 +9,7 @@ export default function Competition() {
   const [competition, setCompetition] = useState([]);
 
   useEffect(()=>{async function get_competitions() {
-    const url = "http://164.92.147.233:8020/api/get_competitions"
+    const url = "https://myproject123.zapto.org/api/get_competitions"
     const result = await fetch(url)
     const data = await result.json()
     console.log(data)
@@ -33,7 +33,7 @@ get_competitions()}
                   <div className="weekly-img-competition">
                       <img 
                       className='img-clubs' 
-                      src={"http://164.92.147.233:8020/upload/" + obj["image"]}
+                      src={"https://myproject123.zapto.org/upload/" + obj["image"]}
                       alt="img"
                       />
                   </div>

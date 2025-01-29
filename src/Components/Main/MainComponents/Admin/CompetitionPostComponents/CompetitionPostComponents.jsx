@@ -45,7 +45,7 @@ export default function CompetitionPostComponent() {
       formData.append("text", text);
 
       try {
-         const response = await fetch("http://164.92.147.233:8020/api/add_competition", {
+         const response = await fetch("https://myproject123.zapto.org/api/add_competition", {
             method: "POST",
             body: formData,
          });

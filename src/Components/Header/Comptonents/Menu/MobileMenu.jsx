@@ -44,6 +44,7 @@ export default function MobileMenu({ closeMenu, scrollToFooter }) {
                     <li className="li-header-item"><Link to={'/documents/valdesSedesProtokoli'} onClick={closeMenu}>Valdes sēdes протоколи</Link></li>
                     <li className="li-header-item"><Link to={'/documents/budzets'} onClick={closeMenu}>Budžets</Link></li>
                     <li className="li-header-item"><Link to={'/documents/sacensibuRezultati'} onClick={closeMenu}>Notikušas sacensības</Link></li>
+                    <li className="li-header-item"><Link to={'/documents/sportistuRegistrs'}>Sportistu reģistrs</Link></li>
                 </ul>
                 )}
             </li>
