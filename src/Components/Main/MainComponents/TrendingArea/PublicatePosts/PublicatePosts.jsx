@@ -60,8 +60,8 @@ export default function PublicatePosts() {
         </div>
         <div className="competition-category">
           {publicateNews.pdf ? (
-            <a href={`https://myproject123.zapto.org/upload/${publicateNews.pdf}`} target="_blank" rel="noopener noreferrer">
-              Открыть PDF
+            <a href={`https://myproject123.zapto.org/upload/${publicateNews.pdf}`} target="_blank" rel="noopener noreferrer" className="dynamic-button">
+              Atvērt rezultātus
             </a>
           ) : null}
         </div>

@@ -137,8 +137,8 @@ useEffect(() => {
         </div>
         <br />
         <div className='competition-category'>
-          <a href={`https://myproject123.zapto.org/upload/${publicateCompetition.image_second}`} target="_blank" rel="noopener noreferrer">
-            Открыть PDF
+          <a href={`https://myproject123.zapto.org/upload/${publicateCompetition.image_second}`} target="_blank" rel="noopener noreferrer" className='dynamic-button'>
+          Atvērt nolikumu
           </a>
         </div>
         <div className='text-competition-content'>
