@@ -35,21 +35,11 @@ export default function PublicateCompetition() {
 
 useEffect(() => {
     async function get_one_competition() {
-      const url = "https://myproject123.zapto.org/api/get_one_competition"; // Передаем ID в запрос
-      try {
-        const result = await fetch(url, {
-          method: 'POST', // Метод запроса
-          headers: {
-              'Content-Type': 'application/json', // Указываем тип содержимого
-          },
-          body: JSON.stringify({"id": id}), // Преобразуем объект в JSON
-      });
-        const data = await result.json();
-        console.log(data);
-        setPublicateCompetition(data);
-      } catch (error) {
-        console.error("Ошибка загрузки данных соревнования:", error);
-      }
+      // const url = "https://myproject123.zapto.org/api/competitions/get_one_competition"; // Передаем ID в запрос
+      const result = await fetch(`https://myproject123.zapto.org/api/competitions/${id}`);
+      const data = await result.json();
+      setPublicateCompetition(data);
+
     }
 
     get_one_competition();

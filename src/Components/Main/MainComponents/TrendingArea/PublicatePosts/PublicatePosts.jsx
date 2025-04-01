@@ -13,26 +13,22 @@ export default function PublicatePosts() {
     const [publicateNews, setPublicateNews] = useState(null); // Исправляем начальное состояние
 
     useEffect(() => {
-        async function get_one_news() {
-        const url = "https://myproject123.zapto.org/api/get_one_news"; // Передаем ID в запрос
+      async function get_one_news() {
         try {
-            const result = await fetch(url, {
-            method: 'POST', // Метод запроса
-            headers: {
-                'Content-Type': 'application/json', // Указываем тип содержимого
-            },
-            body: JSON.stringify({"id": id}), // Преобразуем объект в JSON
-        });
-            const data = await result.json();
-            console.log(data);
-            setPublicateNews(data);
+          const response = await fetch(`https://myproject123.zapto.org/api/news/${id}`);
+          if (!response.ok) {
+            throw new Error(`Ошибка HTTP: ${response.status}`);
+          }
+          const data = await response.json();
+          setPublicateNews(data); // ✅ Используй правильный setter
         } catch (error) {
-            console.error("Ошибка загрузки данных соревнования:", error);
+          console.error("Ошибка загрузки данных новости:", error);
         }
-        }
-
-        get_one_news();
-    }, [id]); // Добавляем зависимость от ID
+      }
+    
+      get_one_news();
+    }, [id]); // ✅ Учитываем зависимость от ID
+    // Добавляем зависимость от ID
 
     // Проверяем, загружены ли данные
     if (!publicateNews) {
@@ -59,11 +55,30 @@ export default function PublicatePosts() {
             <h3>{publicateNews.header}</h3>
         </div>
         <div className="competition-category">
-          {publicateNews.pdf ? (
-            <a href={`https://myproject123.zapto.org/upload/${publicateNews.pdf}`} target="_blank" rel="noopener noreferrer" className="dynamic-button">
-              Atvērt rezultātus
+        {publicateNews.pdf_name_1 && (
+          <div className="competition-category">
+            <a
+              href={`https://myproject123.zapto.org/upload/${publicateNews.pdf_name_1}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="dynamic-button"
+            >
+              Atvērt rezultātus 1
             </a>
-          ) : null}
+          </div>
+        )}
+        {publicateNews.pdf_name_2 && (
+          <div className="competition-category">
+            <a
+              href={`https://myproject123.zapto.org/upload/${publicateNews.pdf_name_2}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="dynamic-button"
+            >
+              Atvērt rezultātus 2
+            </a>
+          </div>
+        )}
         </div>
         <div class="about-prea">
             <div dangerouslySetInnerHTML={{ __html: publicateNews.text }}/>

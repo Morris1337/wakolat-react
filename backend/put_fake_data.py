@@ -3,7 +3,8 @@ from sqlalchemy.orm import sessionmaker
 from database.models import Base, News, Competitions, Seminar, Calendar  # Замените 'your_module_name' на имя вашего модуля
 
 # Создайте engine (замените строку подключения на вашу)
-engine = create_engine('sqlite:///db.db')  # Например, для SQLite
+# engine = create_engine('sqlite:///db.db')  # Например, для SQLite
+engine = create_engine('postgresql://myuser:mypassword@164.92.147.233/wakolat')
 Base.metadata.create_all(engine)  # Создание таблиц
 
 # Создайте сессию

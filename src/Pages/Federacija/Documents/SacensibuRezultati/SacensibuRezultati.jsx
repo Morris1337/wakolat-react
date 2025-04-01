@@ -11,31 +11,20 @@ export default function SacensibuRezultati() {
   }, []);
 
   const getNews = async () => {
-    const url = "https://myproject123.zapto.org/api/get_news_champ";
+    const url = "https://myproject123.zapto.org/api/news/champ";
     try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          count: 100 // Requesting 100 events
-        }),
-      });
-  
+      const response = await fetch(url);
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error(`Ошибка HTTP: ${response.status}`);
       }
   
       const data = await response.json();
-      console.log('Полученные данные:', data);
-      console.log('Количество мероприятий:', data.length);
-  
       const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
       setNewsChamp(sortedData);
+  
       setExpandedYears((prev) => {
         const currentYear = new Date().getFullYear();
-        return new Set(prev).add(currentYear); // Expand current year by default
+        return new Set(prev).add(currentYear);
       });
     } catch (error) {
       console.error("Ошибка при загрузке данных:", error);

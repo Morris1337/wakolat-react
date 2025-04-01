@@ -8,21 +8,19 @@ const TrendingArea = () => {
 
     useEffect(() => {
         async function get_news() {
-            const url = "https://myproject123.zapto.org/api/get_news";
-            const count = 10; // количество постов, которые вы хотите получить
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ count }) // передаем параметр count
-            });
-            const data = await response.json();
-            console.log(data);
-            setNews(data);
+            try {
+                const response = await fetch("https://myproject123.zapto.org/api/news");
+                if (!response.ok) throw new Error("Ошибка HTTP: " + response.status);
+                const data = await response.json();
+                data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setNews(data);
+            } catch (err) {
+                console.error("❌ Ошибка при загрузке новостей:", err.message);
+            }
         }
         get_news();
     }, []);
+    
 
     return (
         <>

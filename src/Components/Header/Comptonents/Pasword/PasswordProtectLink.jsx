@@ -33,22 +33,23 @@ const PasswordProtectedLink = () => {
   };
 
   const checkPassword = async () => {
-    const formData = new URLSearchParams();
-    formData.append('login', login);
-    formData.append('password', password);
-  
     try {
-      const response = await fetch('https://myproject123.zapto.org/auth/login', {
-        method: 'POST',
+      console.log("Отправляю:", { username: login, password });
+  
+      const response = await fetch("https://myproject123.zapto.org/api/auth/login", {
+        method: "POST", // ✅ обязательно POST!
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          "Content-Type": "application/json"
         },
-        body: formData.toString(),
+        body: JSON.stringify({
+          username: login,
+          password: password
+        })
       });
   
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.token); // если сервер возвращает token
         closeModal();
         navigate('/admin');
       } else {
@@ -56,8 +57,10 @@ const PasswordProtectedLink = () => {
       }
     } catch (error) {
       setError('Ошибка при отправке данных');
+      console.error(error);
     }
   };
+  
   
 
   return (

@@ -29,23 +29,21 @@ export default function CompetitionPostComponent() {
       e.preventDefault();
 
       const formData = new FormData();
-      formData.append("header", header);
-      formData.append("image1", images1);
-      formData.append("image2", images2);
-      formData.append("country", selectedCountry);
-      formData.append("city", city);
-      formData.append("date", date);
-      formData.append("email", email);
-      formData.append("phone_number", phone);
-      formData.append("weighingTime", weighingTime);
-      formData.append("date_start", competitionStart);
-      formData.append("date_end", competitionEnd);
-      formData.append("date_registration", registrationDeadline);
-      formData.append("price", entryFee);
-      formData.append("text", text);
+      formData.append('header', header);
+      formData.append('country', selectedCountry);
+      formData.append('city', city);
+      formData.append('email', email);
+      formData.append('phone_number', phone);
+      formData.append('date_start', competitionStart);
+      formData.append('date_end', competitionEnd);
+      formData.append('date_registration', registrationDeadline);
+      formData.append('price', entryFee);
+      formData.append('text', text);
+      formData.append('image', images1); // image — это File
+      formData.append('image_second', images2); // imageSecond — это File
 
       try {
-         const response = await fetch("https://myproject123.zapto.org/api/add_competition", {
+         const response = await fetch("https://myproject123.zapto.org/api/competitions", {
             method: "POST",
             body: formData,
          });

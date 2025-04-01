@@ -12,7 +12,8 @@ from .config import DB_NAME
 class DB_manager:
     def __init__(self, db: str = "db.db") -> None:
         self.db = db
-        self.engine = create_engine(f"sqlite+pysqlite:///{self.db}")
+        # self.engine = create_engine(f"sqlite+pysqlite:///{self.db}")
+        self.engine = create_engine(f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
 
         # self.async_engine = create_async_engine(f"sqlite+aiosqlite:///{self.db}")
         # self.sqlalchemy_sessionmaker = async_sessionmaker(self.async_engine, expire_on_commit=False)
@@ -57,7 +58,7 @@ class DB_manager:
         "отдаст 9 заголовков+картинка на главную"
         with Session(self.engine) as session:
             q = select(News.id, News.header, News.date, News.image)\
-                .order_by(desc(News.id))\
+                .order_by(desc(News.date))\
                 .limit(count)
             res = session.execute(q)
         return [{"id": row[0], "header": row[1], "date": row[2], "image": row[3]} for row in res]

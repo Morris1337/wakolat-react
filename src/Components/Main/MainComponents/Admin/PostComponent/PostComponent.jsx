@@ -8,7 +8,8 @@ export default function PostComponent() {
 // Состояние для хранения данных формы
   const [header, setHeader] = useState("");
   const [images, setImages] = useState(null);
-  const [file, setFile] = useState(null);
+  const [file1, setFile1] = useState(null);
+  const [file2, setFile2] = useState(null);
   const [date, setDate] = useState("");
   const [champ, setChamp] = useState(false);
   const [text, setText] = useState("");
@@ -20,17 +21,16 @@ export default function PostComponent() {
     // Используем FormData для работы с файлами
     const formData = new FormData();
     formData.append("header", header);
-    formData.append("image", images);  // предполагается, что загружается один файл
-    if (file) {
-      formData.append("file", file);
-    }
+    formData.append("image", images); // ✅ должно быть "image"
+    formData.append("pdf_name_1", file1); // ✅ вместо formData.append("file", file)
+    formData.append("pdf_name_2", file2); // ✅ второй PDF  
     formData.append("champ", champ);
     formData.append("text", text);
     formData.append("date", date);
 
 
     try {
-      const response = await fetch("https://myproject123.zapto.org/api/add_news", {
+      const response = await fetch("https://myproject123.zapto.org/api/news", {
         method: "POST",
         body: formData,
       });
@@ -105,20 +105,30 @@ const formats = [
                   onChange={(e) => setDate(e.target.value)}
                   />
               <div>
-                  <label htmlFor="">File</label>
+                  <label htmlFor="">File 1</label>
                   <input 
                   type="file" 
-                  onChange={(e) => setFile(e.target.files[0])}
+                  onChange={(e) => setFile1(e.target.files[0])}
                   />
               </div>
+              {/* 2й инпут для файлы */}
+              <div>
+                  <label htmlFor="">File 2</label>
+                  <input 
+                  type="file" 
+                  onChange={(e) => setFile2(e.target.files[0])}
+                  />
+              </div>
+              <div className='post-checkbox'>
+                <label>Отметить</label>
+                  <input 
+                  type="checkbox" 
+                  name="champ" 
+                  checked={champ} 
+                  onChange={handleCheckboxChange}
+                  />
             </div>
-            <label>Отметить</label>
-              <input 
-              type="checkbox" 
-              name="champ" 
-              checked={champ} 
-              onChange={handleCheckboxChange}
-              />
+            </div>
         </div>
         <div className='more'>
             <ReactQuill 

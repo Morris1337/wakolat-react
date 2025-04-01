@@ -12,6 +12,7 @@ class News(Base):
     header: Mapped[str] = mapped_column(String(100), nullable=False)
     image: Mapped[str] = mapped_column(String(100), nullable=True)
     pdf: Mapped[str] = mapped_column(String(100), nullable=True)
+    pdf2: Mapped[str] = mapped_column(String(100), nullable=True)  # Новый файл
     text: Mapped[str] = mapped_column(Text, nullable=True)
     date: Mapped[str] = mapped_column(String(30), nullable=True)
     champ: Mapped[bool] = mapped_column(Boolean, nullable=True, default=False)

@@ -36,15 +36,9 @@ function PublicateSeminar() {
 
   useEffect(() => {
     async function get_one_seminar() {
-      const url = "https://myproject123.zapto.org/api/get_one_seminar"; // Передаем ID в запрос
+      const url = `https://myproject123.zapto.org/api/seminars/${id}`; // Передаем ID в запрос
       try {
-        const result = await fetch(url, {
-          method: 'POST', // Метод запроса
-          headers: {
-              'Content-Type': 'application/json', // Указываем тип содержимого
-          },
-          body: JSON.stringify({"id": id}), // Преобразуем объект в JSON
-      });
+        const result = await fetch(url);
         const data = await result.json();
         console.log(data);
         setPublicateSeminar(data);

@@ -20,13 +20,8 @@ export default function Seminar() {
     useEffect(() => {
         async function get_seminars() {
             try {
-                const url = "https://myproject123.zapto.org/api/get_seminars";
-                const result = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json', // Ensure the content type is JSON
-                    },
-                });
+                const url = "https://myproject123.zapto.org/api/seminars";
+                const result = await fetch(url);
                 if (!result.ok) {
                     throw new Error(`HTTP error! status: ${result.status}`);
                 }

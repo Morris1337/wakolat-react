@@ -1,8 +1,21 @@
+from dotenv import load_dotenv
+import os
+
+# Загружаем переменные окружения
+load_dotenv("/home/backend_ilya/.env")
+
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
+
+# Проверка загрузки
+print(f"DB_USER={DB_USER}, DB_HOST={DB_HOST}, DB_NAME={DB_NAME}")
 from typing import Annotated, Optional
 import shutil
 from random import choices
 from string import ascii_lowercase, digits
-import os
 
 from fastapi import FastAPI, Depends, HTTPException, status, Form, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -30,7 +43,9 @@ origins = [
     "http://87.228.24.79:6052",
     "https://87.228.24.79:6052",
     "http://test-api.zapto.org:6052",
-    "https://test-api.zapto.org:6052"
+    "https://test-api.zapto.org:6052",
+    "https://wakolat.lv",
+    "http://wakolat.lv"
 ]
 
 app.add_middleware(
@@ -149,6 +164,7 @@ def add_news(
     header: str = Form(...),
     image: UploadFile = File(...), 
     file: Optional[UploadFile] = File(None),
+    file2: Optional[UploadFile] = File(None),
     text: str = Form(...),
     date: str = Form(...),
     champ: Optional[bool] = Form(False)
@@ -160,10 +176,13 @@ def add_news(
         filename_file = save_file(file)
     else:
         filename_file = None
+
+    filename_file2 = save_file(file2) if file2 else None
     
     db_manager.add_news(header = header,
                         image = filename_image,
                         pdf = filename_file,
+                        pdf2=filename_file2,
                         text = text,
                         date = date,
                         champ = champ

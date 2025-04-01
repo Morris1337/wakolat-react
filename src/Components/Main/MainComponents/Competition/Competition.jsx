@@ -8,15 +8,30 @@ export default function Competition() {
 
   const [competition, setCompetition] = useState([]);
 
-  useEffect(()=>{async function get_competitions() {
-    const url = "https://myproject123.zapto.org/api/get_competitions"
-    const result = await fetch(url)
-    const data = await result.json()
-    console.log(data)
-    setCompetition(data)
-}
-get_competitions()}
-,[])
+  useEffect(() => {
+    async function get_competitions() {
+        const url = "https://myproject123.zapto.org/api/competitions";
+        
+        try {
+            const response = await fetch(url);
+            
+            // Проверяем успешность ответа
+            if (!response.ok) {
+                throw new Error(`Ошибка HTTP: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log("Competitions Data:", data);
+
+            setCompetition(data);
+        } catch (error) {
+            console.error("Ошибка при загрузке соревнований:", error);
+        }
+    }
+
+    get_competitions();
+}, []);
+
   
   return (
 

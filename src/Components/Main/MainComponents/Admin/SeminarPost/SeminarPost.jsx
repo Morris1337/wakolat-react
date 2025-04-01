@@ -7,7 +7,7 @@ import Contryes from '../../../OrhetComponents/contryes'
 
 export default function SeminarPost() {
   const [header, setHeader] = useState("");
-  const [file, setFile] = useState(null);
+  const [image, setImage] = useState(null);
   const [date, setDate] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [city, setCity] = useState("");
@@ -28,10 +28,10 @@ export default function SeminarPost() {
 
     const formData = new FormData();
     formData.append("header", header);
-    formData.append("file", file);
+    formData.append("image", image);
     formData.append("country", selectedCountry);
     formData.append("city", city);
-    formData.append("date_start", date);
+    // formData.append("date_start", date);
     formData.append("email", email);
     formData.append("phone_number", phone);
     formData.append("date_start", competitionStart);
@@ -41,7 +41,7 @@ export default function SeminarPost() {
     formData.append("text", text);
 
     try {
-      const response = await fetch("https://myproject123.zapto.org/api/add_seminar", {
+      const response = await fetch("https://myproject123.zapto.org/api/seminars", {
         method: "POST",
         body: formData,
       });
@@ -99,7 +99,7 @@ const formats = [
           <label htmlFor="">Foto</label>
           <input 
             type="file"
-            onChange={(e) => setFile(e.target.files[0])}
+            onChange={(e) => setImage(e.target.files[0])}
           />
         </div>
         <div>
