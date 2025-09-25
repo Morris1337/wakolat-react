@@ -1,5 +1,7 @@
 // controllers/newsController.js - Контроллер для новостей
 const { News } = require('../models');
+const fs = require('fs');
+const path = require('path');
 
 exports.getAllNews = async (req, res) => {
     try {
@@ -12,34 +14,48 @@ exports.getAllNews = async (req, res) => {
 };
 
 exports.createNews = async (req, res) => {
-    console.log("🔥 createNews вызван");
-    console.log("FILES:", req.files);   // <= покажет image, pdf_name_1, pdf_name_2
-    console.log("BODY:", req.body);     // <= покажет header, text, champ...
-  
-    try {
-      const {
-        header, text, date, champ
-      } = req.body;
-  
-      const image = req.files?.image?.[0]?.filename || null;
-      const pdf_name_1 = req.files?.pdf_name_1?.[0]?.filename || null;
-      const pdf_name_2 = req.files?.pdf_name_2?.[0]?.filename || null;
-  
-      console.log("📦 Final values to create:", { header, text, date, champ, image, pdf_name_1, pdf_name_2 });
-  
+  console.log("🔥 createNews вызван");
+  console.log("FILES:", req.files);
+  console.log("BODY:", req.body);
+
+  try {
+      const { header, text, date, champ } = req.body;
+
+      const imageFile = req.files.find(f => f.fieldname === 'image');
+      const image = imageFile ? imageFile.filename : null;
+
+      let counter = 1;
+      const renamedFiles = [];
+
+      for (const file of req.files) {
+          if (file.fieldname === 'image') continue;
+
+          const ext = path.extname(file.originalname);
+          const newName = `${header.replace(/\s+/g, '_')}_${counter}${ext}`;  // Latvia_Open_2025_1.pdf
+
+          const oldPath = path.join('upload', file.filename);
+          const newPath = path.join('upload', newName);
+
+          fs.renameSync(oldPath, newPath);
+          renamedFiles.push(newName);
+
+          counter++;
+      }
+
+      console.log("📦 Final values to create:", { header, text, date, champ, image, renamedFiles });
+
       const news = await News.create({
-        header, text, date, champ,
-        image, pdf_name_1, pdf_name_2,
+          header, text, date, champ,
+          image,
+          files: JSON.stringify(renamedFiles),
       });
-  
+
       res.json(news);
-    } catch (error) {
+  } catch (error) {
       console.error("❌ Ошибка при создании новости:", error);
       res.status(500).json({ error: "Ошибка сервера", details: error.message });
-    }
-  };
-  
-  
+  }
+};
 
 exports.updateNews = async (req, res) => {
     try {

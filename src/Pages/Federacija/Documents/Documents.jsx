@@ -18,12 +18,14 @@ export default function Documents() {
       <nav className='docs_menu'>
         <ul>
           <li className='li-header-link' onClick={() => navigate('noteikumi')}>Noteikumi</li>
+          <li className='li-header-link' onClick={() => navigate('likUnDoc')}>Likumi un dokumenti</li>
           <li className='li-header-link' onClick={() => navigate('dopings')}>Dopings</li>
           <li className='li-header-link' onClick={() => navigate('gadaParaksti')}>Gada pārskati</li>
           <li className='li-header-link' onClick={() => navigate('kopsapulcesProtokoli')}>Kopsapulces protokoli</li>
           <li className='li-header-link' onClick={() => navigate('valdesSedesProtokoli')}>Valdes sēdes protokoli</li>
           <li className='li-header-link' onClick={() => navigate('budzets')}>Budžets</li>
           <li className='li-header-link' onClick={() => navigate('sportistuRegistrs')}>Sportistu reģistrs</li>
+          <li className='li-header-link' onClick={() => navigate('sacensibas')}>Sacensibas</li>
           <li className='li-header-link' onClick={() => navigate('sacensibuRezultati')}>Sacensību rezultāti</li>
         </ul>
       </nav>

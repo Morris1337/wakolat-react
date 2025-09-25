@@ -22,6 +22,7 @@ const storage = multer.diskStorage({
   });
   const upload = multer({
     storage,
+    limits: { fileSize: 300 * 1024 * 1024 },
     fileFilter: (req, file, cb) => {
       // ✅ Разрешить PDF и изображения
       const allowed = [
@@ -29,6 +30,9 @@ const storage = multer.diskStorage({
         "image/jpeg",
         "image/jpg",
         "image/png",
+        "application/zip",
+        "application/x-rar-compressed",
+        "application/x-7z-compressed"
       ];
       if (allowed.includes(file.mimetype)) {
         cb(null, true);
@@ -40,11 +44,14 @@ const storage = multer.diskStorage({
   
   // ✅ Роут с поддержкой multipart/form-data
 // ... и тогда используем напрямую:
-router.post('/', upload.fields([
-    { name: 'image', maxCount: 1 },
-    { name: 'pdf_name_1', maxCount: 1 },
-    { name: 'pdf_name_2', maxCount: 1 }
-  ]), newsController.createNews);
+// router.post('/', upload.fields([
+//     { name: 'image', maxCount: 1 },
+//     // { name: 'pdf_name_1', maxCount: 1 },
+//     // { name: 'pdf_name_2', maxCount: 1 }
+//     { name: 'files' }, // массив любых других файлов
+//   ]), newsController.createNews);
+
+router.post('/', upload.any(), newsController.createNews);
 
 // router.post('/', createNews);
 router.put('/:id', updateNews);

@@ -1,0 +1,29 @@
+.year-container-list{
+    display: grid;
+    justify-content: center ;
+}
+.year-button {
+        cursor: pointer;
+        font-size: 20px;
+        margin: 15px 0;
+        transition: color 0.3s;
+        &:hover {
+            color: #007bff;
+        }
+    }
+.file-button{
+        margin: 5px;
+        width: 200px;
+        border-radius: 5px;
+        border: 0.6px solid #383636;
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+.file-list {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}

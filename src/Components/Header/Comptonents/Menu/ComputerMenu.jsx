@@ -50,6 +50,8 @@ export default function ComputerMenu() {
           <ul class="submenu lidoc-sub">
               <li class="li-header-item"><Link to={'/documents/noteikumi'} onClick={closeMenu}>Noteikumi</Link></li>
               <hr className='verical-line'/>
+              <li class="li-header-item"><Link to={'/documents/likUnDoc'} onClick={closeMenu}>Likumi un dokumenti</Link></li>
+              <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/dopings'} onClick={closeMenu}>Dopings</Link></li>
               <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/gadaParaksti'} onClick={closeMenu}>Gada pārskati</Link></li>
@@ -61,6 +63,8 @@ export default function ComputerMenu() {
               <li class="li-header-item"><Link to={'/documents/budzets'} onClick={closeMenu}>Budžets</Link></li>
               <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/sacensibuRezultati'} onClick={closeMenu}>Notikušās sacensības</Link></li>
+              <hr className='verical-line'/>
+              <li class="li-header-item"><Link to={'/documents/sacensibas'} onClick={closeMenu}>Sacensibas</Link></li>
               <hr className='verical-line'/>
               <li class="li-header-item"><Link to={'/documents/sportistuRegistrs'}>Sportistu reģistrs</Link></li>                                                    
           </ul>

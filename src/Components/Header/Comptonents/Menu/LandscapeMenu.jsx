@@ -61,6 +61,10 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
               </li>
               <hr className='verical-line'/>
               <li className="li-header-item">
+                <Link to={'/documents/likUnDoc'} onClick={handleLinkClick}>Likumi un dokumenti</Link>
+              </li>
+              <hr className='verical-line'/>
+              <li className="li-header-item">
                 <Link to={'/documents/dopings'} onClick={handleLinkClick}>Dopings</Link>
               </li>
               <hr className='verical-line'/>
@@ -82,6 +86,9 @@ export default function LandscapeMenu({ closeMenu, scrollToFooter }) {
               <hr className='verical-line'/>
               <li className="li-header-item">
                 <Link to={'/documents/sacensibuRezultati'} onClick={handleLinkClick}>Notikušās sacensības</Link>
+              </li>
+              <li className="li-header-item">
+                <Link to={'/documents/sacensibas'} onClick={handleLinkClick}>Sacensibas</Link>
               </li>
               <li className="li-header-item">
                 <Link to={'/documents/sportistuRegistrs'} onClick={handleLinkClick}>Sportistu reģistrs</Link>

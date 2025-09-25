@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import React from 'react'
 import YouTubeComponents from './YouTubeComponents/YouTubeComponents';
 import './Youtube.scss'
@@ -15,6 +15,7 @@ export default function YouTube() {
     // ];
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
     const [visibleVideos, setVisibleVideos] = useState([]);
+    const instagramRef = useRef(null);
 
     const handleNextVideo = () => {
         setCurrentVideoIndex((currentVideoIndex + 1) % VideoList.length);
@@ -44,48 +45,72 @@ export default function YouTube() {
         };
       }, []);
 
-  return (
-    <div className='you-tube-conteiner'>
-        <div className='you-tube-center-content'>
-            <div>
-                <iframe                  
-                    src= {VideoList[currentVideoIndex]}
+      useEffect(() => {
+        if (instagramRef.current && window.instgrm) {
+            window.instgrm.Embeds.process();
+        }
+    }, [currentVideoIndex]);
+
+    const renderVideo = (link) => {
+        if (link.includes('youtube.com') || link.includes('facebook.com')) {
+            return (
+                <iframe
+                    src={link}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    title="YouTube Video Player"
+                    title="Video Player"
                 ></iframe>
-                <div className='top-caption'>
-                    <div className='buttons'>
-                        <button onClick={handlePreviousVideo}>
-                            <img src={arrow} alt="arrow" />
-                        </button>
-                        <button onClick={handleNextVideo}>
-                            <img className='arrow-180' src={arrow} alt="arrow" />
-                        </button>
-                    </div>
-                    <div className='top-caption-span'>
-                        {/* <span class="color1">Multimediju bibliotēka</span> */}
+            );
+        } else if (link.includes('instagram.com')) {
+            return (
+                <blockquote
+                    ref={instagramRef}
+                    className="instagram-media"
+                    data-instgrm-permalink={link}
+                    data-instgrm-version="14"
+                    style={{ background: '#FFF', border: 0, margin: '1px', padding: 0 }}
+                ></blockquote>
+            );
+        } else {
+            return <p>Unsupported video source</p>;
+        }
+    };
+
+    return (
+        <div className='you-tube-conteiner'>
+            <div className='you-tube-center-content'>
+                <div>
+                    {renderVideo(VideoList[currentVideoIndex])}
+                    <div className='top-caption'>
+                        <div className='buttons'>
+                            <button onClick={handlePreviousVideo}>
+                                <img src={arrow} alt="arrow" />
+                            </button>
+                            <button onClick={handleNextVideo}>
+                                <img className='arrow-180' src={arrow} alt="arrow" />
+                            </button>
+                        </div>
+                        <div className='top-caption-span'></div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div className='you-tube-bottom-content'>
-            <div className='bottom-caption'>
-                <h2>Multimediju bibliotēka</h2>
-                <p>Iepazīstiet video pasauli ar mūsu daudzveidīgo klipu kolekciju.</p>
+            <div className='you-tube-bottom-content'>
+                <div className='bottom-caption'>
+                    <h2>Multimediju bibliotēka</h2>
+                    <p>Iepazīstiet video pasauli ar mūsu daudzveidīgo klipu kolekciju.</p>
+                </div>
+                <div className='you-tube-botton-video'>
+                    {visibleVideos.map((link, index) => (
+                        <YouTubeComponents
+                            key={index}
+                            link={link}
+                            isActive={currentVideoIndex === index}
+                            onClick={() => setCurrentVideoIndex(index)}
+                        />
+                    ))}
+                </div>
             </div>
-            <div className='you-tube-botton-video'>
-                {visibleVideos.map((link, index) => (
-                    <YouTubeComponents
-                    key={index}
-                    link={link}
-                    isActive={currentVideoIndex === index}
-                    onClick={() => setCurrentVideoIndex(index)}
-                    />
-                ))}
-            </div>
         </div>
-    </div>
-  )
+    );
 }

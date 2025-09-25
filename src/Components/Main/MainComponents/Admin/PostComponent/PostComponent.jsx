@@ -8,11 +8,20 @@ export default function PostComponent() {
 // Состояние для хранения данных формы
   const [header, setHeader] = useState("");
   const [images, setImages] = useState(null);
-  const [file1, setFile1] = useState(null);
-  const [file2, setFile2] = useState(null);
-  const [date, setDate] = useState("");
+  const [fileInputs, setFileInputs] = useState([{ id: 1, file: null }]);  const [date, setDate] = useState("");
   const [champ, setChamp] = useState(false);
   const [text, setText] = useState("");
+
+  const handleFileChange = (index, selectedFile) => {
+    const updated = [...fileInputs];
+    updated[index].file = selectedFile;
+    setFileInputs(updated);
+
+    // Если это последний инпут, добавляем новый пустой
+    if (index === fileInputs.length - 1) {
+        setFileInputs([...updated, { id: updated.length + 1, file: null }]);
+    }
+};
 
   // Функция для обработки отправки формы
   const handleSubmit = async (e) => {
@@ -22,12 +31,16 @@ export default function PostComponent() {
     const formData = new FormData();
     formData.append("header", header);
     formData.append("image", images); // ✅ должно быть "image"
-    formData.append("pdf_name_1", file1); // ✅ вместо formData.append("file", file)
-    formData.append("pdf_name_2", file2); // ✅ второй PDF  
+    // formData.append("pdf_name_1", file1); // ✅ вместо formData.append("file", file)
+    // formData.append("pdf_name_2", file2); // ✅ второй PDF  
     formData.append("champ", champ);
     formData.append("text", text);
     formData.append("date", date);
-
+    fileInputs.forEach(entry => {
+      if (entry.file) {
+          formData.append('files', entry.file);
+      }
+  });
 
     try {
       const response = await fetch("https://myproject123.zapto.org/api/news", {
@@ -104,21 +117,17 @@ const formats = [
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
                   />
-              <div>
-                  <label htmlFor="">File 1</label>
-                  <input 
-                  type="file" 
-                  onChange={(e) => setFile1(e.target.files[0])}
-                  />
-              </div>
-              {/* 2й инпут для файлы */}
-              <div>
-                  <label htmlFor="">File 2</label>
-                  <input 
-                  type="file" 
-                  onChange={(e) => setFile2(e.target.files[0])}
-                  />
-              </div>
+               <div>
+                    <label>Faili (можно добавлять бесконечно)</label>
+                    {fileInputs.map((input, index) => (
+                        <div key={input.id}>
+                            <input
+                                type="file"
+                                onChange={(e) => handleFileChange(index, e.target.files[0])}
+                            />
+                        </div>
+                    ))}
+                </div>
               <div className='post-checkbox'>
                 <label>Отметить</label>
                   <input 

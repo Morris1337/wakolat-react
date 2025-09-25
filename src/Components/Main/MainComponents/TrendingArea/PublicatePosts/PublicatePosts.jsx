@@ -44,7 +44,38 @@ export default function PublicatePosts() {
     instagram: `https://instagram.com`, // Прямая ссылка не работает, Instagram требует моб. приложения
     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=Check this out!`,
     youtube: `https://youtube.com`, // YouTube не поддерживает шейринг ссылок, так как это видеоплатформа
-  };
+  };  
+
+  function renderFileLink(filename, index, header) {
+    if (!filename) return null;
+
+    const fileUrl = `https://myproject123.zapto.org/upload/${filename}`;
+    const extension = filename.split('.').pop().toLowerCase();
+    const downloadExtensions = ['zip', 'rar', '7z'];
+
+    const isDownload = downloadExtensions.includes(extension);
+
+    return (
+        <div key={index} className="competition-category">
+            <a
+                href={fileUrl}
+                className="dynamic-button"
+                {...(isDownload ? { download: true } : { target: "_blank", rel: "noopener noreferrer" })}
+            >
+                {`${header} / ${index + 1}`}
+            </a>
+        </div>
+    );
+}
+
+const cleanFilesArray = Array.isArray(publicateNews.files)
+    ? publicateNews.files.filter(f => f)
+    : typeof publicateNews.files === 'string'
+    ? JSON.parse(publicateNews.files).filter(f => f)
+    : [];
+
+
+
   return (
     <div key={publicateNews.id} className="publication-page">
       <ScrollToTop />
@@ -54,32 +85,8 @@ export default function PublicatePosts() {
         <div class="section-tittle">
             <h3>{publicateNews.header}</h3>
         </div>
-        <div className="competition-category">
-        {publicateNews.pdf_name_1 && (
-          <div className="competition-category">
-            <a
-              href={`https://myproject123.zapto.org/upload/${publicateNews.pdf_name_1}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="dynamic-button"
-            >
-              Atvērt rezultātus 1
-            </a>
-          </div>
-        )}
-        {publicateNews.pdf_name_2 && (
-          <div className="competition-category">
-            <a
-              href={`https://myproject123.zapto.org/upload/${publicateNews.pdf_name_2}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="dynamic-button"
-            >
-              Atvērt rezultātus 2
-            </a>
-          </div>
-        )}
-        </div>
+        {cleanFilesArray.map((file, index) => renderFileLink(file, index, publicateNews.header))}
+
         <div class="about-prea">
             <div dangerouslySetInnerHTML={{ __html: publicateNews.text }}/>
         </div> 

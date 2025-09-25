@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import CompetitonBlock from './CompetitonComponents/CompetitionBlock'
 import "./Competition.scss"
@@ -7,6 +8,11 @@ import "./Competition.scss"
 export default function Competition() {
 
   const [competition, setCompetition] = useState([]);
+    const navigate = useNavigate();
+
+       const handleViewMore = () => {
+        navigate('/documents/sacensibas');
+    };
 
   useEffect(() => {
     async function get_competitions() {
@@ -38,7 +44,7 @@ export default function Competition() {
     <>
         <div className='competition'>
             <div className='competition-head'>
-              <h3 className='competition-title'>
+              <h3 onClick={handleViewMore} className='competition-title'>
                 Sacensības
               </h3>
             </div>

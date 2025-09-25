@@ -14,6 +14,7 @@ import backgroundImages from './Components/Main/OrhetComponents/Background/Backg
 
 import Documents from './Pages/Federacija/Documents/Documents.jsx';
   import Noteikumi from './Pages/Federacija/Documents/Noteikumi/Noteikumi.jsx';
+  import LikumiIUnDocs from './Pages/Federacija/Documents/Likumi un dokumenti/LikumiIUnDocs.jsx';
   import Dopings from './Pages/Federacija/Documents/Dopings/Dopings.jsx';
   import GadaParaksti from './Pages/Federacija/Documents/GadaParaksti/GadaParaksti.jsx';
   import Biedri from './Pages/Federacija/Biedri/Biedri.jsx';
@@ -24,6 +25,7 @@ import Documents from './Pages/Federacija/Documents/Documents.jsx';
   import SportistuRegistrs from './Pages/Federacija/Documents/SportistuRegistrs/SportistuRegistrs.jsx';
 import Valde from './Pages/Federacija/Valde/Valde.jsx';
 import Eksamenacija from './Pages/Eksamenacija/Eksamenacija.jsx';
+import CompetitionsPage from "./Pages/Federacija/Documents/GaidamasSacensibas/CompetitionsPage.jsx";
 
 function App() {
   const randomIndex = Math.floor(Math.random() * backgroundImages.length);
@@ -44,12 +46,14 @@ function App() {
           <Route path='/PublicateSeminar/:id' element={<PublicateSeminar/>}/>
           <Route path="/documents" element={<Documents />}>
             <Route path="noteikumi" element={<Noteikumi />} />
+            <Route path="likUnDoc" element={<LikumiIUnDocs />} />
             <Route path="dopings" element={<Dopings />} />
             <Route path="gadaParaksti" element={<GadaParaksti />} />
             <Route path='kopsapulcesProtokoli' element={<KopsapulcesProtokoli/>}/>
             <Route path='valdesSedesProtokoli' element={<ValdesSedesProtokoli/>}/>
             <Route path='budzets' element={<Budzets/>}/>
             <Route path='sacensibuRezultati' element={<SacensibuRezultati/>}/>
+            <Route path="sacensibas" element={<CompetitionsPage />} />
             <Route path='sportistuRegistrs' element={<SportistuRegistrs/>}/>
             <Route path="" element={<Navigate to="noteikumi" />} />
           </Route>
