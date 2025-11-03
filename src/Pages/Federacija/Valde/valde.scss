@@ -32,11 +32,15 @@ main{
         z-index: 2;
         position: relative;
         overflow: hidden;
-        img{
+        div{
+           text-align: center; 
+           img{
             width: 200px;
             height: 190px;
             object-fit: cover;
         }
+        }
+        
 
     }
 }
@@ -50,10 +54,13 @@ main{
         z-index: 2;
         position: relative;
         overflow: hidden;
-        img{
+        div{
+            text-align: center;
+            img{
             width: 200px;
             height: 190px;
             object-fit: cover;
+        }
         }
         h4{
             font-size: 20px!important;

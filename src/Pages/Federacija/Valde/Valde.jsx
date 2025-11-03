@@ -1,10 +1,11 @@
 import React from 'react'
 import './valde.scss'
-import darja from './darjaStrutinska1.jpg'
+import darja from './DarjaS.jpg'
 import Linda from './lindaAbele.jpg'
-import Sanja from './aleksandrsMaslovs.jpg'
+import Sanja from './Maslovs.jpeg'
 import Igor from './igorsLikovs.jpg'
 import vladimir from './vladimirsJeršovs.jpg'
+import def from './image.png';
 
 export default function Valde() {
   return (
@@ -15,7 +16,7 @@ export default function Valde() {
         <div class="valde-president">
             <div class="valde">
                 <div>
-                    {/* <img src={darja} alt="darjaStrutinskaPhoto"/> */}
+                    <img src={darja} alt="StrutinskaPhoto"/>
                 </div>
                 <div>
                     <h3>Darja Strutinska</h3>
@@ -28,7 +29,7 @@ export default function Valde() {
         <div class="valde-other">
             <div class="valde">
                 <div>
-                    {/* <img src={Linda} alt="darjaStrutinskaPhoto"/> */}
+                    <img src={def} alt="AbelePhoto"/>
                 </div>
                 <div>
                     <h4>Linda Ābele</h4>
@@ -39,7 +40,7 @@ export default function Valde() {
             </div>
             <div class="valde">
                 <div>
-                    {/* <img src={Sanja} alt="darjaStrutinskaPhoto"/> */}
+                    <img src={def} alt="JersovsPhoto"/>
                 </div>
                 <div>
                     <h4>Vladimirs Jeršovs</h4>
@@ -50,7 +51,7 @@ export default function Valde() {
             </div>
             <div class="valde">
                 <div>
-                    {/* <img src={Igor} alt="darjaStrutinskaPhoto"/> */}
+                    <img src={def} alt="LikovsPhoto"/>
                 </div>
                 <div>
                     <h4>Igors Likovs</h4>
@@ -61,7 +62,7 @@ export default function Valde() {
             </div>
             <div class="valde">
                 <div>
-                    {/* <img src={vladimir} alt="darjaStrutinskaPhoto"/> */}
+                    <img src={Sanja} alt="MaslovsPhoto"/>
                 </div>
                 <div>
                     <h4>Aleksandrs Maslovs</h4>

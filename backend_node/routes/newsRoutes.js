@@ -1,59 +1,61 @@
-// routes/newsRoutes.js - Роуты для новостей
+// routes/newsRoutes.js — роуты для новостей
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const { getAllNews,getOneNews, createNews, updateNews, deleteNews,
-    getNewsChamp } = require('../controllers/newsController');
-    const newsController = require('../controllers/newsController');
+const path = require('path');
+const fs = require('fs');
 
+const {
+  getAllNews,
+  getOneNews,
+  createNews,
+  updateNews,
+  deleteNews,
+  getNewsChamp
+} = require('../controllers/newsController');
+
+// список
 router.get('/champ', getNewsChamp);
 router.get('/', getAllNews);
-router.get('/:id', getOneNews); // ✅ Новый маршрут
+router.get('/:id', getOneNews);
 
-// Настройка хранилища файлов
+// --- Хранилище для файлов ---
+const uploadRoot = path.join(process.cwd(), 'upload');
+fs.mkdirSync(uploadRoot, { recursive: true });
+
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'upload/');
-    },
-    filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + "-" + file.originalname;
-      cb(null, uniqueSuffix);
-    },
-  });
-  const upload = multer({
-    storage,
-    limits: { fileSize: 300 * 1024 * 1024 },
-    fileFilter: (req, file, cb) => {
-      // ✅ Разрешить PDF и изображения
-      const allowed = [
-        "application/pdf",
-        "image/jpeg",
-        "image/jpg",
-        "image/png",
-        "application/zip",
-        "application/x-rar-compressed",
-        "application/x-7z-compressed"
-      ];
-      if (allowed.includes(file.mimetype)) {
-        cb(null, true);
-      } else {
-        cb(null, false);
-      }
-    },
-  });
-  
-  // ✅ Роут с поддержкой multipart/form-data
-// ... и тогда используем напрямую:
-// router.post('/', upload.fields([
-//     { name: 'image', maxCount: 1 },
-//     // { name: 'pdf_name_1', maxCount: 1 },
-//     // { name: 'pdf_name_2', maxCount: 1 }
-//     { name: 'files' }, // массив любых других файлов
-//   ]), newsController.createNews);
+  destination: (req, file, cb) => cb(null, uploadRoot),
+  filename: (req, file, cb) => {
+    // безопасное имя
+    const safe = path.basename(file.originalname).replace(/\s+/g, '_');
+    cb(null, `${Date.now()}-${safe}`);
+  }
+});
 
-router.post('/', upload.any(), newsController.createNews);
+// допустимые типы
+const allowed = new Set([
+  'image/jpeg', 'image/jpg', 'image/png', 'image/webp',
+  'application/pdf', 'application/zip',
+  'application/x-rar-compressed', 'application/x-7z-compressed'
+]);
 
-// router.post('/', createNews);
+const upload = multer({
+  storage,
+  limits: { fileSize: 256 * 1024 * 1024 }, // до 256 МБ
+  fileFilter: (req, file, cb) => cb(null, allowed.has(file.mimetype))
+});
+
+// --- ожидаем строго именованные поля ---
+// image: 1 файл (обязательный), files: массив (необязательно)
+router.post(
+  '/',
+  upload.fields([
+    { name: 'image', maxCount: 1 },
+    { name: 'files', maxCount: 20 }
+  ]),
+  createNews
+);
+
 router.put('/:id', updateNews);
 router.delete('/:id', deleteNews);
 
