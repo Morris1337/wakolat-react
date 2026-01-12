@@ -8,6 +8,8 @@ import ComputerMenu from './Comptonents/Menu/ComputerMenu';
 import LandscapeMenu from './Comptonents/Menu/LandscapeMenu.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.scss';
+import './Comptonents/Menu/menu.scss';
+import FCMenu from './Comptonents/Menu/FCMenu';
 import logo from './Color-logo_2x-100-removebg-preview.png';
 import Olymp from './OlympicComitet.jpg'
 import wakoLogo from './Wako_page-0001-removebg-preview.png';
@@ -61,17 +63,17 @@ const Header = () => {
 
     return (
       <>
-      <div className='menu-mobile-open-icon-block' onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
+      {/* <div className='menu-mobile-open-icon-block' onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
         <div className='mobile-menu-background'></div>
         <div className="mobile-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
           <img src={list2} alt="Menu Icon" />
-          {/* <p>M</p>
+          <p>M</p>
           <p>E</p>
           <p>N</p>
-          <p>U</p> */}
-          {/* <img src={landscapeMenuOpen ? list3 : list2} alt="Menu Icon" /> */}
+          <p>U</p> 
+          /* <img src={landscapeMenuOpen ? list3 : list2} alt="Menu Icon" />
         </div>
-      </div>
+      </div> */}
       <Navbar className='header-block' expand="md" bg="white" variant="light">
             <div className='header-bottom copmuter container-header'>
                 {/* {createPortal(<Navbar.Brand/>, document.getElementById("key"))}; */}
@@ -85,7 +87,7 @@ const Header = () => {
                   className="d-inline-block align-top" 
                   />
               </Navbar.Brand>
-              <Navbar.Brand  className="my-auto olymp-mobile">
+              {/* <Navbar.Brand  className="my-auto olymp-mobile">
                   <img 
                   src={Olymp} 
                   alt="Logo"
@@ -93,7 +95,7 @@ const Header = () => {
                   width={70}
                   className="d-inline-block align-top olymp" 
                   />
-                </Navbar.Brand>
+                </Navbar.Brand> */}
               <Navbar.Brand href="/" className="eur-wako">
                   <img 
                   src={EURWAKO} 
@@ -105,7 +107,7 @@ const Header = () => {
               </Navbar.Brand>
               </div>
               <div in={menuOpen} id='responsive-navbar-nav' className="justify-content-center align-items-center">
-                <div className="align-items-center computer">
+                {/* <div className="align-items-center computer">
                   <ComputerMenu/>
                 </div>
                 <div className="landscape-menu-icon" onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
@@ -116,7 +118,8 @@ const Header = () => {
                   <div className={`mobile-menu-icon ${menuChangeIcon ? 'open' : ''}`} onClick={() => setLandscapeMenuOpen(!landscapeMenuOpen)}>
                     <img src={list3} alt="Menu Icon" />
                   </div>
-                </div>
+                </div> */}
+                <FCMenu onContactScroll={scrollToFooter} />
 
               </div>
               <div className='logos-block'>
@@ -138,7 +141,7 @@ const Header = () => {
                   className="d-inline-block align-top olymp" 
                   />
                 </Navbar.Brand>
-                <Navbar.Brand href="/" className="eur-wako-mobile">
+                {/* <Navbar.Brand href="/" className="eur-wako-mobile">
                   <img 
                   src={EURWAKO} 
                   alt="Logo"
@@ -146,7 +149,7 @@ const Header = () => {
                   width={120}
                   className="d-inline-block align-top" 
                   />
-              </Navbar.Brand>
+              </Navbar.Brand> */}
               </div>
           </div>
       </Navbar>

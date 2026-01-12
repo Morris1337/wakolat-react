@@ -1,0 +1,181 @@
+/* Корневой контейнер */
+.intel-lb {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 20px;
+}
+
+.intel-lb__inner {
+  width: 100%;
+}
+
+/* Панель фильтров */
+.intel-lb__controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 160px;
+
+    label {
+      font-size: 12px;
+      opacity: .85;
+    }
+
+    select {
+      height: 40px;
+      padding: 0 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      backdrop-filter: blur(6px);
+    }
+  }
+
+  .reload {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    cursor: pointer;
+    transition: transform .06s ease, background .15s ease;
+
+    &:disabled { opacity: .6; cursor: default; }
+    &:active   { transform: translateY(1px); }
+  }
+}
+
+/* Карточка категории */
+.intel-lb__card {
+  background: rgba(0,0,0,.35);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  padding: 16px;
+  margin: 14px 0;
+  color: white;
+}
+
+.intel-lb__cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  h3 { font-weight: 700; font-size: 18px; letter-spacing: .2px; }
+  .meta { font-size: 14px; opacity: .8; }
+}
+
+/* Таблица (flex-grid, чтобы перейти на «список» на мобилке) */
+.intel-lb__table {
+  width: 100%;
+  overflow: hidden;
+
+  .thead, .tr {
+    display: grid;
+    grid-template-columns:
+      44px     /* # */
+      1fr      /* name */
+      110px    /* best */
+      90px     /* points */
+      110px    /* avg rt */
+      90px     /* games */
+      160px;   /* last best */
+    justify-items: start;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .thead {
+    font-weight: 700;
+    opacity: .95;
+  }
+
+  .tbody .tr:nth-child(odd) {
+    background: rgba(255,255,255,.02);
+  }
+
+  /* ячейки */
+  .num { text-align: center; }
+  .name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .ok, .pts, .rt, .games, .when {
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+.intel-lb__nodata,
+.intel-lb__empty {
+  padding: 12px 10px;
+  opacity: .85;
+}
+
+/* ====== Адаптив ====== */
+@media (max-width: 820px) {
+  .intel-lb { padding: 12px 14px; }
+  .intel-lb__card { padding: 12px; border-radius: 14px; }
+  .intel-lb__cardHead h3 { font-size: 16px; }
+
+  .intel-lb__table .thead,
+  .intel-lb__table .tr {
+    padding: 8px 6px;
+  }
+}
+
+/* Телефон: превращаем в компактный список и прячем второстепенные колонки */
+@media (max-width: 640px) {
+  .intel-lb__controls {
+    gap: 8px;
+
+    .group { min-width: 120px; }
+    .group select { min-width: 0; }
+  }
+
+  .intel-lb__table {
+    .thead, .tr {
+      grid-template-columns:
+        36px  1fr  74px; /* # | name | best */
+    }
+
+    /* скрываем нерелевантное на узких экранах */
+    .pts, .rt, .games, .when { display: none; }
+
+    .thead span:nth-child(4),
+    .thead span:nth-child(5),
+    .thead span:nth-child(6),
+    .thead span:nth-child(7) { display: none; }
+
+    .name {
+      font-size: 14px;
+      line-height: 1.2;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .ok { font-weight: 700; }
+  }
+}
+
+@media (max-width: 400px) {
+  .intel-lb__card { padding: 10px; border-radius: 12px; }
+  .intel-lb__table .thead, .intel-lb__table .tr {
+    padding: 6px 4px;
+  }
+}

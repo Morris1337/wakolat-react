@@ -12,46 +12,48 @@ exports.getAllSeminars = async (req, res) => {
 };
 
 exports.createSeminar = async (req, res) => {
-    try {
-      const {
-        header,
-        country,
-        city,
-        email,
-        phone_number,
-        date_start,
-        date_end,
-        date_registration,
-        price,
-        text
-      } = req.body;
-  
-      const image = req.file ? req.file.filename : null;
-  
-      if (!image) {
-        return res.status(400).json({ error: "Файл изображения обязателен" });
-      }
-  
-      const seminar = await Seminars.create({
-        header,
-        image,
-        country,
-        city,
-        email,
-        phone_number,
-        date_start,
-        date_end,
-        date_registration,
-        price,
-        text
-      });
-  
-      res.status(201).json(seminar);
-    } catch (err) {
-      console.error('❌ Ошибка при создании семинара:', err);
-      res.status(500).json({ error: 'Ошибка сервера', details: err });
-    }
-  };
+  try {
+    // тело запроса
+    const {
+      header,
+      country,
+      city,
+      email,
+      phone_number,
+      date_start,
+      date_end,
+      date_registration,
+      price,
+      text,
+    } = req.body;
+
+    // файлы от multer.fields
+    const files = req.files || {};
+
+    const imageFile       = files.image && files.image[0] ? files.image[0] : null;
+    const imageSecondFile = files.image_second && files.image_second[0] ? files.image_second[0] : null;
+
+    const newSeminar = await Seminars.create({
+      header,
+      country,
+      city,
+      email,
+      phone_number,
+      date_start,
+      date_end,
+      date_registration,
+      price,
+      text,
+      image: imageFile ? imageFile.filename : null,
+      image_second: imageSecondFile ? imageSecondFile.filename : null,
+    });
+
+    return res.status(201).json(newSeminar);
+  } catch (err) {
+    console.error('❌ Ошибка при создании семинара:', err);
+    return res.status(500).json({ message: 'Ошибка при создании семинара' });
+  }
+};
 
 exports.updateSeminar = async (req, res) => {
     try {

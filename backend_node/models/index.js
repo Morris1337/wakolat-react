@@ -9,8 +9,10 @@ const News = db.define('news', {
     image: { type: DataTypes.STRING, allowNull: false },
     text: { type: DataTypes.TEXT, allowNull: false },
     champ: { type: DataTypes.BOOLEAN }, // ✅ добавлено!
-    pdf_name_1: { type: DataTypes.STRING },     // ✅ новый - название первого файла
-    pdf_name_2: { type: DataTypes.STRING }      // ✅ новый - название второго файла
+    // pdf_name_1: { type: DataTypes.STRING },     // ✅ новый - название первого файла
+    // pdf_name_2: { type: DataTypes.STRING }      // ✅ новый - название второго файла
+    files: { type: DataTypes.TEXT }, // Сохраняем JSON-строку с именами файлов
+
 }, {
     timestamps: false
 });
@@ -37,6 +39,7 @@ const Seminars = db.define('seminars', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     header: { type: DataTypes.STRING, allowNull: false },
     image: { type: DataTypes.STRING, allowNull: false },
+    image_second: { type: DataTypes.STRING },        
     country: { type: DataTypes.STRING, allowNull: false },
     city: { type: DataTypes.STRING, allowNull: false },
     email: { type: DataTypes.STRING, allowNull: false },

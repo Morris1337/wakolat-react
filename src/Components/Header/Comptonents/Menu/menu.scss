@@ -1,0 +1,99 @@
+/* ================== CLASSIC DROPDOWN + FLYOUT (desktop only) ================== */
+@media (min-width: 1025px) {
+  .site-menu .menu__item--has-sub { position: relative; }
+
+  /* Сам дропдаун: узкий, белый, как в примере */
+  .site-menu .menu__item--has-sub .submenu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    transform: translateY(8px);
+    opacity: 0; visibility: hidden;
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+
+    min-width: 280px;
+    max-width: 340px;
+    padding: 8px 0;
+
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 10px;
+    box-shadow: 0 16px 40px rgba(0,0,0,.18);
+
+    /* из «мега» в «узкий список» */
+    display: block;
+    grid-template-columns: none;
+    gap: 0;
+  }
+  .site-menu .menu__item--has-sub:hover .submenu {
+    opacity: 1; visibility: visible; transform: translateY(0);
+  }
+
+  /* Оставим одну «узкую» колонку, вторую прячем (как в примере). 
+     Хочешь 2 колонки — просто удали следующую строку. */
+  .site-menu .submenu__col + .submenu__col { display: none; }
+
+  /* Заголовки секций в узком меню не нужны */
+  .site-menu .submenu__title { display: none; }
+
+  /* Список пунктов */
+  .site-menu .submenu__list { list-style: none; margin: 0; padding: 0; }
+  .site-menu .submenu__list > li { position: relative; }
+
+  /* Ссылка-пункт */
+  .site-menu .submenu__link,
+  .site-menu .submenu__group > .submenu__title {
+    display: flex; align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    color: #111; text-decoration: none;
+    border-radius: 8px;
+    transition: background .15s ease, transform .12s ease;
+    cursor: pointer;  /* чтобы span выглядел кликабельно */
+  }
+  .site-menu .submenu__link:hover,
+  .site-menu .submenu__group:hover > .submenu__title {
+    background: rgba(0,0,0,.05);
+  }
+
+  /* Подпункты с «правой стрелкой» (flyout trigger) — используем .submenu__group */
+  .site-menu .submenu__group > .submenu__title::after {
+    content: "›";
+    margin-left: auto;
+    opacity: .7;
+    transition: transform .15s ease;
+  }
+  .site-menu .submenu__group:hover > .submenu__title::after {
+    transform: translateX(2px);
+  }
+
+  /* Правый flyout-список */
+  .site-menu .submenu__group { position: relative; }
+  .site-menu .submenu__group > .submenu__list {
+    position: absolute;
+    top: -1px;                 /* выравниваем по строке-триггеру */
+    left: 100%;
+    margin-left: 10px;
+    min-width: 240px;
+    padding: 8px 0;
+
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 10px;
+    box-shadow: 0 16px 40px rgba(0,0,0,.18);
+
+    opacity: 0; visibility: hidden; transform: translateX(8px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+    z-index: 60;
+    pointer-events: none;
+  }
+  .site-menu .submenu__group:hover > .submenu__list {
+    opacity: 1; visibility: visible; transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  /* Небольшие штрихи */
+  .site-menu .menu__link { padding: 12px 14px; border-radius: 10px; }
+  .site-menu .menu__link:hover { background: rgba(0,0,0,.05); }
+}

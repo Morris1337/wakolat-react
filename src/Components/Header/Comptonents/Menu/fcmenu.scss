@@ -1,0 +1,245 @@
+/* Тема (можешь подстроить под фирменные цвета: золото/чёрный) */
+:root {
+  --fc-bg: #ffffff;
+  --fc-fg: #0e0e0e;
+  --fc-muted: #6b7280;
+  --fc-accent: #d4af37; /* золотой */
+  --fc-accent-2: #111111; /* черный/уголь */
+  --fc-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.fc-menu {
+  position: relative;
+  z-index: 40;
+  width: 100%;
+  background: var(--fc-bg);
+}
+
+.fc-menu__bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  background: var(--fc-bg);
+  position: relative;
+
+  @media screen and (min-width: 980px) {
+    padding: 14px 24px;
+    
+  }
+  @media screen and (min-width: 400px) {
+    padding: 0px 0px;
+    
+  }
+}
+
+/* Бургер (виден только на мобиле) */
+.fc-menu__burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: px; height: 80px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.06);
+  background: #fff;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+.fc-menu__burger:hover { transform: translateY(-1px); }
+.fc-menu__burger-line {
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--fc-fg);
+  margin: 2px 0;
+}
+
+/* Десктоп-список */
+.fc-menu__list {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.fc-menu__list--desktop {
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 2.2vw, 26px);
+}
+.fc-menu__item { position: relative; }
+
+.fc-menu__link,
+.fc-submenu__link {
+  font: 500 15px/1.2 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--fc-fg);
+  text-decoration: none;
+  letter-spacing: .2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 8px;
+  transition: color .2s ease;
+}
+.fc-menu__link:hover,
+.fc-submenu__link:hover { color: var(--fc-accent-2); }
+
+.fc-menu__link {
+  position: relative;
+  --uline: 0;
+}
+.fc-menu__link::after {
+  content: "";
+  position: absolute;
+  left: 8px; right: 8px; bottom: 2px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--fc-accent) 0%, var(--fc-accent-2) 100%);
+  transform: scaleX(var(--uline));
+  transform-origin: left center;
+  transition: transform .25s ease;
+}
+.fc-menu__link:hover::after { --uline: 1; }
+
+.fc-menu__item--icon img { display: block; }
+
+/* Кнопка вместо ссылки (для подменю/аккордеонов) */
+.fc-menu__link--button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 8px;
+}
+
+/* Mega submenu (десктоп) */
+.fc-menu__item--has-sub .fc-submenu {
+  position: absolute;
+  top: 100%;                 /* вплотную к пункту, без зазора */
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 2vw, 24px);
+  min-width: min(740px, 90vw);
+  padding: clamp(16px, 2.5vw, 24px);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--fc-shadow);
+  opacity: 0;
+  transform: translateY(8px) scale(.98);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 100;              /* поверх хедера/лого */
+}
+// .fc-menu__item--has-sub:hover .fc-submenu,
+.fc-menu__item--has-sub.is-open .fc-submenu{
+// .fc-menu__item--has-sub:focus-within .fc-submenu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.fc-menu__item--has-sub .fc-submenu::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: -14px; height: 14px;
+}
+
+.fc-submenu__title {
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--fc-muted);
+  letter-spacing: .14em;
+  margin-bottom: 10px;
+}
+.fc-submenu__list { list-style: none; padding: 0; margin: 0; }
+.fc-submenu__group { margin-top: 12px; }
+
+/* Мобильная панель */
+.fc-panel {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(86vw, 380px);
+  background: #fff;
+  transform: translateX(-102%);
+  transition: transform .32s cubic-bezier(.22,.61,.36,1);
+  box-shadow: var(--fc-shadow);
+  z-index: 50;
+  display: grid;
+  grid-auto-rows: min-content;
+  padding: 16px;
+  overflow-y: auto;
+}
+.fc-menu.is-open .fc-panel { transform: translateX(0); }
+
+.fc-menu__list--mobile { display: grid; gap: 6px; }
+.fc-accordion {
+  overflow: hidden;
+  transition: max-height .26s ease;
+  will-change: max-height;
+}
+.fc-accordion__list {
+  list-style: none;
+  padding-left: 10px;
+  margin: 8px 0 6px;
+  display: grid; gap: 2px;
+}
+.fc-submenu__link--button {
+  width: 100%;
+  text-align: left;
+  background: rgba(0,0,0,.025);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+/* Оверлей */
+.fc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 40, .28);
+  -webkit-backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(1.5px);
+  z-index: 45;
+  border: 0;
+}
+
+/* Адаптив */
+@media (min-width: 980px) {
+  .fc-menu__burger { display: none; }
+  .fc-menu__list--desktop { display: flex; }
+}
+
+/* Предпочтение “без анимаций” */
+@media (prefers-reduced-motion: reduce) {
+  .fc-panel,
+  .fc-accordion,
+  .fc-menu__link::after,
+  .fc-submenu {
+    transition: none !important;
+  }
+}
+
+.fc-menu__burger {
+  /* как у тебя было — только внутри теперь svg */
+}
+
+.fc-menu__icon {
+  width: 55px; height: 55px;
+  display: block;
+  color: var(--fc-fg);      /* основной цвет */
+}
+
+/* ховер можно подсветить золотом */
+.fc-menu__burger:hover .fc-menu__icon {
+  color: var(--fc-accent);
+}
+
+.fc-menu__account-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+.privacy-policy-link{
+  border: none;
+  background: transparent;
+}

@@ -459,3 +459,31 @@
       display:block;
     }
   }
+/* --- SAFE MENU PANEL --- */
+.site-menu { position: relative; z-index: 1; }
+
+/* по умолчанию мобильная панель полностью отключена от кликов и прозрачна */
+.menu-panel {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* включаем только когда есть класс is-open на .site-menu */
+.site-menu.is-open .menu-panel {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* оверлей рендерится только при открытом меню, но на всякий случай: */
+.menu__overlay { display: none; }
+.site-menu.is-open .menu__overlay { display: block; }
+
+.navbar-brand .navbar-brand
+{
+  @media screen and (max-width:420px) {
+    display: none;
+    
+  }
+}

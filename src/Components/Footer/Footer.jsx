@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../profile/Context/UserContext"; // путь поправь под себя
+import { Link } from 'react-router-dom';
 import "./Footer.scss"
 import LKF_Logo from './img/Federation/Color-logo_2x-100-removebg-preview.png'
 import Izglitiba_ministrijas from './img/Federation/noklusejuma-logotips-augseja-kreisaja-puse.png'
@@ -13,6 +16,21 @@ import TopTen from './img/PlatimumSponsors/9uem3o8rlz24rd8mjqedi2k4gtmaa1eu-remo
 
 
 export default function Footer() {
+    const navigate = useNavigate();
+  const { user } = useContext(UserContext);
+
+  const handleAccountClick = () => {
+    const token = localStorage.getItem("accessToken");
+    const userId = localStorage.getItem("userId");
+
+    if (token && userId) {
+      navigate(`/account/profile/${userId}`);
+    } else {
+      navigate("/login");
+      // если хочешь модалку — тут openModal()
+    }
+  };
+
   return (
     <div className='footer'>
         <div className='platinum-sponsors'>
@@ -56,6 +74,9 @@ export default function Footer() {
                 <img src={LSFP} alt="" />
             </div>
         </div>
+        <button onClick={handleAccountClick} className="privacy-policy-link">
+        {user ? "Account" : "Login"}
+      </button>
     </div>
   )
 }

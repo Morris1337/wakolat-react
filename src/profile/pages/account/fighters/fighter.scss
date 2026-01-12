@@ -1,0 +1,167 @@
+.rate-category-container{
+    padding: 20px 200px 20px 200px;
+}
+.fighter-category-container{
+    padding: 20px 200px 20px 200px;
+}
+.fighter-category-info-conteiner{
+    position: fixed;
+    left: 0px;
+    padding: 10px;
+    top: 50%;
+    .fighter-category-info-tatami{
+        .fighter-category-info-tatami-open{
+            display: none;
+            ul{
+                .fighter-category-info-CH{
+                    display: none;
+                }
+            }
+        }
+        &:hover{
+            .fighter-category-info-tatami-open {
+                display: block;
+                
+            }
+            .fighter-category-info-CH{
+                display: none;
+            }
+        }
+    }
+    .fighter-category-info-ring{
+
+    }
+}
+
+.fighter-category-block{
+    h3{
+        margin-bottom: 10px;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        color: rgb(199, 195, 195);
+    }
+    .line-for-fighter{
+        width: auto;
+    }
+}
+.fighter-card-block{
+    // max-width: 1500px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    flex-wrap: wrap;/* Позволяет элементам переходить на новую строку, если они не помещаются */
+    gap: 20px;
+    @media screen and (max-width:440px) {
+        display: grid;
+    }
+}
+
+.fighter-card{
+    .fighter-img{
+        img{
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            
+        }
+    }
+    .fighter-about{
+        color: white;
+        h4{
+            text-align: center;
+            margin-bottom: 3px;
+        }
+        .fighter-about-more{
+            display: none;
+            position: absolute; /* Фиксируем относительно окна браузера */
+            margin: -115px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            .fighter-img{
+                img{
+                    width: 300px;
+                    height: 300px;
+                    object-fit: cover; 
+                }
+            }
+            .fighter-activity-rate{
+                text-align: center;
+                color: rgb(157, 157, 157);
+                margin-bottom: 6px;
+                margin-top: 6px;
+                margin-left: 0%;
+                margin-left: 10px; 
+            }
+            .fighter-discipline{
+                text-align: center;
+                color: rgb(157, 157, 157);
+                font-size: 12px;
+                margin-bottom: 6px;
+                margin-top: 6px;
+                margin-left: 0%;
+                margin-left: 10px;
+            }
+        }
+    }
+    &:hover{
+        .fighter-about-more{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+@media screen and (max-width:800px) {
+    .rate-category-container{
+        padding: 20px;
+    }
+    .fighter-category-container{
+        padding: 20px;
+    }
+    .fighter-card {
+    display: block;
+    margin: 0;
+    &:hover{
+        .fighter-about-more{ /* Фиксируем относительно окна браузера */
+            display: none;
+            justify-content: center;
+        }
+    }
+    .fighter-about-more{
+        display: none;
+        margin: 0!important;
+        position: fixed!important;
+            top: 50%; /* Центрируем по вертикали */
+            left: 50%; /* Центрируем по горизонтали */
+            transform: translate(-50%, -50%); /* Сдвигаем на половину ширины и высоты */
+            max-height: 80%; /* Ограничиваем высоту */
+            overflow-y: auto; /* Прокрутка внутри блока */
+        &.visible {
+            display: block; /* Показываем окно, если активное */
+          }
+        
+          .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+    }
+}
+.fighter-club {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+}

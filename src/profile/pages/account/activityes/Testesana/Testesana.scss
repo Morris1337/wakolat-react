@@ -1,0 +1,245 @@
+/* src/Pages/game/Testesana.scss */
+
+$bg: #0a8a28;               // базовый зелёный твоего сайта
+$bg-dark: #064f18;
+$glass: rgba(255,255,255,0.08);
+$glass-2: rgba(255,255,255,0.12);
+$border: rgba(255,255,255,0.18);
+$text: #eef6ee;
+$text-dark: #0d1a0e;
+$muted: #b9d3ba;
+$accent: #b0ff75;
+
+.testesana {
+  // мягкий градиент + виньетка
+  padding: clamp(16px, 2vw, 24px) 0 80px;
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(1200px 600px at 80% 95%, rgba(0,0,0,0.35), transparent 60%),
+      radial-gradient(1000px 500px at 20% -10%, rgba(0,0,0,0.25), transparent 60%),
+      linear-gradient(180deg, $bg 0%, $bg-dark 100%);
+    z-index: -1;
+  }
+
+  &__inner {
+    width: min(1100px, 92vw);
+    margin-inline: auto;
+    color: $text;
+  }
+
+  &__title {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin: 6px 0 22px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  /* Панель фильтров */
+  &__controls {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr auto;
+    gap: 12px 16px;
+    align-items: end;
+    background: $glass;
+    border: 1px solid $border;
+    padding: 16px;
+    border-radius: 18px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+    .form-label {
+      grid-column: 1 / -1;
+      color: $muted;
+      font-size: 12px;
+      margin-bottom: -6px; // плотнее
+    }
+  }
+
+  &__select {
+    appearance: none;
+    width: 100%;
+    border: 1px solid $border;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    color: $text-dark;
+    padding: 10px 12px;
+    border-radius: 12px;
+    outline: none;
+    font-weight: 600;
+    transition: border-color .2s ease, box-shadow .2s ease;
+
+    &:focus { border-color: $accent; box-shadow: 0 0 0 3px rgba(176,255,117,0.15); }
+  }
+
+  &__btn {
+    height: 42px;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    font-weight: 700;
+    letter-spacing: .3px;
+    color: #0b1f0f;
+    background: linear-gradient(180deg, #b9ff7b, #7afb45);
+    box-shadow: 0 10px 24px rgba(9, 30, 10, 0.35);
+    transition: transform .12s ease, box-shadow .2s ease, opacity .2s ease;
+
+    &:disabled { opacity: .6; cursor: not-allowed; }
+    &:not(:disabled):active { transform: translateY(1px); }
+  }
+
+  /* Блок группы */
+  &__group {
+    margin-top: 18px;
+    background: $glass;
+    border: 1px solid $border;
+    border-radius: 18px;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+  }
+
+  &__group-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    background: $glass-2;
+    border-bottom: 1px solid $border;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid $border;
+    background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  &__test-meta {
+    color: $muted;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  &__unit { opacity: 0.8; }
+
+  /* Таблица */
+  &__table-wrap { overflow: auto; }
+
+  &__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 14px;
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      text-align: left;
+      padding: 12px 14px;
+      color: $muted;
+      background: rgba(0,0,0,0.18);
+      backdrop-filter: blur(4px);
+      font-weight: 700;
+
+      &:first-child { border-top-left-radius: 12px; }
+      &:last-child  { border-top-right-radius: 12px; }
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    tbody tr:hover { background: rgba(0,0,0,0.12); }
+
+    tbody tr.is-leader {
+      background: linear-gradient(90deg, rgba(176,255,117,0.06), transparent 60%);
+      box-shadow: inset 3px 0 0 0 $accent;
+    }
+  }
+
+  &__name   { font-weight: 700; letter-spacing: .2px; }
+  &__value  { font-weight: 700; }
+  &__leader { color: $accent; font-weight: 800; letter-spacing: .2px; }
+  &__gap    { color: #ffd28a; font-weight: 700; }
+
+  /* Плашки фракций */
+  .faction-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: .3px;
+    border: 1px solid $border;
+    background: rgba(255,255,255,0.06);
+
+    &--turtle     { background: rgba(76,175,80,.18);   border-color: rgba(76,175,80,.35); }
+    &--crocodile  { background: rgba(0,150,136,.18);   border-color: rgba(0,150,136,.35); }
+    &--snake      { background: rgba(205,220,57,.18);  border-color: rgba(205,220,57,.35); }
+    &--frog       { background: rgba(3,169,244,.18);   border-color: rgba(3,169,244,.35); }
+    &--fitness    { background: rgba(156,39,176,.18);  border-color: rgba(156,39,176,.35); }
+    &--unknown    { background: rgba(255,255,255,.06); border-color: $border; }
+  }
+
+  /* Пустая строка */
+  &__empty td {
+    color: $muted;
+    text-align: center;
+    padding: 22px 14px;
+  }
+
+  /* ======= Мобилки ======= */
+  @media (max-width: 820px) {
+    &__controls {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+
+  /* Стол -> карточки на очень узких экранах */
+  @media (max-width: 640px) {
+    &__table thead { display: none; }
+
+    &__table tbody tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 14px;
+      padding: 10px 12px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    &__table tbody td {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      align-items: center;
+      padding: 0;
+      border: 0;
+
+      &::before {
+        content: attr(data-th);
+        color: $muted;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .6px;
+      }
+
+      &:first-child::before { content: '#'; }
+    }
+  }
+}

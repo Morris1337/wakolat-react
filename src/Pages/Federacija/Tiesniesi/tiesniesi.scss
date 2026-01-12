@@ -1,0 +1,159 @@
+:root{
+  --gold:#d4af37;
+  --ink:#0f0f12;
+  --muted:#6b7280;
+  --ring:rgba(212,175,55,.22);
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --paper:#fff;
+}
+
+.tiesnesi{
+  width:min(1200px,100%);
+  margin:24px auto 80px;
+  padding:0 16px;
+}
+
+/* HERO как на Valde: центр, мягкий фон */
+.hero{
+  text-align:center;
+  padding:10px 0 16px;
+  background:linear-gradient(180deg, rgba(212,175,55,.07), transparent 60%);
+  border-radius:18px;
+  margin-bottom:14px;
+}
+.hero h1{
+  margin:0 0 6px;
+  font-size:clamp(28px,2.8vw,36px);
+  font-weight:800;
+  letter-spacing:.3px;
+  color:var(--ink);
+}
+.hero__muted{ margin:0; color:var(--muted); }
+
+/* Крупная карточка наверху */
+.featured{
+  display:grid;
+  place-items:center;
+  margin:18px 0 6px;
+}
+
+/* Блоки уровней */
+.block{
+  background:linear-gradient(180deg, rgba(212,175,55,.06), transparent 45%);
+  border-radius:18px;
+  padding:clamp(14px,2vw,20px);
+  margin-top:clamp(16px,2vw,22px);
+  box-shadow:var(--shadow);
+}
+.block__title{
+  font-size:14px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:var(--muted);
+  margin:0 0 8px;
+  text-align:center;
+}
+.sub{
+  margin:10px 0 8px;
+  font-weight:800;
+  color:var(--ink);
+  text-align:left;
+  padding-left:4px;
+  border-left:3px solid var(--gold);
+}
+.empty{ color:var(--muted); text-align:center; padding:12px 0; }
+
+/* Сетка карточек как в Valde */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(220px,1fr));
+  gap:14px;
+}
+
+/* Карточка судьи */
+.judge{
+  background:var(--paper);
+  border:1px solid var(--ring);
+  border-radius:16px;
+  padding:14px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:88px 1fr;
+  gap:12px;
+  align-items:center;
+}
+.judge--lg{
+  grid-template-columns:160px 1fr;
+  max-width:min(760px, 100%);
+  width:100%;
+}
+
+.photo{
+  border-radius:10px;
+  overflow:hidden;
+  background:#f5f5f5;
+  border:1px solid rgba(0,0,0,.06);
+  display:grid; place-items:center;
+}
+.photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.photo--md{ width:88px; height:88px; }
+.photo--lg{ width:160px; height:160px; border-radius:12px; }
+.photo.is-placeholder{
+  position:relative;
+  color:#888;
+}
+.photo.is-placeholder::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.05), transparent 70%),
+    radial-gradient(40% 60% at 50% 35%, #dcdcdc 0, #f2f2f2 60%, transparent 61%);
+}
+.avatar__initials{
+  font-weight:900;
+  font-size:28px;
+  opacity:.7;
+}
+
+.judge__name{
+  font-weight:800;
+  font-size:clamp(18px,2vw,22px);
+  color:var(--ink);
+  margin-bottom:2px;
+}
+.judge--lg .judge__name{
+  font-size:clamp(22px,3vw,28px);
+}
+.judge__role{
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.judge__meta{ font-size:14px; }
+.judge__row{ line-height:1.35; }
+.judge__row .label{ font-weight:700; }
+.judge__row .link{
+  color:var(--ink);
+  text-decoration:underline;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:2px;
+}
+.judge__row.muted{ color:var(--muted); }
+.dot{ padding:0 6px; }
+
+/* Адаптив */
+@media (max-width: 1020px){
+  .grid{ grid-template-columns:repeat(2, minmax(200px,1fr)); }
+  .judge--lg{ grid-template-columns:140px 1fr; }
+  .photo--lg{ width:140px; height:140px; }
+}
+@media (max-width: 640px){
+  .grid{ grid-template-columns:1fr; }
+  .judge{ grid-template-columns:72px 1fr; }
+  .photo--md{ width:72px; height:72px; }
+  .judge--lg{ grid-template-columns:96px 1fr; }
+  .photo--lg{ width:96px; height:96px; }
+}

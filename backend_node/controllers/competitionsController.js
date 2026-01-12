@@ -31,18 +31,22 @@ exports.getAllCompetitions = async (req, res) => {
 
 // controllers/competitionsController.js
 exports.createCompetition = async (req, res) => {
+
+  console.log('CT:', req.headers['content-type']);
+  console.log('body keys:', Object.keys(req.body || {}));
+  console.log('files keys:', req.files && Object.keys(req.files));
+
   try {
     const {
-      header,
-      country,
-      city,
-      email,
-      phone_number,
-      date_start,
-      date_end,
-      date_registration,
-      price,
-      text,
+      header, title,
+     country, city,
+     email, contact_email,
+     phone_number, contact_phone,
+     date_start, start_time,
+     date_end, end_time,
+     date_registration, registration_deadline,
+     price,
+     text, description,
     } = req.body;
 
     // файлы из multer: поля должны называться ровно 'image' и 'image_second'
@@ -51,18 +55,18 @@ exports.createCompetition = async (req, res) => {
 
     // payload строго из 12 колонок, без undefined
     const payload = {
-      header: header ?? null,
+      header: (title ?? header) ?? null,
       image,                                 // 2
       image_second,                          // 3
       country: country ?? null,              // 4
       city: city ? String(city).trim() : null, // 5
-      email: email ?? null,                  // 6
-      phone_number: phone_number ?? null,    // 7
-      date_start: date_start ?? null,        // 8
-      date_end: date_end ?? null,            // 9
-      date_registration: date_registration ?? null, // 10
+      email: (contact_email ?? email) ?? null,
+      phone_number: (contact_phone ?? phone_number) ?? null,
+      date_start: (start_time ?? date_start) ?? null,
+      date_end: (end_time ?? date_end) ?? null,
+      date_registration: (registration_deadline ?? date_registration) ?? null,
       price: price != null ? Number(price) : null,  // 11 (число)
-      text: text ?? null,                    // 12
+      text: (description ?? text) ?? null,                   // 12
     };
 
     // фиксируем порядок и полный список колонок (12 штук)
@@ -117,7 +121,17 @@ exports.getOneCompetition = async (req, res) => {
     try {
         const competition = await Competitions.findByPk(req.params.id);
         if (!competition) return res.status(404).json({ message: 'Competition not found' });
-        res.json(competition);
+         // возвращаем оба набора ключей
+        res.json({
+          ...c.toJSON(),
+          title: c.header,
+          description: c.text,
+          start_time: c.date_start,
+          end_time: c.date_end,
+          registration_deadline: c.date_registration,
+          image_url: c.image ? `/upload/${c.image}` : null,
+          image_second_url: c.image_second ? `/upload/${c.image_second}` : null,
+        });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

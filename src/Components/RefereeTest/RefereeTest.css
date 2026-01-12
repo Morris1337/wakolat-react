@@ -1,0 +1,355 @@
+/* Общий контейнер теста */
+.referee-test {
+  max-width: 960px;
+  margin: 7rem auto 4rem; /* отступ от шапки */
+  padding: 2.5rem 2rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Лёгкий цветной акцент сверху блока */
+.referee-test::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border-top: 4px solid #e11d48; /* малиновый как “cross” */
+  pointer-events: none;
+}
+
+/* Чтобы контент не залезал под псевдоэлемент */
+.referee-test > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* состояния (на всякий случай) */
+.referee-test--intro,
+.referee-test--running,
+.referee-test--result {
+  animation: referee-fade-in 0.25s ease-out;
+}
+
+/* Заголовки */
+.referee-test h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.referee-test h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Текст по-умолчанию */
+.referee-test p {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Ряд с селектами (категория/язык) */
+.referee-test__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.referee-test__row label {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.referee-test select {
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #d4d4d8;
+  font-size: 0.95rem;
+  outline: none;
+  background: #f9fafb;
+}
+
+.referee-test select:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.35);
+}
+
+/* Верхняя панель: категория, время, прогресс */
+.referee-test__top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 0.5rem;
+  column-gap: 1.5rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 0.9rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.referee-test__top-bar strong {
+  font-weight: 700;
+}
+
+/* Блок вопроса */
+.referee-test__question-block {
+  margin-bottom: 1.75rem;
+}
+
+/* Картинка вопроса — всегда сверху */
+.referee-test__image {
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.referee-test__image img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Текст вопроса */
+.referee-test__question-text {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Варианты ответа */
+.referee-test__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Стиль одного варианта */
+.referee-test__option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.9rem;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+/* Скрываем стандартный чекбокс, но оставляем для доступности */
+.referee-test__option input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Кружок с буквой A/B/C/D */
+.referee-test__option-letter {
+  min-width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid #e5e7eb;
+  background: white;
+}
+
+/* Текст ответа */
+.referee-test__option-text {
+  font-size: 0.97rem;
+}
+
+/* Ховер */
+.referee-test__option:hover {
+  border-color: #0ea5e9;
+  background: #f0f9ff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Выбранный вариант */
+.referee-test__option--selected {
+  border-color: #0ea5e9;
+  background: linear-gradient(135deg, #e0f2fe, #f9fafb);
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.45);
+}
+
+.referee-test__option--selected .referee-test__option-letter {
+  background: #0ea5e9;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* Навигация (кнопки назад/вперёд/завершить) */
+.referee-test__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Базовый стиль кнопок */
+.referee-test__nav-btn,
+.referee-test__start-btn {
+  border-radius: 999px;
+  padding: 0.55rem 1.4rem;
+  font-size: 0.95rem;
+  border: 1px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.1s ease;
+  font-weight: 500;
+}
+
+/* Основная кнопка (старт, далее, завершить) */
+.referee-test__nav-btn--primary,
+.referee-test__start-btn {
+  background: linear-gradient(135deg, #0ea5e9, #0369a1);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 12px 25px rgba(14, 116, 144, 0.35);
+}
+
+.referee-test__nav-btn--primary:hover,
+.referee-test__start-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.35);
+}
+
+.referee-test__nav-btn:hover {
+  background: #f4f4f5;
+}
+
+.referee-test__nav-btn:disabled,
+.referee-test__start-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Экран результата */
+.referee-test--result {
+  text-align: center;
+}
+
+.referee-test--result h2 {
+  font-size: 2.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Цвета текста результата — задай через <strong> или по тексту на латышском */
+.referee-test--result h2:contains("NOKĀRTOTS") {
+  color: #16a34a;
+}
+
+.referee-test--result h2:contains("NAV nokārtots") {
+  color: #e11d48;
+}
+
+.referee-test--result-pending {
+  border-left: 4px solid #f2c200;
+  background: rgba(242, 194, 0, 0.06);
+}
+
+/* (Если :contains не поддерживается, можно оставить просто нейтральный цвет,
+   а позже добавить отдельный класс passed/failed в JSX.) */
+
+.referee-test--result p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Анимация появления */
+@keyframes referee-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----- Адаптивность ----- */
+
+@media (max-width: 768px) {
+  .referee-test {
+    margin: 6rem 1rem 3rem;
+    padding: 1.5rem 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .referee-test h2 {
+    font-size: 1.7rem;
+  }
+
+  .referee-test__top-bar {
+    font-size: 0.9rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .referee-test__question-text {
+    font-size: 1.1rem;
+  }
+
+  .referee-test__option {
+    padding: 0.7rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .referee-test {
+    margin-top: 5rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .referee-test__row {
+    flex-direction: column;
+  }
+
+  .referee-test__top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .referee-test__nav {
+    flex-direction: column-reverse;
+  }
+
+  .referee-test__nav-btn,
+  .referee-test__start-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  
+}
